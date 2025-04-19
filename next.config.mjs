@@ -22,10 +22,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'export',
-  basePath: '/LaunchifyDigital',
-  assetPrefix: '/LaunchifyDigital/',
-  trailingSlash: true,
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
