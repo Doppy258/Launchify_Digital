@@ -29,23 +29,23 @@ export function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex h-16 md:h-20 lg:h-24 items-center justify-between max-w-[2000px]">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.2 }}>
           <Link href="/" className="flex items-center gap-2">
-            <div className="relative h-8 w-8 overflow-hidden rounded-full">
+            <div className="relative h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 overflow-hidden rounded-full">
               <Image
                 src="/placeholder.svg?height=32&width=32"
                 alt="Launchify Digital Logo"
-                width={32}
-                height={32}
+                width={48}
+                height={48}
                 className="object-cover"
               />
             </div>
-            <span className="text-lg font-bold">Launchify Digital</span>
+            <span className="text-lg md:text-xl lg:text-2xl font-bold">Launchify Digital</span>
           </Link>
         </motion.div>
 
-        <nav className="hidden md:flex gap-6">
+        <nav className="hidden md:flex gap-6 lg:gap-8">
           {["Home", "Services", "About", "Contact"].map((item, i) => (
             <motion.div
               key={item}
@@ -55,7 +55,7 @@ export function Header() {
             >
               <Link
                 href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                className="text-sm font-medium hover:text-primary relative group"
+                className="text-sm md:text-base lg:text-lg font-medium hover:text-primary relative group"
               >
                 {item}
                 <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -71,7 +71,7 @@ export function Header() {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <Link href="/request-help">
-            <Button className="bg-slate-900 hover:bg-slate-800 transition-all duration-300">Request Help</Button>
+            <Button className="bg-slate-900 hover:bg-slate-800 transition-all duration-300 text-sm md:text-base lg:text-lg px-4 md:px-6 lg:px-8 py-2 md:py-3">Request Help</Button>
           </Link>
         </motion.div>
 

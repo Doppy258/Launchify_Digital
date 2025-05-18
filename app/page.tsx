@@ -7,6 +7,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { ArrowRight, CheckCircle, Globe, MessageSquare, Users, Star, ArrowDown, Zap, Shield, Award, BarChart2, Code, Cpu } from "lucide-react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
+import WebsiteShowcase from "@/components/WebsiteShowcase"
+import { sampleWebsites } from "@/public/mock-data/websites"
 
 // Animation variants
 const fadeIn = {
@@ -167,13 +169,14 @@ const StatCard = ({ value, label, icon }: StatCardProps) => {
 }
 
 // Update container classes to ensure proper centering
-const containerClass = "container px-4 md:px-6 mx-auto max-w-7xl relative z-10";
+const containerClass = "container px-4 md:px-6 mx-auto max-w-[1400px] relative z-10";
 const sectionClass = "flex flex-col items-center justify-center w-full relative";
 const headingClass = "text-center mx-auto";
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -191,6 +194,14 @@ const HeroSection = () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
+  
+  // Make sure video plays when component mounts
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.play().catch(e => console.log("Video play error:", e));
+    }
+  }, []);
 
   const scrollToNextSection = () => {
     window.scrollTo({
@@ -198,11 +209,11 @@ const HeroSection = () => {
       behavior: "smooth",
     });
   };
-  
+
   return (
     <section 
       ref={heroRef}
-      className="relative w-full min-h-screen py-12 md:py-24 lg:py-32 overflow-hidden flex items-center justify-center"
+      className="relative w-full min-h-screen py-16 md:py-24 lg:py-36 overflow-hidden flex items-center justify-center"
     >
       {/* Dynamic Background */}
       <div className="absolute inset-0 bg-slate-50">
@@ -237,35 +248,35 @@ const HeroSection = () => {
       </div>
 
       <div className={containerClass}>
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+        <div className="grid gap-8 xl:gap-16 lg:grid-cols-2 items-center">
           <motion.div
-            className="space-y-4 relative mx-auto text-center lg:text-left"
+            className="space-y-6 relative mx-auto text-center lg:text-left max-w-[750px] lg:-ml-12"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.div
-              className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-medium text-slate-800 shadow-sm"
+              className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-medium text-slate-800 shadow-sm"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              <span className="flex h-2 w-2 rounded-full bg-emerald-500 mr-2"></span>
+              <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 mr-2"></span>
               Enterprise-Grade Digital Solutions
             </motion.div>
             
             <motion.h1
-              className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl pb-2"
+              className="font-bold tracking-tight pb-6 w-full overflow-visible"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <span className="block">Transform Your</span>
-              <span className="block mt-1 pb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Digital Presence</span>
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl whitespace-nowrap">Transform Your</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 pb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Digital Presence</div>
             </motion.h1>
             
             <motion.p
-              className="max-w-[600px] text-slate-700 text-xl mt-6"
+              className="text-slate-700 text-xl md:text-2xl mt-6 leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
@@ -274,7 +285,7 @@ const HeroSection = () => {
             </motion.p>
             
             <motion.div
-              className="flex flex-wrap gap-3 pt-6"
+              className="flex flex-wrap gap-4 pt-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.5 }}
@@ -282,46 +293,20 @@ const HeroSection = () => {
               <Link href="/request-help">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-8"
+                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-10 py-7 text-lg"
                 >
-                  Schedule Consultation <ArrowRight className="ml-2 h-4 w-4" />
+                  Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link href="/services">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-slate-300 hover:bg-slate-100 transition-all duration-300 rounded-full px-8"
+                  className="border-slate-300 hover:bg-slate-100 transition-all duration-300 rounded-full px-10 py-7 text-lg"
                 >
                   Explore Solutions
                 </Button>
               </Link>
-            </motion.div>
-            
-            <motion.div
-              className="flex items-center gap-6 mt-10 pt-4 border-t border-slate-200"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.5 }}
-            >
-              <div className="flex -space-x-4">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 rounded-full border-2 border-white bg-gradient-to-br from-slate-200 to-slate-300"
-                  />
-                ))}
-              </div>
-              <div className="flex flex-col">
-                <div className="flex items-center">
-                  {[1, 2, 3, 4, 5].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <div className="text-sm text-slate-600 font-medium">
-                  Trusted by <span className="font-semibold text-slate-900">500+</span> businesses
-                </div>
-              </div>
             </motion.div>
           </motion.div>
 
@@ -331,71 +316,238 @@ const HeroSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="absolute -inset-4 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 blur-xl opacity-70" />
-            <div className="relative aspect-square bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200">
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-50"></div>
+            {/* Main device mockup container */}
+            <div className="relative z-20">
+              {/* Glass effect background */}
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-blue-50/80 to-indigo-50/80 blur-xl opacity-80" />
               
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div 
-                  className="grid grid-cols-2 gap-6 p-8"
-                  initial="hidden"
-                  animate="visible"
-                  variants={{
-                    hidden: { opacity: 0 },
-                    visible: {
-                      opacity: 1,
-                      transition: {
-                        staggerChildren: 0.2
-                      }
-                    }
-                  }}
-                >
-                  {[
-                    { icon: <Globe className="h-6 w-6" />, label: "Web Development" },
-                    { icon: <Code className="h-6 w-6" />, label: "Custom Solutions" },
-                    { icon: <BarChart2 className="h-6 w-6" />, label: "Growth Strategy" },
-                    { icon: <Cpu className="h-6 w-6" />, label: "Digital Transformation" }
-                  ].map((item, i) => (
-                    <motion.div
-                      key={i}
-                      className="flex flex-col items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100"
-                      variants={{
-                        hidden: { opacity: 0, y: 20 },
-                        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-                      }}
-                      whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                    >
-                      <div className="h-12 w-12 rounded-full bg-slate-100 flex items-center justify-center text-blue-600 mb-3">
-                        {item.icon}
+              {/* Laptop mockup */}
+              <div className="relative">
+                {/* Laptop base */}
+                <div className="relative bg-slate-800 rounded-2xl pt-8 pb-8 px-8 shadow-2xl">
+                  {/* Laptop screen */}
+                  <div className="relative bg-white rounded-lg overflow-hidden shadow-inner">
+                    {/* Website mockup in screen */}
+                    <div className="aspect-[16/10] relative bg-white rounded-t-lg overflow-hidden border-b border-slate-200">
+                      {/* Navigation bar */}
+                      <div className="absolute top-0 left-0 right-0 h-10 bg-white border-b border-slate-100 flex items-center px-4 z-10">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                          <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                          <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                        </div>
+                        <div className="flex-1 flex justify-center">
+                          <div className="bg-slate-100 rounded-full h-6 w-48 mx-auto flex items-center justify-center px-3">
+                            <div className="h-2 w-2 rounded-full bg-blue-400 mr-1"></div>
+                            <div className="h-1 bg-slate-300 w-28 rounded-full"></div>
+                          </div>
+                        </div>
                       </div>
-                      <span className="text-sm font-medium text-slate-700">{item.label}</span>
-                    </motion.div>
-                  ))}
-                </motion.div>
+                      
+                      {/* Website hero section mockup */}
+                      <div className="absolute top-10 left-0 right-0 bottom-0 bg-gradient-to-b from-blue-50 to-indigo-50">
+                        {/* Hero content */}
+                        <div className="absolute top-1/4 left-8 max-w-[40%]">
+                          <div className="h-4 w-24 bg-slate-800 rounded-full mb-4"></div>
+                          <div className="h-10 w-48 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg mb-4"></div>
+                          <div className="space-y-2">
+                            <div className="h-2 w-full bg-slate-600 rounded-full"></div>
+                            <div className="h-2 w-[85%] bg-slate-600 rounded-full"></div>
+                            <div className="h-2 w-[70%] bg-slate-600 rounded-full"></div>
+                          </div>
+                          <div className="flex space-x-2 mt-4">
+                            <div className="h-6 w-20 bg-blue-600 rounded-full"></div>
+                            <div className="h-6 w-20 bg-white rounded-full border border-slate-300"></div>
+                          </div>
+                        </div>
+                        
+                        {/* Hero image */}
+                        <div className="absolute top-1/4 right-8 w-[40%] aspect-[4/3] bg-white rounded-xl shadow-lg overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-indigo-100"></div>
+                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Website content below fold */}
+                    <div className="p-4">
+                      {/* Stats section */}
+                      <div className="grid grid-cols-3 gap-4 mb-6">
+                        {[1, 2, 3].map((i) => (
+                          <div key={i} className="bg-slate-50 rounded-lg p-3">
+                            <div className="h-8 w-8 rounded-full bg-blue-100 mb-2 flex items-center justify-center">
+                              <div className="h-4 w-4 rounded-full bg-blue-500"></div>
+                            </div>
+                            <div className="h-3 w-12 bg-slate-800 rounded-full mb-2"></div>
+                            <div className="h-2 w-full bg-slate-300 rounded-full"></div>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {/* Feature section */}
+                      <div className="flex items-center justify-between">
+                        <div className="w-1/3">
+                          <div className="h-3 w-24 bg-slate-800 rounded-full mb-3"></div>
+                          <div className="space-y-1">
+                            <div className="h-2 w-full bg-slate-300 rounded-full"></div>
+                            <div className="h-2 w-[90%] bg-slate-300 rounded-full"></div>
+                          </div>
+                        </div>
+                        <div className="w-1/2 h-24 bg-gradient-to-br from-slate-100 to-blue-50 rounded-xl flex items-center justify-center">
+                          <div className="w-16 h-16 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 opacity-50"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Laptop keyboard (simplified) */}
+                  <div className="relative mt-1 mx-auto w-32 h-1 bg-slate-600 rounded-b-xl"></div>
+                </div>
               </div>
               
-              <motion.div
-                className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-md"
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 1.5, duration: 0.5 }}
-              >
-                <Award className="h-5 w-5 text-blue-600" />
-              </motion.div>
+              {/* Phone mockup (overlapping on the side) */}
+              <div className="absolute -right-6 -bottom-12 w-[140px] z-30 transform rotate-12">
+                <div className="relative rounded-3xl overflow-hidden border-8 border-slate-800 shadow-2xl">
+                  <div className="absolute top-0 w-1/2 h-6 bg-slate-800 left-1/2 transform -translate-x-1/2 rounded-b-xl z-10"></div>
+                  <div className="aspect-[9/19] bg-white overflow-hidden">
+                    {/* Phone screen content */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-indigo-50">
+                      {/* Mobile navbar */}
+                      <div className="h-6 bg-white border-b border-slate-100 flex items-center justify-center">
+                        <div className="h-2 w-10 bg-slate-400 rounded-full"></div>
+                      </div>
+                      
+                      {/* Mobile hero */}
+                      <div className="pt-4 px-3">
+                        <div className="h-3 w-16 bg-slate-700 rounded-full mb-2"></div>
+                        <div className="h-6 w-28 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg mb-3"></div>
+                        <div className="space-y-1 mb-4">
+                          <div className="h-1.5 w-full bg-slate-600 rounded-full"></div>
+                          <div className="h-1.5 w-[90%] bg-slate-600 rounded-full"></div>
+                        </div>
+                        <div className="h-16 w-full bg-white rounded-lg shadow-md mb-3"></div>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="h-10 w-full bg-blue-100 rounded-lg"></div>
+                          <div className="h-10 w-full bg-indigo-100 rounded-lg"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-10 h-1 bg-slate-700 rounded-full"></div>
+                </div>
+              </div>
+              
+              {/* Tablet mockup (behind laptop, visible on the left) */}
+              <div className="absolute -left-10 bottom-4 w-[180px] z-10 transform -rotate-12">
+                <div className="relative rounded-2xl overflow-hidden border-[8px] border-slate-700 shadow-xl">
+                  <div className="aspect-[4/3] bg-white overflow-hidden">
+                    {/* Tablet screen content */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-blue-50">
+                      <div className="grid grid-cols-2 h-full p-3 gap-2">
+                        <div className="bg-white rounded-lg p-2 shadow-sm">
+                          <div className="h-2 w-12 bg-blue-400 rounded-full mb-2"></div>
+                          <div className="h-1.5 w-full bg-slate-200 rounded-full mb-1"></div>
+                          <div className="h-1.5 w-[80%] bg-slate-200 rounded-full mb-1"></div>
+                          <div className="h-8 w-full bg-blue-50 rounded-md mt-2"></div>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="h-12 bg-white rounded-lg shadow-sm"></div>
+                          <div className="h-12 bg-white rounded-lg shadow-sm"></div>
+                          <div className="h-12 bg-white rounded-lg shadow-sm"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             
-            <motion.div
-              className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 0.5 }}
+            {/* Decorative elements */}
+            <motion.div 
+              className="absolute bottom-12 -right-8 w-16 h-16 rounded-full bg-gradient-to-r from-blue-400 to-blue-500 opacity-40 blur-xl z-10"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.4, 0.6, 0.4],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+            <motion.div 
+              className="absolute -top-10 left-20 w-20 h-20 rounded-full bg-gradient-to-r from-indigo-400 to-purple-500 opacity-30 blur-xl z-10"
+              animate={{
+                scale: [1, 1.3, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
+            />
+            
+            {/* Floating design elements */}
+            <motion.div 
+              className="absolute top-1/4 right-1/4 z-30"
+              animate={{
+                y: [0, -15, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             >
-              <div className="flex items-center space-x-1">
-                {[1, 2, 3, 4, 5].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                ))}
+              <div className="w-12 h-12 rounded-lg bg-white shadow-xl border border-blue-100 flex items-center justify-center rotate-12">
+                <div className="w-6 h-6 rounded-full bg-gradient-to-r from-blue-400 to-indigo-400"></div>
               </div>
-              <p className="text-sm font-medium mt-1">Rated 4.9/5 by industry leaders</p>
+            </motion.div>
+            
+            <motion.div 
+              className="absolute bottom-1/3 left-0 z-30"
+              animate={{
+                y: [0, 10, 0],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 2,
+              }}
+            >
+              <div className="w-8 h-8 rounded-full bg-white shadow-lg flex items-center justify-center">
+                <div className="w-4 h-4 rounded-full bg-gradient-to-r from-purple-400 to-pink-400"></div>
+              </div>
+            </motion.div>
+            
+            {/* Award badges */}
+            <motion.div
+              className="absolute top-12 right-0 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-lg z-40 transform rotate-6"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 1.5, duration: 0.5 }}
+            >
+              <div className="flex items-center">
+                <Award className="h-5 w-5 text-blue-600 mr-2" />
+                <div className="text-xs font-medium text-slate-800">Award Winning</div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              className="absolute bottom-20 left-10 bg-white/90 backdrop-blur-sm p-2 rounded-lg shadow-lg z-40 transform -rotate-6"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 1.8, duration: 0.5 }}
+            >
+              <div className="flex items-center">
+                <CheckCircle className="h-4 w-4 text-green-600 mr-2" />
+                <div className="text-xs font-medium text-slate-800">100% Satisfaction</div>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -436,7 +588,7 @@ const StatsSection = () => {
             Delivering Exceptional <span className="text-blue-600">Results</span>
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Our proven track record speaks for itself. We've helped hundreds of businesses
+            Our proven track record speaks for itself. We've helped businesses
             achieve extraordinary growth and digital transformation.
           </p>
         </motion.div>
@@ -486,14 +638,14 @@ const StatsSection = () => {
             <div className="text-4xl font-bold text-slate-900 mb-2 flex items-center">
               <Counter
                 from={0}
-                to={3}
+                to={150}
                 delay={0.2}
-                formatter={(value) => `${value}.2x`}
+                formatter={(value) => `${value}%`}
               />
             </div>
-            <h3 className="text-lg font-medium text-slate-800 mb-1">Average ROI</h3>
+            <h3 className="text-lg font-medium text-slate-800 mb-1">Faster Growth</h3>
             <p className="text-slate-600 text-center text-sm">
-              Return on investment for our clients' digital initiatives
+              Accelerating business growth with our digital strategies
             </p>
           </motion.div>
           
@@ -511,14 +663,14 @@ const StatsSection = () => {
             <div className="text-4xl font-bold text-slate-900 mb-2 flex items-center">
               <Counter
                 from={0}
-                to={500}
+                to={121}
                 delay={0.4}
-                formatter={(value) => `${value}+`}
+                formatter={(value) => `${value}%`}
               />
             </div>
-            <h3 className="text-lg font-medium text-slate-800 mb-1">Projects Completed</h3>
+            <h3 className="text-lg font-medium text-slate-800 mb-1">Higher Conversions</h3>
             <p className="text-slate-600 text-center text-sm">
-              Successfully delivered and deployed worldwide
+              Increased conversion rates for our clients
             </p>
           </motion.div>
           
@@ -536,7 +688,7 @@ const StatsSection = () => {
             <div className="text-4xl font-bold text-slate-900 mb-2 flex items-center">
               <span>24/7</span>
             </div>
-            <h3 className="text-lg font-medium text-slate-800 mb-1">Expert Support</h3>
+            <h3 className="text-lg font-medium text-slate-800 mb-1">Support</h3>
             <p className="text-slate-600 text-center text-sm">
               Dedicated team available around the clock
             </p>
@@ -547,222 +699,29 @@ const StatsSection = () => {
   );
 }
 
-const WhyChooseUsSection = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-  
-  const features = [
-    { 
-      title: "Lightning-Fast Results", 
-      description: "Our agile methodology and expert team deliver results 40% faster than industry standards.",
-      icon: <Zap className="h-8 w-8" />,
-      color: "blue"
-    },
-    { 
-      title: "Enterprise-Grade Security", 
-      description: "State-of-the-art security measures and compliance with global standards.",
-      icon: <Shield className="h-8 w-8" />,
-      color: "green"
-    },
-    { 
-      title: "Custom Solutions", 
-      description: "Tailored strategies and solutions designed specifically for your business needs.",
-      icon: <Code className="h-8 w-8" />,
-      color: "purple"
-    }
-  ];
-
-  return (
-    <section className="relative w-full py-24 md:py-32 overflow-hidden bg-gradient-to-b from-white to-slate-50 flex items-center justify-center">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <svg
-          className="absolute right-0 top-0 opacity-10 transform translate-x-1/3 -translate-y-1/4"
-          width="800"
-          height="800"
-          fill="none"
-          viewBox="0 0 800 800"
-        >
-          <circle cx="400" cy="400" r="400" fill="url(#paint0_radial)" />
-          <defs>
-            <radialGradient
-              id="paint0_radial"
-              cx="0"
-              cy="0"
-              r="1"
-              gradientUnits="userSpaceOnUse"
-              gradientTransform="translate(400 400) rotate(90) scale(400)"
-            >
-              <stop stopColor="#3B82F6" />
-              <stop offset="1" stopColor="#3B82F6" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-        </svg>
-        <svg
-          className="absolute left-0 bottom-0 opacity-10 transform -translate-x-1/3 translate-y-1/4"
-          width="800"
-          height="800"
-          fill="none"
-          viewBox="0 0 800 800"
-        >
-          <circle cx="400" cy="400" r="400" fill="url(#paint1_radial)" />
-          <defs>
-            <radialGradient
-              id="paint1_radial"
-              cx="0"
-              cy="0"
-              r="1"
-              gradientUnits="userSpaceOnUse"
-              gradientTransform="translate(400 400) rotate(90) scale(400)"
-            >
-              <stop stopColor="#6366F1" />
-              <stop offset="1" stopColor="#6366F1" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-        </svg>
-      </div>
-
-      <div className={containerClass}>
-        <motion.div 
-          className="mx-auto max-w-3xl text-center mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 shadow-sm">
-            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Our Advantage</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700">
-            Why Industry Leaders Choose Us
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            We combine cutting-edge technology with proven strategies to deliver exceptional results.
-            Our unique approach sets us apart from the competition.
-          </p>
-        </motion.div>
-
-        <div className="mx-auto max-w-5xl w-full">
-          <div className="grid gap-10 lg:grid-cols-3 mx-auto justify-center">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                className="relative"
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className={`
-                  relative z-10 h-full p-8 bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300
-                  ${hoveredCard === index ? 'transform -translate-y-2 shadow-2xl' : ''}
-                `}>
-                  <div className={`
-                    absolute top-0 left-0 w-full h-1 
-                    ${feature.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600' : 
-                      feature.color === 'green' ? 'bg-gradient-to-r from-emerald-500 to-teal-500' : 
-                      'bg-gradient-to-r from-violet-500 to-purple-500'}
-                  `} />
-                  
-                  <div className="relative z-10">
-                    <div className={`
-                      flex items-center justify-center w-16 h-16 mb-6 rounded-xl
-                      ${feature.color === 'blue' ? 'bg-blue-50 text-blue-600' : 
-                        feature.color === 'green' ? 'bg-emerald-50 text-emerald-600' : 
-                        'bg-violet-50 text-violet-600'}
-                    `}>
-                      {feature.icon}
-                    </div>
-                    
-                    <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                    <p className="text-slate-600">{feature.description}</p>
-                    
-                    <div className="mt-8 flex items-center text-sm font-medium">
-                      <span className={`
-                        ${feature.color === 'blue' ? 'text-blue-600' : 
-                          feature.color === 'green' ? 'text-emerald-600' : 
-                          'text-violet-600'}
-                      `}>
-                        Learn more
-                      </span>
-                      <ArrowRight className="ml-1 h-4 w-4" />
-                    </div>
-                  </div>
-                  
-                  {/* Background decoration */}
-                  <div className={`
-                    absolute -bottom-10 -right-10 w-40 h-40 rounded-full blur-3xl opacity-20 transition-all duration-300
-                    ${hoveredCard === index ? 'opacity-30 scale-110' : 'opacity-20'}
-                    ${feature.color === 'blue' ? 'bg-blue-400' : 
-                      feature.color === 'green' ? 'bg-emerald-400' : 
-                      'bg-violet-400'}
-                  `} />
-                </div>
-
-                {/* Card shadow */}
-                <div className={`
-                  absolute -inset-0.5 bg-gradient-to-r rounded-2xl opacity-0 transition-opacity duration-300
-                  ${hoveredCard === index ? 'opacity-20' : ''}
-                  ${feature.color === 'blue' ? 'from-blue-500 to-indigo-500' : 
-                    feature.color === 'green' ? 'from-emerald-500 to-teal-500' : 
-                    'from-violet-500 to-purple-500'}
-                `} />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        <motion.div 
-          className="mt-20 text-center w-full"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-        >
-          <Link href="/approach">
-            <Button
-              size="lg"
-              className="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-8"
-            >
-              <span className="relative z-10 flex items-center">
-                Learn More About Our Approach 
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-              <span className="absolute inset-0 overflow-hidden rounded-full">
-                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></span>
-              </span>
-            </Button>
-          </Link>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
 const ServicesSection = () => {
   const services = [
     {
       icon: <Globe className="h-6 w-6" />,
-      title: "Enterprise Web Development",
-      description: "Custom, scalable web applications built with cutting-edge technologies.",
-      features: ["Custom CMS Solutions", "E-commerce Integration", "API Development"],
+      title: "Website Design & Development",
+      description: "Beautiful, user-friendly websites that look great and actually work for your business.",
+      features: ["Custom designs that stand out", "Mobile-friendly layouts", "Easy content management"],
       color: "blue",
       image: "/services/web-development.jpg"
     },
     {
       icon: <MessageSquare className="h-6 w-6" />,
-      title: "Digital Marketing Strategy",
-      description: "Data-driven marketing campaigns that deliver measurable results.",
-      features: ["SEO Optimization", "Content Strategy", "Analytics & Reporting"],
+      title: "Social Media Management",
+      description: "We'll handle your social presence so you can focus on what you do best.",
+      features: ["Content creation", "Community engagement", "Growth strategies"],
       color: "indigo",
       image: "/services/digital-marketing.jpg"
     },
     {
       icon: <Cpu className="h-6 w-6" />,
-      title: "Enterprise Solutions",
-      description: "Comprehensive digital transformation services for your business.",
-      features: ["Cloud Migration", "Digital Strategy", "Process Automation"],
+      title: "Digital Marketing",
+      description: "Practical marketing approaches that bring real people to your business.",
+      features: ["SEO that actually works", "Targeted ads", "Results you can see"],
       color: "purple",
       image: "/services/enterprise-solutions.jpg"
     }
@@ -788,13 +747,13 @@ const ServicesSection = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 shadow-sm">
-            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Enterprise Solutions</span>
+            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">What We Do</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            Comprehensive <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Digital Transformation</span>
+            Helping You <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Stand Out Online</span>
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            We deliver end-to-end digital solutions that drive business growth and operational excellence.
+            We create stunning websites and manage your online presence so you can focus on running your business.
           </p>
         </motion.div>
         
@@ -854,7 +813,7 @@ const ServicesSection = () => {
                           service.color === 'indigo' ? 'text-indigo-600 hover:text-indigo-700' :
                           'text-purple-600 hover:text-purple-700'}
                       `}>
-                        Learn more 
+                        See how we do it 
                         <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </button>
                     </Link>
@@ -889,7 +848,7 @@ const ServicesSection = () => {
               className="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-8"
             >
               <span className="relative z-10 flex items-center">
-                Explore All Services
+                See All Services
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
               <span className="absolute inset-0 overflow-hidden rounded-full">
@@ -1068,182 +1027,6 @@ const AboutSection = () => {
   );
 };
 
-const TestimonialsSection = () => {
-  const testimonials = [
-    {
-      text: "Launchify Digital transformed our digital presence completely. Their enterprise-grade solutions helped us achieve a 300% increase in online engagement and a 45% boost in conversion rates.",
-      author: "Sarah Johnson",
-      position: "CEO, Bloom Boutique",
-      initials: "SJ",
-      rating: 5,
-      tags: ["E-commerce", "Digital Marketing"]
-    },
-    {
-      text: "Working with Launchify Digital was a game-changer for our business. Their comprehensive digital strategy and execution helped us streamline operations and achieve a 2.5x increase in revenue.",
-      author: "Michael Chen",
-      position: "Founder, Urban Eats Catering",
-      initials: "MC",
-      rating: 5,
-      tags: ["Process Automation", "Cloud Solutions"]
-    }
-  ];
-
-  return (
-    <section className="relative w-full py-24 md:py-32 overflow-hidden bg-white flex items-center justify-center">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-slate-50 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-slate-50 to-transparent" />
-      </div>
-      
-      <div className={containerClass}>
-        <motion.div 
-          className="mx-auto max-w-3xl text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 shadow-sm">
-            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Client Success Stories</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            Trusted by <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Industry Leaders</span>
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Discover how we've helped businesses achieve remarkable digital transformation and growth.
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="max-w-6xl mx-auto grid gap-8 md:grid-cols-2 justify-center"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {testimonials.map((testimonial, i) => (
-            <motion.div 
-              key={i}
-              className="relative"
-              variants={fadeIn}
-              whileHover={{ y: -8, transition: { duration: 0.2 } }}
-            >
-              <div className="relative z-10 h-full rounded-2xl p-8 bg-gradient-to-br from-white to-slate-50 shadow-xl border border-slate-100">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100 border border-slate-100 flex items-center justify-center">
-                      <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">{testimonial.initials}</span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex-1">
-                    <div className="flex mb-3">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                    
-                    <p className="text-slate-700 mb-4 italic">
-                      "{testimonial.text}"
-                    </p>
-                    
-                    <div className="border-t border-slate-100 pt-4 mt-auto">
-                      <p className="font-semibold text-slate-900">{testimonial.author}</p>
-                      <p className="text-sm text-slate-500">{testimonial.position}</p>
-                      
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        {testimonial.tags.map((tag, i) => (
-                          <span key={i} className="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-600">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Quote mark decoration */}
-                <div className="absolute -top-2 -left-2 text-6xl text-slate-100 pointer-events-none select-none">
-                  "
-                </div>
-              </div>
-              
-              {/* Card shadow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/5 to-indigo-500/5 rounded-2xl blur-lg -z-10" />
-            </motion.div>
-          ))}
-        </motion.div>
-        
-        <motion.div 
-          className="mt-16 text-center w-full"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-        >
-          <Link href="/case-studies">
-            <Button
-              variant="outline"
-              className="border-slate-300 hover:bg-slate-100 transition-all duration-300 rounded-full px-8"
-            >
-              <span className="flex items-center">
-                View All Case Studies 
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </span>
-            </Button>
-          </Link>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-const TrustedBySection = () => {
-  return (
-    <AnimatedSection className="w-full py-12 md:py-16 bg-slate-50 flex items-center justify-center">
-      <div className={containerClass}>
-        <div className="text-center mb-8 mx-auto">
-          <h3 className="text-xl font-semibold text-slate-900">Trusted by Industry Leaders</h3>
-          <p className="mt-2 text-slate-600">Join the ranks of successful businesses that trust our solutions</p>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center mx-auto">
-          {[
-            { name: "TechCorp", logo: "/logos/techcorp.svg" },
-            { name: "Global Solutions", logo: "/logos/globalsolutions.svg" },
-            { name: "InnovateX", logo: "/logos/innovatex.svg" },
-            { name: "Digital First", logo: "/logos/digitalfirst.svg" },
-            { name: "Future Tech", logo: "/logos/futuretech.svg" },
-            { name: "Enterprise Plus", logo: "/logos/enterpriseplus.svg" },
-          ].map((company) => (
-            <motion.div
-              key={company.name}
-              className="relative h-12 w-32 opacity-70 hover:opacity-100 transition-opacity duration-300"
-              whileHover={{ scale: 1.05 }}
-            >
-              <Image
-                src={company.logo}
-                alt={`${company.name} logo`}
-                fill
-                className="object-contain"
-              />
-            </motion.div>
-          ))}
-        </div>
-        <div className="mt-12 text-center w-full">
-          <Link href="/case-studies">
-            <Button
-              variant="outline"
-              className="border-slate-300 hover:bg-slate-100 transition-all duration-300"
-            >
-              View Case Studies <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Link>
-        </div>
-      </div>
-    </AnimatedSection>
-  )
-}
-
 const CTASection = () => {
   return (
     <section className="relative w-full py-24 md:py-32 overflow-hidden bg-slate-900 text-white flex items-center justify-center">
@@ -1356,20 +1139,11 @@ export default function Home() {
       {/* Stats Section */}
       <StatsSection />
 
-      {/* Why Choose Us Section */}
-      <WhyChooseUsSection />
-
       {/* Services Section */}
       <ServicesSection />
 
       {/* About Us Section */}
       <AboutSection />
-
-      {/* Testimonials Section */}
-      <TestimonialsSection />
-
-      {/* Trusted By Section */}
-      <TrustedBySection />
 
       {/* CTA Section */}
       <CTASection />
