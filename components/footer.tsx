@@ -118,19 +118,16 @@ export function Footer() {
             <ul className="space-y-2 md:space-y-3">
               <li className="flex items-start space-x-2 md:space-x-3">
                 <Mail className="h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-slate-700 mt-0.5" />
-                <a
-                  href="mailto:info@launchifydigital.org"
-                  className="text-sm md:text-base lg:text-lg text-slate-700 hover:text-slate-900 transition-colors duration-200"
-                >
-                  info@launchifydigital.org
-                </a>
+                <div className="text-sm md:text-base lg:text-lg text-slate-700 hover:text-slate-900 transition-colors duration-200">
+                  <a href="mailto:wangharrison2009@gmail.com" className="block hover:underline">
+                    wangharrison2009@gmail.com
+                  </a>
+                  <a href="mailto:lucaszhao09@gmail.com" className="block hover:underline">
+                    lucaszhao09@gmail.com
+                  </a>
+                </div>
               </li>
-              <li className="text-sm md:text-base lg:text-lg text-slate-700">
-                123 Digital Avenue
-                <br />
-                San Francisco, CA 94105
-              </li>
-              <li className="text-sm md:text-base lg:text-lg text-slate-700">(555) 123-4567</li>
+              <li className="text-sm md:text-base lg:text-lg text-slate-700">(647) 895-6675</li>
             </ul>
           </motion.div>
         </motion.div>
