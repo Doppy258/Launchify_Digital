@@ -869,7 +869,7 @@ const AboutSection = () => {
       position: "Chief Technology Officer",
       bio: "With over 15 years of experience in enterprise software development and digital transformation, Lucas leads our technical strategy and innovation initiatives.",
       skills: ["Enterprise Architecture", "Cloud Solutions", "Digital Innovation"],
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/LOGO.png",
       socialLinks: [
         { platform: "LinkedIn", url: "#" },
         { platform: "Twitter", url: "#" }
@@ -880,7 +880,7 @@ const AboutSection = () => {
       position: "Chief Marketing Officer",
       bio: "A digital marketing pioneer with 12+ years of experience, Harrison drives our strategic marketing initiatives and client success programs.",
       skills: ["Growth Marketing", "Brand Strategy", "Data Analytics"],
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/LOGO.png",
       socialLinks: [
         { platform: "LinkedIn", url: "#" },
         { platform: "Twitter", url: "#" }

@@ -37,13 +37,13 @@ export function Footer() {
         >
           <motion.div className="space-y-4 md:space-y-6" variants={fadeIn}>
             <Link href="/" className="flex items-center gap-2">
-              <div className="relative h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 overflow-hidden rounded-full">
+              <div className="relative h-10 w-10 md:h-14 md:w-14 lg:h-16 lg:w-16 overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=32&width=32"
+                  src="/LOGO.png"
                   alt="Launchify Digital Logo"
-                  width={48}
-                  height={48}
-                  className="object-cover"
+                  width={64}
+                  height={64}
+                  className="object-contain"
                 />
               </div>
               <span className="text-lg md:text-xl lg:text-2xl font-bold">Launchify Digital</span>

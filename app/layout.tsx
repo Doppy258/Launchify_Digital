@@ -11,7 +11,11 @@ export const metadata = {
   title: "Launchify Digital - Empowering Small Businesses Online",
   description:
     "Launchify Digital helps small businesses expand their presence in the digital world through website building, social media management, and digital marketing.",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: '/LOGO.png',
+    apple: '/LOGO.png',
+  }
 }
 
 export default function RootLayout({
@@ -21,6 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/LOGO.png" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <div className="relative flex min-h-screen flex-col">
