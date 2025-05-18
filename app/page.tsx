@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import Script from "next/script"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight, CheckCircle, Globe, MessageSquare, Users, Star, ArrowDown, Zap, Shield, Award, BarChart2, Code, Cpu } from "lucide-react"
@@ -9,6 +10,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import WebsiteShowcase from "@/components/WebsiteShowcase"
 import { sampleWebsites } from "@/public/mock-data/websites"
+import { generateOrganizationSchema, generateLocalBusinessSchema, jsonLdScriptProps } from "@/lib/seo"
 
 // Animation variants
 const fadeIn = {
@@ -308,14 +310,14 @@ const HeroSection = () => {
                 </Button>
               </Link>
             </motion.div>
-          </motion.div>
-
-          <motion.div
+            </motion.div>
+            
+            <motion.div
             className="mx-auto w-full max-w-[600px] relative"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-          >
+            >
             {/* Main device mockup container */}
             <div className="relative z-20">
               {/* Glass effect background */}
@@ -335,7 +337,7 @@ const HeroSection = () => {
                           <div className="w-3 h-3 rounded-full bg-red-400"></div>
                           <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
                           <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                        </div>
+              </div>
                         <div className="flex-1 flex justify-center">
                           <div className="bg-slate-100 rounded-full h-6 w-48 mx-auto flex items-center justify-center px-3">
                             <div className="h-2 w-2 rounded-full bg-blue-400 mr-1"></div>
@@ -383,8 +385,8 @@ const HeroSection = () => {
                             <div className="h-3 w-12 bg-slate-800 rounded-full mb-2"></div>
                             <div className="h-2 w-full bg-slate-300 rounded-full"></div>
                           </div>
-                        ))}
-                      </div>
+                  ))}
+                </div>
                       
                       {/* Feature section */}
                       <div className="flex items-center justify-between">
@@ -393,7 +395,7 @@ const HeroSection = () => {
                           <div className="space-y-1">
                             <div className="h-2 w-full bg-slate-300 rounded-full"></div>
                             <div className="h-2 w-[90%] bg-slate-300 rounded-full"></div>
-                          </div>
+                </div>
                         </div>
                         <div className="w-1/2 h-24 bg-gradient-to-br from-slate-100 to-blue-50 rounded-xl flex items-center justify-center">
                           <div className="w-16 h-16 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 opacity-50"></div>
@@ -506,9 +508,9 @@ const HeroSection = () => {
               <div className="w-12 h-12 rounded-lg bg-white shadow-xl border border-blue-100 flex items-center justify-center rotate-12">
                 <div className="w-6 h-6 rounded-full bg-gradient-to-r from-blue-400 to-indigo-400"></div>
               </div>
-            </motion.div>
-            
-            <motion.div 
+          </motion.div>
+
+          <motion.div
               className="absolute bottom-1/3 left-0 z-30"
               animate={{
                 y: [0, 10, 0],
@@ -519,10 +521,10 @@ const HeroSection = () => {
                 ease: "easeInOut",
                 delay: 2,
               }}
-            >
+          >
               <div className="w-8 h-8 rounded-full bg-white shadow-lg flex items-center justify-center">
                 <div className="w-4 h-4 rounded-full bg-gradient-to-r from-purple-400 to-pink-400"></div>
-              </div>
+            </div>
             </motion.div>
             
             {/* Award badges */}
@@ -1132,44 +1134,20 @@ const CTASection = () => {
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center">
-      {/* Hero Section */}
+    <div className="flex flex-col min-h-screen">
+      {/* Structured Data for SEO */}
+      <script
+        {...jsonLdScriptProps(generateOrganizationSchema())}
+      />
+      <script
+        {...jsonLdScriptProps(generateLocalBusinessSchema())}
+      />
+      
       <HeroSection />
-
-      {/* Stats Section */}
       <StatsSection />
-
-      {/* Services Section */}
       <ServicesSection />
-
-      {/* About Us Section */}
       <AboutSection />
-
-      {/* CTA Section */}
       <CTASection />
-
-      {/* Floating CTA Button */}
-      <motion.div
-        className="fixed bottom-8 right-8 z-50"
-        initial={{ opacity: 0, scale: 0.8, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ delay: 2, duration: 0.5 }}
-      >
-        <div className="p-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full">
-          <Link href="/request-help">
-            <Button
-              size="lg"
-              className="rounded-full shadow-lg bg-white hover:bg-slate-50 text-slate-900 transition-all duration-300 flex items-center gap-2 px-6"
-            >
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
-              </span>
-              Get Started <ArrowRight className="ml-1 h-4 w-4" />
-            </Button>
-          </Link>
-        </div>
-      </motion.div>
     </div>
   );
 }

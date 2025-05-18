@@ -4,29 +4,42 @@ import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Metadata } from "next"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Launchify Digital - Empowering Small Businesses Online",
   description:
     "Launchify Digital helps small businesses expand their presence in the digital world through website building, social media management, and digital marketing.",
-  generator: 'v0.dev',
+  generator: 'Next.js',
+  applicationName: 'Launchify Digital',
+  referrer: 'origin-when-cross-origin',
+  keywords: ['digital marketing', 'website development', 'small business', 'social media management', 'SEO', 'web design'],
+  authors: [{ name: 'Launchify Digital Team' }],
+  colorScheme: 'light',
+  creator: 'Launchify Digital',
+  publisher: 'Launchify Digital',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   metadataBase: new URL('https://launchifydigital.org'),
   alternates: {
     canonical: '/',
   },
-  keywords: ['digital marketing', 'web development', 'social media management', 'small business', 'SEO', 'website design'],
-  authors: [{ name: 'Launchify Digital' }],
-  creator: 'Launchify Digital',
-  publisher: 'Launchify Digital',
+  manifest: '/manifest.json',
+  other: {
+    'author': 'Launchify Digital Team',
+    'robots': 'index, follow',
+    'google': 'notranslate',
+    'googlebot': 'index, follow',
+    'humans': '/humans.txt',
+  },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://launchifydigital.org',
     title: 'Launchify Digital - Empowering Small Businesses Online',
     description: 'Launchify Digital helps small businesses expand their presence in the digital world through website building, social media management, and digital marketing.',
+    url: 'https://launchifydigital.org',
     siteName: 'Launchify Digital',
     images: [
       {
@@ -34,8 +47,10 @@ export const metadata: Metadata = {
         width: 512,
         height: 512,
         alt: 'Launchify Digital Logo',
-      }
+      },
     ],
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
@@ -43,17 +58,6 @@ export const metadata: Metadata = {
     description: 'Launchify Digital helps small businesses expand their presence in the digital world through website building, social media management, and digital marketing.',
     images: ['/LOGO.png'],
     creator: '@launchifydigital',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
   },
   icons: {
     icon: [
@@ -93,6 +97,8 @@ export default function RootLayout({
         <link rel="mask-icon" href="/LOGO.png" color="#000000" />
         <meta name="msapplication-TileImage" content="/LOGO.png" />
         <meta name="msapplication-TileColor" content="#ffffff" />
+        <link rel="manifest" href="/manifest.json" />
+        <link type="text/plain" rel="author" href="/humans.txt" />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>

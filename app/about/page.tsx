@@ -1,19 +1,66 @@
 import Link from "next/link"
 import Image from "next/image"
+import Script from "next/script"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Metadata } from "next"
+import { generateOrganizationSchema, jsonLdScriptProps } from "@/lib/seo"
 
-export const metadata = {
-  title: "About Us | Launchify Digital",
-  description: "Learn about Launchify Digital's mission to help small businesses thrive in the digital world with affordable, high-quality digital services.",
-  alternates: {
-    canonical: '/about',
-  },
+export const metadata: Metadata = {
+  title: 'About Us | Launchify Digital',
+  description: "Learn about Launchify Digital's mission to help small businesses thrive in the digital world through accessible, high-quality digital services.",
+  keywords: ['about us', 'digital agency', 'small business', 'mission', 'values', 'team'],
+  openGraph: {
+    title: 'About Launchify Digital - Our Mission and Team',
+    description: "We're a not-for-profit organization dedicated to empowering small businesses with the digital tools they need to succeed.",
+    url: 'https://launchifydigital.org/about',
+    type: 'website',
+  }
 }
 
+// Define team information for structured data
+const teamMembers = [
+  {
+    name: "Lucas Zhao",
+    jobTitle: "Co-Founder & Technical Director",
+    image: "https://launchifydigital.org/placeholder.svg?height=500&width=800"
+  },
+  {
+    name: "Harrison Wang",
+    jobTitle: "Co-Founder & Marketing Director",
+    image: "https://launchifydigital.org/placeholder.svg?height=500&width=800"
+  }
+];
+
 export default function About() {
+  // Generate team structured data
+  const teamStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Launchify Digital",
+    url: "https://launchifydigital.org",
+    logo: "https://launchifydigital.org/LOGO.png",
+    description: "A not-for-profit organization dedicated to helping small businesses thrive in the digital world.",
+    founder: teamMembers.map(member => ({
+      "@type": "Person",
+      name: member.name,
+      jobTitle: member.jobTitle,
+      image: member.image
+    })),
+    employee: teamMembers.map(member => ({
+      "@type": "Person",
+      name: member.name,
+      jobTitle: member.jobTitle,
+      image: member.image
+    }))
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Structured Data */}
+      <script {...jsonLdScriptProps(teamStructuredData)} />
+      <script {...jsonLdScriptProps(generateOrganizationSchema())} />
+
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-slate-50 to-slate-100">
         <div className="container px-4 md:px-6 mx-auto max-w-[1400px]">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">

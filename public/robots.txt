@@ -1,19 +1,16 @@
 # robots.txt for Launchify Digital
-
-# Allow all crawlers
 User-agent: *
 Allow: /
 
-# Main sitemap location
+# Allow access to all pages
+Allow: /services
+Allow: /about
+Allow: /contact
+
+# Specify the sitemap location (you should create this later if needed)
 Sitemap: https://launchifydigital.org/sitemap.xml
 
-# Disallow potentially sensitive areas (if they exist)
+# Disallow any admin or private areas if they exist
 Disallow: /admin/
-Disallow: /dashboard/
 Disallow: /private/
-Disallow: /.next/
-Disallow: /api/
-
-# Prevent crawling of search results or temporary pages
-Disallow: /search
-Disallow: /temp/ 
+Disallow: /api/ 

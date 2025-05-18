@@ -4,18 +4,55 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
+import Script from "next/script"
+import { Metadata } from "next"
+import { jsonLdScriptProps } from "@/lib/seo"
 
-export const metadata = {
-  title: "Contact Us | Launchify Digital",
-  description: "Get in touch with Launchify Digital for website development, social media management, and digital marketing services for your small business.",
-  alternates: {
-    canonical: '/contact',
-  },
+export const metadata: Metadata = {
+  title: 'Contact Us | Launchify Digital',
+  description: "Get in touch with Launchify Digital for questions about our services or to request help with your small business's digital presence.",
+  keywords: ['contact', 'digital services', 'help', 'small business', 'get in touch'],
+  openGraph: {
+    title: 'Contact Launchify Digital - Get in Touch',
+    description: "Contact our team for questions about our services or to request help with your digital presence.",
+    url: 'https://launchifydigital.org/contact',
+    type: 'website',
+  }
 }
 
 export default function Contact() {
+  // Contact page structured data
+  const contactStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    description: "Contact information for Launchify Digital",
+    mainEntity: {
+      "@type": "Organization",
+      name: "Launchify Digital",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "123 Digital Avenue",
+        addressLocality: "San Francisco",
+        addressRegion: "CA",
+        postalCode: "94105",
+        addressCountry: "US"
+      },
+      telephone: "+15551234567",
+      email: "info@launchifydigital.org",
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "17:00"
+      }
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Structured Data */}
+      <script {...jsonLdScriptProps(contactStructuredData)} />
+
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-slate-50 to-slate-100">
         <div className="container px-4 md:px-6 mx-auto max-w-[1400px]">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">

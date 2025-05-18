@@ -20,17 +20,39 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    domains: ['launchifydigital.org'],
+    formats: ['image/avif', 'image/webp'],
+    unoptimized: false,
   },
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
-  // Configure site URL for SEO
-  env: {
-    NEXT_PUBLIC_SITE_URL: 'https://launchifydigital.org',
-  }
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+        ],
+      },
+    ];
+  },
+  poweredByHeader: false,
+  compress: true,
+  reactStrictMode: true,
 }
 
 if (userConfig) {

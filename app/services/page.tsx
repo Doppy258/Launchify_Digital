@@ -1,12 +1,51 @@
 import Link from "next/link"
 import Image from "next/image"
+import Script from "next/script"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle, Globe, MessageSquare, Users, Zap, PenTool, BarChart } from "lucide-react"
+import { Metadata } from "next"
+import { generateServiceSchema, jsonLdScriptProps } from "@/lib/seo"
+
+export const metadata: Metadata = {
+  title: 'Services | Launchify Digital',
+  description: 'Comprehensive digital solutions including website development, social media management, digital marketing, and more to help small businesses thrive online.',
+  keywords: ['website development', 'social media management', 'digital marketing', 'branding', 'SEO', 'analytics'],
+  openGraph: {
+    title: 'Digital Services for Small Businesses | Launchify Digital',
+    description: 'Professional digital services tailored for small businesses. Website development, social media management, digital marketing, and more.',
+    url: 'https://launchifydigital.org/services',
+    type: 'website',
+  }
+}
 
 export default function Services() {
+  // Services for structured data
+  const servicesData = [
+    {
+      name: "Website Development",
+      description: "Custom websites that showcase your brand and convert visitors into customers.",
+      url: "https://launchifydigital.org/services#website-development"
+    },
+    {
+      name: "Social Media Management",
+      description: "Strategic content creation and community engagement on social media platforms.",
+      url: "https://launchifydigital.org/services#social-media"
+    },
+    {
+      name: "Digital Marketing",
+      description: "Targeted campaigns that reach your ideal customers and drive business growth.",
+      url: "https://launchifydigital.org/services#digital-marketing"
+    }
+  ];
+
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Structured Data */}
+      {servicesData.map((service, index) => (
+        <script key={index} {...jsonLdScriptProps(generateServiceSchema(service.name, service.description, service.url))} />
+      ))}
+
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-slate-50 to-slate-100">
         <div className="container px-4 md:px-6 mx-auto max-w-[1400px]">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -20,7 +59,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="w-full py-12 md:py-24 lg:py-32">
+      <section id="website-development" className="w-full py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6 mx-auto max-w-[1400px]">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="space-y-4">
@@ -68,7 +107,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-slate-50">
+      <section id="social-media" className="w-full py-12 md:py-24 lg:py-32 bg-slate-50">
         <div className="container px-4 md:px-6 mx-auto max-w-[1400px]">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="mx-auto w-full max-w-[500px] relative aspect-video order-2 lg:order-1">
@@ -116,7 +155,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="w-full py-12 md:py-24 lg:py-32">
+      <section id="digital-marketing" className="w-full py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6 mx-auto max-w-[1400px]">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="space-y-4">
