@@ -5,6 +5,14 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
 
+export const metadata = {
+  title: "Contact Us | Launchify Digital",
+  description: "Get in touch with Launchify Digital for website development, social media management, and digital marketing services for your small business.",
+  alternates: {
+    canonical: '/contact',
+  },
+}
+
 export default function Contact() {
   return (
     <div className="flex flex-col min-h-screen">

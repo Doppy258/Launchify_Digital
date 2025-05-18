@@ -27,6 +27,10 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  // Configure site URL for SEO
+  env: {
+    NEXT_PUBLIC_SITE_URL: 'https://launchifydigital.org',
+  }
 }
 
 if (userConfig) {

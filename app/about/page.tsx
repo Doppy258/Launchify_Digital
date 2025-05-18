@@ -3,6 +3,14 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
+export const metadata = {
+  title: "About Us | Launchify Digital",
+  description: "Learn about Launchify Digital's mission to help small businesses thrive in the digital world with affordable, high-quality digital services.",
+  alternates: {
+    canonical: '/about',
+  },
+}
+
 export default function About() {
   return (
     <div className="flex flex-col min-h-screen">

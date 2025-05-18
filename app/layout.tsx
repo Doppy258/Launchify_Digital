@@ -4,14 +4,57 @@ import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { Metadata } from "next"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Launchify Digital - Empowering Small Businesses Online",
   description:
     "Launchify Digital helps small businesses expand their presence in the digital world through website building, social media management, and digital marketing.",
   generator: 'v0.dev',
+  metadataBase: new URL('https://launchifydigital.org'),
+  alternates: {
+    canonical: '/',
+  },
+  keywords: ['digital marketing', 'web development', 'social media management', 'small business', 'SEO', 'website design'],
+  authors: [{ name: 'Launchify Digital' }],
+  creator: 'Launchify Digital',
+  publisher: 'Launchify Digital',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://launchifydigital.org',
+    title: 'Launchify Digital - Empowering Small Businesses Online',
+    description: 'Launchify Digital helps small businesses expand their presence in the digital world through website building, social media management, and digital marketing.',
+    siteName: 'Launchify Digital',
+    images: [
+      {
+        url: '/LOGO.png',
+        width: 512,
+        height: 512,
+        alt: 'Launchify Digital Logo',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Launchify Digital - Empowering Small Businesses Online',
+    description: 'Launchify Digital helps small businesses expand their presence in the digital world through website building, social media management, and digital marketing.',
+    images: ['/LOGO.png'],
+    creator: '@launchifydigital',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       { url: '/LOGO.png', sizes: '16x16', type: 'image/png' },
