@@ -31,13 +31,13 @@ export function Header() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex h-16 md:h-20 lg:h-24 items-center justify-between max-w-[2000px]">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.2 }}>
-          <Link href="/" className="flex items-center gap-2">
-            <div className="relative h-10 w-10 md:h-14 md:w-14 lg:h-16 lg:w-16 overflow-hidden">
+          <Link href="/" className="flex items-center gap-1">
+            <div className="relative h-12 w-12 md:h-16 md:w-16 lg:h-20 lg:w-20 overflow-hidden">
               <Image
                 src="/LOGO.png"
                 alt="Launchify Digital Logo"
-                width={64}
-                height={64}
+                width={80}
+                height={80}
                 className="object-contain"
               />
             </div>

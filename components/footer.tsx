@@ -36,13 +36,13 @@ export function Footer() {
           viewport={{ once: true, amount: 0.1 }}
         >
           <motion.div className="space-y-4 md:space-y-6" variants={fadeIn}>
-            <Link href="/" className="flex items-center gap-2">
-              <div className="relative h-10 w-10 md:h-14 md:w-14 lg:h-16 lg:w-16 overflow-hidden">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="relative h-12 w-12 md:h-16 md:w-16 lg:h-20 lg:w-20 overflow-hidden">
                 <Image
                   src="/LOGO.png"
                   alt="Launchify Digital Logo"
-                  width={64}
-                  height={64}
+                  width={80}
+                  height={80}
                   className="object-contain"
                 />
               </div>

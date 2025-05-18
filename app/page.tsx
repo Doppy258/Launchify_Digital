@@ -937,11 +937,11 @@ const AboutSection = () => {
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="object-contain p-4"
                   />
                   
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-slate-900/0" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-slate-900/0" />
                   
                   {/* Content on image */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
