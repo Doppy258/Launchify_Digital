@@ -751,9 +751,11 @@ const ServicesSection = () => {
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 shadow-sm">
             <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Our Website Services</span>
           </div>
+          
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
             Building <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Beautiful Websites</span>
           </h2>
+          
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             We create stunning, functional websites that help your business stand out and convert visitors into customers.
           </p>
@@ -768,46 +770,112 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -8, transition: { duration: 0.2 } }}
             >
-              <div className="relative z-10 h-full rounded-2xl bg-white p-8 shadow-xl transition-all duration-300 hover:shadow-2xl group-hover:-translate-y-2 overflow-hidden border border-slate-100">
-                {/* Color stripe at top */}
-                <div className={`absolute top-0 left-0 right-0 h-1 ${
-                  service.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
-                  service.color === 'indigo' ? 'bg-gradient-to-r from-indigo-500 to-indigo-600' :
-                  'bg-gradient-to-r from-purple-500 to-purple-600'
-                }`} />
+              <motion.div 
+                className="relative z-10 h-full rounded-2xl bg-white p-8 shadow-xl transition-all duration-300 overflow-hidden border border-slate-100"
+                whileHover={{ boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)" }}
+              >
+                {/* Enhanced animated color stripe at top */}
+                <motion.div 
+                  className={`absolute top-0 left-0 right-0 h-1 ${
+                    service.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
+                    service.color === 'indigo' ? 'bg-gradient-to-r from-indigo-500 to-indigo-600' :
+                    'bg-gradient-to-r from-purple-500 to-purple-600'
+                  }`}
+                  layoutId={`stripe-${index}`}
+                  transition={{ duration: 0.3 }}
+                />
                 
                 <div className="relative">
-                  {/* Icon */}
-                  <div className={`
-                    flex h-14 w-14 items-center justify-center rounded-xl mb-6
-                    ${service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
-                      service.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
-                      'bg-purple-50 text-purple-600'}
-                  `}>
+                  {/* Animated icon */}
+                  <motion.div 
+                    className={`
+                      flex h-14 w-14 items-center justify-center rounded-xl mb-6
+                      ${service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
+                        service.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
+                        'bg-purple-50 text-purple-600'}
+                    `}
+                    initial={{ scale: 0.8, rotateY: 0 }}
+                    whileInView={{ scale: 1, rotateY: 360 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
+                  >
                     {service.icon}
-                  </div>
+                  </motion.div>
                   
-                  {/* Content */}
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-slate-600 mb-6">{service.description}</p>
+                  {/* Content with enhanced animations */}
+                  <motion.h3 
+                    className="text-xl font-bold mb-3"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 + 0.4 }}
+                  >
+                    {service.title}
+                  </motion.h3>
                   
-                  {/* Features */}
-                  <ul className="space-y-3 mt-4 mb-8">
+                  <motion.p 
+                    className="text-slate-600 mb-6"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 + 0.5 }}
+                  >
+                    {service.description}
+                  </motion.p>
+                  
+                  {/* Animated Features */}
+                  <motion.ul 
+                    className="space-y-3 mt-4 mb-8"
+                    variants={{
+                      hidden: { opacity: 0 },
+                      show: {
+                        opacity: 1,
+                        transition: {
+                          staggerChildren: 0.1,
+                          delayChildren: index * 0.1 + 0.6
+                        }
+                      }
+                    }}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                  >
                     {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center text-sm">
-                        <CheckCircle className={`h-4 w-4 mr-2 flex-shrink-0 ${
-                          service.color === 'blue' ? 'text-blue-500' :
-                          service.color === 'indigo' ? 'text-indigo-500' :
-                          'text-purple-500'
-                        }`} />
+                      <motion.li 
+                        key={i} 
+                        className="flex items-center text-sm"
+                        variants={{
+                          hidden: { opacity: 0, x: -10 },
+                          show: { opacity: 1, x: 0 }
+                        }}
+                      >
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          whileInView={{ scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.3, delay: index * 0.1 + 0.6 + (i * 0.1) }}
+                        >
+                          <CheckCircle className={`h-4 w-4 mr-2 flex-shrink-0 ${
+                            service.color === 'blue' ? 'text-blue-500' :
+                            service.color === 'indigo' ? 'text-indigo-500' :
+                            'text-purple-500'
+                          }`} />
+                        </motion.div>
                         <span>{feature}</span>
-                      </li>
+                      </motion.li>
                     ))}
-                  </ul>
+                  </motion.ul>
                   
-                  {/* CTA */}
-                  <div className="mt-auto">
+                  {/* Animated CTA */}
+                  <motion.div 
+                    className="mt-auto"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 + 0.8 }}
+                  >
                     <Link href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
                       <button className={`
                         group inline-flex items-center text-sm font-medium transition-colors
@@ -816,23 +884,39 @@ const ServicesSection = () => {
                           'text-purple-600 hover:text-purple-700'}
                       `}>
                         See how we do it 
-                        <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        <motion.div
+                          initial={{ x: 0 }}
+                          whileHover={{ x: 5 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ArrowRight className="ml-1 h-4" />
+                        </motion.div>
                       </button>
                     </Link>
-                  </div>
+                  </motion.div>
                 </div>
                 
-                {/* Background decor */}
-                <div className={`
-                  absolute -bottom-20 -right-20 h-40 w-40 rounded-full blur-3xl opacity-20 transition-all duration-300 group-hover:opacity-30
-                  ${service.color === 'blue' ? 'bg-blue-400' :
-                    service.color === 'indigo' ? 'bg-indigo-400' :
-                    'bg-purple-400'}
-                `} />
-              </div>
+                {/* Enhanced background decor */}
+                <motion.div 
+                  className={`
+                    absolute -bottom-20 -right-20 h-40 w-40 rounded-full blur-3xl transition-all duration-300
+                    ${service.color === 'blue' ? 'bg-blue-400' :
+                      service.color === 'indigo' ? 'bg-indigo-400' :
+                      'bg-purple-400'}
+                  `}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 0.2 }}
+                  whileHover={{ opacity: 0.3, scale: 1.1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                />
+              </motion.div>
               
               {/* Card shine effect on hover */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/5 to-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+              <motion.div 
+                className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/5 to-white/30 opacity-0 transition-opacity duration-300 blur-sm"
+                whileHover={{ opacity: 1 }}
+              />
             </motion.div>
           ))}
         </div>
@@ -851,7 +935,7 @@ const ServicesSection = () => {
             >
               <span className="relative z-10 flex items-center">
                 See All Services
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
               <span className="absolute inset-0 overflow-hidden rounded-full">
                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></span>
@@ -918,9 +1002,11 @@ const ProcessSection = () => {
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 shadow-sm">
             <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Our Approach</span>
           </div>
+          
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
             How We <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Create Your Website</span>
           </h2>
+          
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Our streamlined process ensures we deliver high-quality websites efficiently and with attention to detail.
           </p>
@@ -934,39 +1020,98 @@ const ProcessSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              whileHover={{ 
+                scale: 1.03, 
+                transition: { duration: 0.2 }
+              }}
             >
-              <div className="relative z-10 h-full rounded-2xl bg-white p-8 shadow-xl transition-all duration-300 hover:shadow-2xl group-hover:-translate-y-2 overflow-hidden border border-slate-100">
-                {/* Step number */}
-                <div className={`absolute -top-5 -right-5 h-20 w-20 rounded-full opacity-10 ${
-                  step.color === 'blue' ? 'bg-blue-400' :
-                  step.color === 'indigo' ? 'bg-indigo-400' :
-                  step.color === 'purple' ? 'bg-purple-400' :
-                  'bg-green-400'
-                }`} />
+              <motion.div 
+                className="relative z-10 h-full rounded-2xl bg-white p-8 shadow-xl transition-all duration-300 overflow-hidden border border-slate-100"
+                whileHover={{ 
+                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)",
+                  transition: { duration: 0.3 }
+                }}
+              >
+                {/* Step number with enhanced animation */}
+                <motion.div 
+                  className={`absolute -top-5 -right-5 h-20 w-20 rounded-full opacity-10 ${
+                    step.color === 'blue' ? 'bg-blue-400' :
+                    step.color === 'indigo' ? 'bg-indigo-400' :
+                    step.color === 'purple' ? 'bg-purple-400' :
+                    'bg-green-400'
+                  }`}
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
+                />
                 
-                <div className={`
-                  flex h-14 w-14 items-center justify-center rounded-xl mb-6
-                  ${step.color === 'blue' ? 'bg-blue-50 text-blue-600' :
-                    step.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
-                    step.color === 'purple' ? 'bg-purple-50 text-purple-600' :
-                    'bg-green-50 text-green-600'}
-                `}>
+                <motion.div 
+                  className={`
+                    flex h-14 w-14 items-center justify-center rounded-xl mb-6
+                    ${step.color === 'blue' ? 'bg-blue-50 text-blue-600' :
+                      step.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
+                      step.color === 'purple' ? 'bg-purple-50 text-purple-600' :
+                      'bg-green-50 text-green-600'}
+                  `}
+                  initial={{ rotate: -10, scale: 0.8 }}
+                  whileInView={{ rotate: 0, scale: 1 }}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", stiffness: 200, damping: 10, delay: index * 0.15 + 0.3 }}
+                >
                   {step.icon}
-                </div>
+                </motion.div>
                 
-                <div className="absolute top-6 right-8 text-4xl font-bold opacity-10">
+                <motion.div 
+                  className="absolute top-6 right-8 text-4xl font-bold opacity-10"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 0.1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.15 + 0.4 }}
+                >
                   {step.number}
-                </div>
+                </motion.div>
                 
-                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                <p className="text-slate-600">{step.description}</p>
-              </div>
+                <motion.h3 
+                  className="text-xl font-bold mb-3"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.15 + 0.5 }}
+                >
+                  {step.title}
+                </motion.h3>
+                
+                <motion.p 
+                  className="text-slate-600"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.15 + 0.6 }}
+                >
+                  {step.description}
+                </motion.p>
+              </motion.div>
               
-              {/* Connection line for desktop */}
+              {/* Connection line for desktop with animation */}
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 -right-6 w-12 h-0.5 bg-slate-200">
-                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 rounded-full bg-slate-300" />
+                  <motion.div 
+                    className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 rounded-full bg-slate-300"
+                    initial={{ x: 12 }}
+                    whileInView={{ x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.15 + 0.7 }}
+                  />
+                  <motion.div 
+                    className="absolute left-0 w-0 h-full bg-blue-200"
+                    initial={{ width: "0%" }}
+                    whileInView={{ width: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: index * 0.15 + 0.4 }}
+                  />
                 </div>
               )}
             </motion.div>
@@ -975,24 +1120,55 @@ const ProcessSection = () => {
         
         <motion.div
           className="mt-16 mx-auto max-w-3xl p-8 bg-white rounded-2xl shadow-xl border border-slate-100"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          whileHover={{ 
+            y: -5, 
+            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.2)",
+            transition: { duration: 0.3 }
+          }}
         >
           <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="md:w-1/4 flex justify-center">
+            <motion.div 
+              className="md:w-1/4 flex justify-center"
+              initial={{ scale: 0.8, rotate: -10 }}
+              whileInView={{ scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 200, damping: 10, delay: 0.6 }}
+            >
               <div className="h-24 w-24 rounded-full bg-blue-50 flex items-center justify-center">
-                <Shield className="h-12 w-12 text-blue-600" />
+                <motion.div
+                  initial={{ rotate: 0 }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                >
+                  <Shield className="h-12 w-12 text-blue-600" />
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
             <div className="md:w-3/4">
-              <h3 className="text-xl font-bold mb-2 text-center md:text-left">Our Commitment to Quality</h3>
-              <p className="text-slate-600">
+              <motion.h3 
+                className="text-xl font-bold mb-2 text-center md:text-left"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.7 }}
+              >
+                Our Commitment to Quality
+              </motion.h3>
+              <motion.p 
+                className="text-slate-600"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.8 }}
+              >
                 Every website we create undergoes rigorous quality testing to ensure excellent performance, 
                 security, and user experience. We don't just build websites—we craft digital experiences 
                 that represent your brand and drive business results.
-              </p>
+              </motion.p>
             </div>
           </div>
         </motion.div>
@@ -1101,7 +1277,7 @@ const PortfolioSection = () => {
             >
               <span className="relative z-10 flex items-center">
                 View All Projects
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
               <span className="absolute inset-0 overflow-hidden rounded-full">
                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></span>
@@ -1179,7 +1355,7 @@ const CTASection = () => {
                     >
                       <span className="flex items-center">
                         Schedule Free Consultation
-                        <ArrowRight className="ml-2 h-4 w-4" />
+                        <ArrowRight className="ml-2 h-4" />
                       </span>
                     </Button>
                   </Link>
