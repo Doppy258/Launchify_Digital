@@ -529,18 +529,6 @@ const HeroSection = () => {
             
             {/* Award badges */}
             <motion.div
-              className="absolute top-12 right-0 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-lg z-40 transform rotate-6"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 1.5, duration: 0.5 }}
-            >
-              <div className="flex items-center">
-                <Award className="h-5 w-5 text-blue-600 mr-2" />
-                <div className="text-xs font-medium text-slate-800">Award Winning</div>
-              </div>
-            </motion.div>
-            
-            <motion.div
               className="absolute bottom-20 left-10 bg-white/90 backdrop-blur-sm p-2 rounded-lg shadow-lg z-40 transform -rotate-6"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -779,9 +767,9 @@ const ServicesSection = () => {
                 {/* Enhanced animated color stripe at top */}
                 <motion.div 
                   className={`absolute top-0 left-0 right-0 h-1 ${
-                    service.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
-                    service.color === 'indigo' ? 'bg-gradient-to-r from-indigo-500 to-indigo-600' :
-                    'bg-gradient-to-r from-purple-500 to-purple-600'
+                  service.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
+                  service.color === 'indigo' ? 'bg-gradient-to-r from-indigo-500 to-indigo-600' :
+                  'bg-gradient-to-r from-purple-500 to-purple-600'
                   }`}
                   layoutId={`stripe-${index}`}
                   transition={{ duration: 0.3 }}
@@ -791,10 +779,10 @@ const ServicesSection = () => {
                   {/* Animated icon */}
                   <motion.div 
                     className={`
-                      flex h-14 w-14 items-center justify-center rounded-xl mb-6
-                      ${service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
-                        service.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
-                        'bg-purple-50 text-purple-600'}
+                    flex h-14 w-14 items-center justify-center rounded-xl mb-6
+                    ${service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
+                      service.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
+                      'bg-purple-50 text-purple-600'}
                     `}
                     initial={{ scale: 0.8, rotateY: 0 }}
                     whileInView={{ scale: 1, rotateY: 360 }}
@@ -857,11 +845,11 @@ const ServicesSection = () => {
                           viewport={{ once: true }}
                           transition={{ duration: 0.3, delay: index * 0.1 + 0.6 + (i * 0.1) }}
                         >
-                          <CheckCircle className={`h-4 w-4 mr-2 flex-shrink-0 ${
-                            service.color === 'blue' ? 'text-blue-500' :
-                            service.color === 'indigo' ? 'text-indigo-500' :
-                            'text-purple-500'
-                          }`} />
+                        <CheckCircle className={`h-4 w-4 mr-2 flex-shrink-0 ${
+                          service.color === 'blue' ? 'text-blue-500' :
+                          service.color === 'indigo' ? 'text-indigo-500' :
+                          'text-purple-500'
+                        }`} />
                         </motion.div>
                         <span>{feature}</span>
                       </motion.li>
@@ -900,9 +888,9 @@ const ServicesSection = () => {
                 <motion.div 
                   className={`
                     absolute -bottom-20 -right-20 h-40 w-40 rounded-full blur-3xl transition-all duration-300
-                    ${service.color === 'blue' ? 'bg-blue-400' :
-                      service.color === 'indigo' ? 'bg-indigo-400' :
-                      'bg-purple-400'}
+                  ${service.color === 'blue' ? 'bg-blue-400' :
+                    service.color === 'indigo' ? 'bg-indigo-400' :
+                    'bg-purple-400'}
                   `}
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 0.2 }}
@@ -1115,8 +1103,8 @@ const ProcessSection = () => {
                 </div>
               )}
             </motion.div>
-          ))}
-        </div>
+                    ))}
+                  </div>
         
         <motion.div
           className="mt-16 mx-auto max-w-3xl p-8 bg-white rounded-2xl shadow-xl border border-slate-100"
@@ -1146,7 +1134,7 @@ const ProcessSection = () => {
                 >
                   <Shield className="h-12 w-12 text-blue-600" />
                 </motion.div>
-              </div>
+                </div>
             </motion.div>
             <div className="md:w-3/4">
               <motion.h3 
@@ -1210,8 +1198,8 @@ const PortfolioSection = () => {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-30 transform rotate-12" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-50 rounded-full blur-3xl opacity-30 transform rotate-12" />
-      </div>
-      
+                  </div>
+                  
       <div className={containerClass}>
         <motion.div 
           className="mx-auto max-w-3xl text-center mb-16"
@@ -1222,7 +1210,7 @@ const PortfolioSection = () => {
         >
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 shadow-sm">
             <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Our Work</span>
-          </div>
+                  </div>
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl/tight mb-4">
             Featured <span className="text-blue-600">Website Projects</span>
           </h2>

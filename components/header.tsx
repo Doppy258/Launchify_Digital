@@ -8,6 +8,9 @@ import { Menu } from "lucide-react"
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 
+// Add a timestamp for cache busting
+const cacheBuster = Date.now();
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
 
@@ -34,7 +37,7 @@ export function Header() {
           <Link href="/" className="flex items-center gap-1">
             <div className="relative h-12 w-12 md:h-16 md:w-16 lg:h-20 lg:w-20 overflow-hidden">
               <Image
-                src="/LOGO.png"
+                src={`/LOGO.png?v=${cacheBuster}`}
                 alt="Launchify Digital Logo"
                 width={80}
                 height={80}

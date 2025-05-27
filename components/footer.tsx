@@ -5,6 +5,9 @@ import Image from "next/image"
 import { Facebook, Twitter, Instagram, Linkedin, Mail } from "lucide-react"
 import { motion } from "framer-motion"
 
+// Add a timestamp for cache busting
+const cacheBuster = Date.now();
+
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
@@ -39,7 +42,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-3">
               <div className="relative h-12 w-12 md:h-16 md:w-16 lg:h-20 lg:w-20 overflow-hidden">
                 <Image
-                  src="/LOGO.png"
+                  src={`/LOGO.png?v=${cacheBuster}`}
                   alt="Launchify Digital Logo"
                   width={80}
                   height={80}

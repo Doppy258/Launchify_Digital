@@ -9,6 +9,9 @@ import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] })
 
+// Add a timestamp for cache busting
+const cacheBuster = Date.now();
+
 export const metadata = {
   title: "Launchify Digital - Empowering Small Businesses Online",
   description:
@@ -45,7 +48,7 @@ export const metadata = {
     siteName: 'Launchify Digital',
     images: [
       {
-        url: '/LOGO.png',
+        url: `/LOGO.png?v=${cacheBuster}`,
         width: 512,
         height: 512,
         alt: 'Launchify Digital Logo',
@@ -58,27 +61,27 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Launchify Digital - Empowering Small Businesses Online',
     description: 'Launchify Digital helps small businesses expand their presence in the digital world through website building, social media management, and digital marketing.',
-    images: ['/LOGO.png'],
+    images: [`/LOGO.png?v=${cacheBuster}`],
     creator: '@launchifydigital',
   },
   icons: {
     icon: [
-      { url: '/LOGO.png', sizes: '16x16', type: 'image/png' },
-      { url: '/LOGO.png', sizes: '32x32', type: 'image/png' },
-      { url: '/LOGO.png', sizes: '48x48', type: 'image/png' },
-      { url: '/LOGO.png', sizes: '96x96', type: 'image/png' },
-      { url: '/LOGO.png', sizes: '192x192', type: 'image/png' },
-      { url: '/LOGO.png', sizes: '512x512', type: 'image/png' },
+      { url: `/favicon-16.png?v=${cacheBuster}`, sizes: '16x16', type: 'image/png' },
+      { url: `/favicon-32.png?v=${cacheBuster}`, sizes: '32x32', type: 'image/png' },
+      { url: `/favicon-48.png?v=${cacheBuster}`, sizes: '48x48', type: 'image/png' },
+      { url: `/favicon-96.png?v=${cacheBuster}`, sizes: '96x96', type: 'image/png' },
+      { url: `/favicon-192.png?v=${cacheBuster}`, sizes: '192x192', type: 'image/png' },
+      { url: `/LOGO.png?v=${cacheBuster}`, sizes: '512x512', type: 'image/png' },
     ],
     apple: [
-      { url: '/LOGO.png', sizes: '57x57', type: 'image/png' },
-      { url: '/LOGO.png', sizes: '72x72', type: 'image/png' },
-      { url: '/LOGO.png', sizes: '114x114', type: 'image/png' },
-      { url: '/LOGO.png', sizes: '180x180', type: 'image/png' },
+      { url: `/LOGO.png?v=${cacheBuster}`, sizes: '57x57', type: 'image/png' },
+      { url: `/LOGO.png?v=${cacheBuster}`, sizes: '72x72', type: 'image/png' },
+      { url: `/LOGO.png?v=${cacheBuster}`, sizes: '114x114', type: 'image/png' },
+      { url: `/LOGO.png?v=${cacheBuster}`, sizes: '180x180', type: 'image/png' },
     ],
     other: [
-      { rel: 'apple-touch-icon-precomposed', url: '/LOGO.png' },
-      { rel: 'shortcut icon', url: '/LOGO.png' },
+      { rel: 'apple-touch-icon-precomposed', url: `/LOGO.png?v=${cacheBuster}` },
+      { rel: 'shortcut icon', url: `/favicon-32.png?v=${cacheBuster}` },
     ],
   }
 }
@@ -91,14 +94,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" type="image/png" sizes="512x512" href="/LOGO.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/LOGO.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/LOGO.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/LOGO.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/LOGO.png" />
-        <link rel="mask-icon" href="/LOGO.png" color="#000000" />
-        <meta name="msapplication-TileImage" content="/LOGO.png" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
+        <link rel="icon" type="image/png" sizes="512x512" href={`/LOGO.png?v=${cacheBuster}`} />
+        <link rel="icon" type="image/png" sizes="192x192" href={`/favicon-192.png?v=${cacheBuster}`} />
+        <link rel="icon" type="image/png" sizes="32x32" href={`/favicon-32.png?v=${cacheBuster}`} />
+        <link rel="icon" type="image/png" sizes="16x16" href={`/favicon-16.png?v=${cacheBuster}`} />
+        <link rel="apple-touch-icon" sizes="180x180" href={`/LOGO.png?v=${cacheBuster}`} />
+        <link rel="mask-icon" href={`/LOGO.png?v=${cacheBuster}`} color="#4f46e5" />
+        <meta name="msapplication-TileImage" content={`/LOGO.png?v=${cacheBuster}`} />
+        <meta name="msapplication-TileColor" content="#4f46e5" />
         <link rel="manifest" href="/manifest.json" />
         <link type="text/plain" rel="author" href="/humans.txt" />
       </head>

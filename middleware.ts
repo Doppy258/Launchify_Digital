@@ -29,7 +29,7 @@ export const config = {
      * - public folder
      */
     {
-      source: '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|LOGO.png).*)',
+      source: '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|LOGO.png|favicon-\\d+.png).*)',
       missing: [
         { type: 'header', key: 'next-router-prefetch' },
         { type: 'header', key: 'purpose', value: 'prefetch' },
