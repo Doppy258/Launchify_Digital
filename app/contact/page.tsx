@@ -206,10 +206,10 @@ export default function Contact() {
                     <Mail className="h-10 w-10 text-slate-900" />
                     <CardTitle>Email</CardTitle>
                     <CardDescription className="space-y-2">
-                      <a href="mailto:wangharrison2009@gmail.com" className="hover:underline block">
+                      <a href="mailto:lucaszhao09@gmail.com" className="hover:underline block">
                         wangharrison2009@gmail.com
                       </a>
-                      <a href="mailto:lucaszhao09@gmail.com" className="hover:underline block">
+                      <a href="mailto:wangharrison2009@gmail.com" className="hover:underline block">
                         lucaszhao09@gmail.com
                       </a>
                     </CardDescription>

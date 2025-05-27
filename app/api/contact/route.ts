@@ -22,7 +22,7 @@ export async function POST(request: Request) {
 
     const mailOptions = {
       from: process.env.GMAIL_USER,
-      to: 'wangharrison2009@gmail.com, lucaszhao09@gmail.com',
+      to: 'lucaszhao09@gmail.com,wangharrison2009@gmail.com',
       subject: `New Contact Form Submission: ${subject}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
     };

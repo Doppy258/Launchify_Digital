@@ -5,7 +5,7 @@ import Image from "next/image"
 import Script from "next/script"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, CheckCircle, Globe, MessageSquare, Users, Star, ArrowDown, Zap, Shield, Award, BarChart2, Code, Cpu } from "lucide-react"
+import { ArrowRight, CheckCircle, Globe, MessageSquare, Users, Star, ArrowDown, Zap, Shield, Award, BarChart2, Code, Cpu, PenTool } from "lucide-react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import WebsiteShowcase from "@/components/WebsiteShowcase"
@@ -252,7 +252,7 @@ const HeroSection = () => {
       <div className={containerClass}>
         <div className="grid gap-8 xl:gap-16 lg:grid-cols-2 items-center">
           <motion.div
-            className="space-y-6 relative mx-auto text-center lg:text-left max-w-[750px] lg:-ml-12"
+            className="space-y-6 relative mx-auto text-center lg:text-left max-w-[750px]"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -264,26 +264,26 @@ const HeroSection = () => {
               transition={{ delay: 0.2, duration: 0.5 }}
             >
               <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 mr-2"></span>
-              Enterprise-Grade Digital Solutions
+              Professional Website Creation
             </motion.div>
             
             <motion.h1
-              className="font-bold tracking-tight pb-6 w-full overflow-visible"
+              className="font-bold tracking-tight pb-2 w-full overflow-visible"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
               <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl whitespace-nowrap">Transform Your</div>
-              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 pb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Digital Presence</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 pb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Online Presence</div>
             </motion.h1>
             
             <motion.p
-              className="text-slate-700 text-xl md:text-2xl mt-6 leading-relaxed"
+              className="text-slate-700 text-xl md:text-2xl mt-3 leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              Launchify Digital delivers enterprise-grade solutions that drive measurable business growth. Our expert team combines cutting-edge technology with proven strategies to elevate your online presence.
+              Launchify Digital creates stunning, professional websites that convert visitors into customers. Our expert team builds custom sites that perfectly represent your brand and business goals.
             </motion.p>
             
             <motion.div
@@ -705,25 +705,25 @@ const ServicesSection = () => {
   const services = [
     {
       icon: <Globe className="h-6 w-6" />,
-      title: "Website Design & Development",
-      description: "Beautiful, user-friendly websites that look great and actually work for your business.",
-      features: ["Custom designs that stand out", "Mobile-friendly layouts", "Easy content management"],
+      title: "Custom Website Design",
+      description: "Eye-catching, modern designs that reflect your brand identity and engage your audience.",
+      features: ["Unique, brand-aligned layouts", "Mobile-first responsive design", "Intuitive user experience"],
       color: "blue",
       image: "/services/web-development.jpg"
     },
     {
-      icon: <MessageSquare className="h-6 w-6" />,
-      title: "Social Media Management",
-      description: "We'll handle your social presence so you can focus on what you do best.",
-      features: ["Content creation", "Community engagement", "Growth strategies"],
+      icon: <Code className="h-6 w-6" />,
+      title: "Website Development",
+      description: "Professional coding that brings your design to life with clean, efficient functionality.",
+      features: ["Fast-loading pages", "SEO-friendly structure", "Secure, reliable code"],
       color: "indigo",
       image: "/services/digital-marketing.jpg"
     },
     {
       icon: <Cpu className="h-6 w-6" />,
-      title: "Digital Marketing",
-      description: "Practical marketing approaches that bring real people to your business.",
-      features: ["SEO that actually works", "Targeted ads", "Results you can see"],
+      title: "Website Maintenance",
+      description: "Keep your site running smoothly with regular updates, backups, and technical support.",
+      features: ["Regular security updates", "Performance optimization", "Technical troubleshooting"],
       color: "purple",
       image: "/services/enterprise-solutions.jpg"
     }
@@ -749,13 +749,13 @@ const ServicesSection = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 shadow-sm">
-            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">What We Do</span>
+            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Our Website Services</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            Helping You <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Stand Out Online</span>
+            Building <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Beautiful Websites</span>
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            We create stunning websites and manage your online presence so you can focus on running your business.
+            We create stunning, functional websites that help your business stand out and convert visitors into customers.
           </p>
         </motion.div>
         
@@ -864,29 +864,35 @@ const ServicesSection = () => {
   );
 }
 
-const AboutSection = () => {
-  const teamMembers = [
+const ProcessSection = () => {
+  const steps = [
     {
-      name: "Lucas Zhao",
-      position: "Chief Technology Officer",
-      bio: "With over 15 years of experience in enterprise software development and digital transformation, Lucas leads our technical strategy and innovation initiatives.",
-      skills: ["Enterprise Architecture", "Cloud Solutions", "Digital Innovation"],
-      image: "/LOGO.png",
-      socialLinks: [
-        { platform: "LinkedIn", url: "#" },
-        { platform: "Twitter", url: "#" }
-      ]
+      number: "01",
+      title: "Discovery",
+      description: "We start by understanding your business, goals, target audience, and website requirements through in-depth consultation.",
+      icon: <Users className="h-6 w-6" />,
+      color: "blue"
     },
     {
-      name: "Harrison Wang",
-      position: "Chief Marketing Officer",
-      bio: "A digital marketing pioneer with 12+ years of experience, Harrison drives our strategic marketing initiatives and client success programs.",
-      skills: ["Growth Marketing", "Brand Strategy", "Data Analytics"],
-      image: "/LOGO.png",
-      socialLinks: [
-        { platform: "LinkedIn", url: "#" },
-        { platform: "Twitter", url: "#" }
-      ]
+      number: "02",
+      title: "Design",
+      description: "Our designers create mockups of your website's layout, color scheme, and overall look and feel for your approval.",
+      icon: <PenTool className="h-6 w-6" />,
+      color: "indigo"
+    },
+    {
+      number: "03",
+      title: "Development",
+      description: "Our developers build your website with clean code, ensuring it's responsive, fast-loading, and SEO-friendly.",
+      icon: <Code className="h-6 w-6" />,
+      color: "purple"
+    },
+    {
+      number: "04",
+      title: "Launch",
+      description: "After thorough testing, we deploy your website and provide training on how to maintain and update it.",
+      icon: <Zap className="h-6 w-6" />,
+      color: "green"
     }
   ];
   
@@ -910,116 +916,195 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 shadow-sm">
-            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Our Leadership</span>
+            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Our Approach</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            Meet Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Executive Team</span>
+            How We <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Create Your Website</span>
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Industry veterans with decades of combined experience in digital transformation and business growth.
+            Our streamlined process ensures we deliver high-quality websites efficiently and with attention to detail.
           </p>
         </motion.div>
         
-        <div className="grid gap-12 lg:grid-cols-2 max-w-6xl mx-auto justify-center">
-          {teamMembers.map((member, index) => (
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+          {steps.map((step, index) => (
             <motion.div 
               key={index}
-              className="group relative"
+              className="relative"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className="relative rounded-2xl bg-white shadow-xl overflow-hidden border border-slate-100 transition-all duration-500 group-hover:shadow-2xl">
-                {/* Card top shine effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/0 to-blue-100/10 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10 h-full rounded-2xl bg-white p-8 shadow-xl transition-all duration-300 hover:shadow-2xl group-hover:-translate-y-2 overflow-hidden border border-slate-100">
+                {/* Step number */}
+                <div className={`absolute -top-5 -right-5 h-20 w-20 rounded-full opacity-10 ${
+                  step.color === 'blue' ? 'bg-blue-400' :
+                  step.color === 'indigo' ? 'bg-indigo-400' :
+                  step.color === 'purple' ? 'bg-purple-400' :
+                  'bg-green-400'
+                }`} />
                 
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-contain p-4"
-                  />
-                  
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-slate-900/0" />
-                  
-                  {/* Content on image */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-                    <h3 className="text-2xl font-bold text-white mb-1">{member.name}</h3>
-                    <p className="text-blue-200 font-medium">{member.position}</p>
-                  </div>
-                  
-                  {/* Social links */}
-                  <div className="absolute top-4 right-4 flex space-x-2">
-                    {member.socialLinks.map((link, i) => (
-                      <a 
-                        key={i}
-                        href={link.url}
-                        className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors duration-300"
-                        aria-label={`${member.name}'s ${link.platform}`}
-                      >
-                        {link.platform === "LinkedIn" ? (
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                          </svg>
-                        ) : (
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                          </svg>
-                        )}
-                      </a>
-                    ))}
-                  </div>
+                <div className={`
+                  flex h-14 w-14 items-center justify-center rounded-xl mb-6
+                  ${step.color === 'blue' ? 'bg-blue-50 text-blue-600' :
+                    step.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
+                    step.color === 'purple' ? 'bg-purple-50 text-purple-600' :
+                    'bg-green-50 text-green-600'}
+                `}>
+                  {step.icon}
                 </div>
                 
-                <div className="p-6">
-                  {/* Bio */}
-                  <p className="text-slate-700 mb-6">{member.bio}</p>
-                  
-                  {/* Skills */}
-                  <div className="flex flex-wrap gap-2">
-                    {member.skills.map((skill, i) => (
-                      <span key={i} className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  {/* CTA */}
-                  <div className="mt-6 pt-6 border-t border-slate-100">
-                    <Link href={`/about/${member.name.toLowerCase().replace(/\s+/g, '-')}`}>
-                      <button className="group inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">
-                        View Full Profile 
-                        <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                      </button>
-                    </Link>
-                  </div>
+                <div className="absolute top-6 right-8 text-4xl font-bold opacity-10">
+                  {step.number}
                 </div>
+                
+                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                <p className="text-slate-600">{step.description}</p>
               </div>
               
-              {/* Card glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 -z-10" />
+              {/* Connection line for desktop */}
+              {index < steps.length - 1 && (
+                <div className="hidden lg:block absolute top-1/2 -right-6 w-12 h-0.5 bg-slate-200">
+                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 rounded-full bg-slate-300" />
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
         
-        <motion.div 
-          className="mt-16 text-center w-full"
+        <motion.div
+          className="mt-16 mx-auto max-w-3xl p-8 bg-white rounded-2xl shadow-xl border border-slate-100"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          <Link href="/about">
-            <Button
-              variant="outline"
-              className="border-slate-300 hover:bg-slate-100 transition-all duration-300 rounded-full px-8"
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <div className="md:w-1/4 flex justify-center">
+              <div className="h-24 w-24 rounded-full bg-blue-50 flex items-center justify-center">
+                <Shield className="h-12 w-12 text-blue-600" />
+              </div>
+            </div>
+            <div className="md:w-3/4">
+              <h3 className="text-xl font-bold mb-2 text-center md:text-left">Our Commitment to Quality</h3>
+              <p className="text-slate-600">
+                Every website we create undergoes rigorous quality testing to ensure excellent performance, 
+                security, and user experience. We don't just build websites—we craft digital experiences 
+                that represent your brand and drive business results.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const PortfolioSection = () => {
+  const projects = [
+    {
+      title: "Modern E-Commerce Store",
+      category: "E-Commerce",
+      image: "/services/web-development.jpg",
+      description: "A high-converting online store with seamless checkout and product management."
+    },
+    {
+      title: "Professional Services Website",
+      category: "Business",
+      image: "/services/digital-marketing.jpg",
+      description: "Clean, professional website designed to build trust and generate leads."
+    },
+    {
+      title: "Restaurant & Cafe Website",
+      category: "Hospitality",
+      image: "/services/enterprise-solutions.jpg",
+      description: "Beautiful website with online ordering and reservation functionality."
+    },
+    {
+      title: "Portfolio Website",
+      category: "Creative",
+      image: "/services/web-development.jpg",
+      description: "Stunning showcase of work with attention-grabbing design elements."
+    }
+  ];
+
+  return (
+    <section className="relative w-full py-24 md:py-32 overflow-hidden bg-white flex items-center justify-center">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-30 transform rotate-12" />
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-50 rounded-full blur-3xl opacity-30 transform rotate-12" />
+      </div>
+      
+      <div className={containerClass}>
+        <motion.div 
+          className="mx-auto max-w-3xl text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 shadow-sm">
+            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Our Work</span>
+          </div>
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl/tight mb-4">
+            Featured <span className="text-blue-600">Website Projects</span>
+          </h2>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Browse through some of our recent website projects to see the quality and diversity of our work.
+          </p>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
             >
-              <span className="flex items-center">
-                Meet Our Entire Team
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/40 transition-all duration-300 z-10" />
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transform scale-100 group-hover:scale-110 transition-all duration-700"
+                />
+                
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+                  <span className="inline-block px-3 py-1 bg-white/90 rounded-full text-xs font-medium text-slate-800 mb-2">
+                    {project.category}
+                  </span>
+                  <h3 className="text-xl font-bold text-white mb-1 drop-shadow-md">{project.title}</h3>
+                  <p className="text-white/90 text-sm drop-shadow-md">{project.description}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        
+        <motion.div 
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
+          <Link href="/portfolio">
+            <Button
+              size="lg"
+              className="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-8"
+            >
+              <span className="relative z-10 flex items-center">
+                View All Projects
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+              <span className="absolute inset-0 overflow-hidden rounded-full">
+                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></span>
               </span>
             </Button>
           </Link>
@@ -1075,15 +1160,15 @@ const CTASection = () => {
                 transition={{ duration: 0.5 }}
               >
                 <div className="inline-flex items-center justify-center px-4 py-1.5 mb-6 rounded-full bg-white/10 backdrop-blur-sm">
-                  <span className="text-sm font-medium text-white/90">Ready to Transform Your Business?</span>
+                  <span className="text-sm font-medium text-white/90">Ready For A New Website?</span>
                 </div>
                 
                 <h2 className="text-3xl md:text-5xl font-bold mb-6 pb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
-                  Let's Build Your Digital Future Together
+                  Let's Build Your Perfect Website Together
                 </h2>
                 
                 <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-8">
-                  Schedule a free consultation with our experts and discover how we can help you achieve your business goals.
+                  Schedule a free consultation with our web design experts and discover how we can create a website that perfectly represents your brand.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -1120,7 +1205,7 @@ const CTASection = () => {
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="h-4 w-4 mr-1 text-blue-400" />
-                    <span>Expert advice</span>
+                    <span>Free quote & timeline</span>
                   </div>
                 </div>
               </motion.div>
@@ -1146,7 +1231,8 @@ export default function Home() {
       <HeroSection />
       <StatsSection />
       <ServicesSection />
-      <AboutSection />
+      <ProcessSection />
+      <PortfolioSection />
       <CTASection />
     </div>
   );
