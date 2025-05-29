@@ -39,7 +39,7 @@ export function Footer() {
           viewport={{ once: true, amount: 0.1 }}
         >
           <motion.div className="space-y-4 md:space-y-6" variants={fadeIn}>
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-2 md:gap-3 lg:gap-4">
               <div className="relative h-12 w-12 md:h-16 md:w-16 lg:h-20 lg:w-20 overflow-hidden">
                 <Image
                   src={`/LOGO.png?v=${cacheBuster}`}
@@ -49,7 +49,7 @@ export function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-lg md:text-xl lg:text-2xl font-bold">Launchify Digital</span>
+              <span className="text-lg md:text-xl lg:text-2xl font-bold tracking-tight bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent transition-all duration-300">Launchify Digital</span>
             </Link>
             <p className="text-sm md:text-base lg:text-lg text-slate-700">
               Empowering small businesses to thrive in the digital world through accessible, high-quality digital

@@ -34,7 +34,7 @@ export function Header() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex h-16 md:h-20 lg:h-24 items-center justify-between max-w-[2000px]">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.2 }}>
-          <Link href="/" className="flex items-center gap-1">
+          <Link href="/" className="flex items-center gap-2 md:gap-3 lg:gap-4">
             <div className="relative h-12 w-12 md:h-16 md:w-16 lg:h-20 lg:w-20 overflow-hidden">
               <Image
                 src={`/LOGO.png?v=${cacheBuster}`}
@@ -44,7 +44,7 @@ export function Header() {
                 className="object-contain"
               />
             </div>
-            <span className="text-lg md:text-xl lg:text-2xl font-bold">Launchify Digital</span>
+            <span className="text-lg md:text-xl lg:text-2xl font-bold tracking-tight bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent transition-all duration-300">Launchify Digital</span>
           </Link>
         </motion.div>
 
