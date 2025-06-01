@@ -1,23 +1,25 @@
-# robots.txt for Launchify Digital - Digital Marketing and Web Development Experts
+# Launchify Digital - San Francisco's Premier Digital Marketing & Web Development Agency
 User-agent: *
 Allow: /
 
-# Priority pages - ensure these are crawled often
+# Brand Identity Pages - High Priority
 Allow: /
-Allow: /services
 Allow: /about
 Allow: /contact
-Allow: /blog
+Allow: /services
 Allow: /portfolio
+Allow: /testimonials
+
+# Content Pages - Regular Priority
+Allow: /blog
 Allow: /resources
 Allow: /case-studies
-Allow: /testimonials
 Allow: /faq
 
-# Use a moderate crawl delay to ensure all content is properly indexed
-Crawl-delay: 0.5
+# Minimal crawl delay to ensure full indexing
+Crawl-delay: 0.1
 
-# Sitemap location - updated regularly
+# Primary sitemap
 Sitemap: https://launchifydigital.org/sitemap.xml
 
 # Disallow admin and private areas

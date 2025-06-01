@@ -1,0 +1,100 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://launchifydigital.org/#organization",
+      "name": "Launchify Digital",
+      "url": "https://launchifydigital.org/",
+      "sameAs": [
+        "https://twitter.com/launchifydigital",
+        "https://www.facebook.com/launchifydigital",
+        "https://www.linkedin.com/company/launchify-digital",
+        "https://www.instagram.com/launchifydigital"
+      ],
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://launchifydigital.org/#logo",
+        "url": "https://launchifydigital.org/LOGO.png",
+        "width": 512,
+        "height": 512,
+        "caption": "Launchify Digital"
+      },
+      "image": {
+        "@id": "https://launchifydigital.org/#logo"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Lucas Zhao",
+        "jobTitle": "Technical Director",
+        "sameAs": [
+          "https://twitter.com/lucaszhao",
+          "https://linkedin.com/in/lucaszhao"
+        ]
+      },
+      "description": "Launchify Digital is a premier digital agency specializing in web development, digital marketing, and social media management for small businesses.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "telephone": "+14155555555"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://launchifydigital.org/#website",
+      "url": "https://launchifydigital.org/",
+      "name": "Launchify Digital",
+      "publisher": {
+        "@id": "https://launchifydigital.org/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://launchifydigital.org/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://launchifydigital.org/#webpage",
+      "url": "https://launchifydigital.org/",
+      "name": "Launchify Digital | Web Development & Digital Marketing",
+      "isPartOf": {
+        "@id": "https://launchifydigital.org/#website"
+      },
+      "about": {
+        "@id": "https://launchifydigital.org/#organization"
+      },
+      "description": "Launchify Digital provides professional web development, digital marketing, and social media management services for small businesses looking to grow their online presence.",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Service",
+      "name": "Web Development",
+      "serviceType": "Web Development",
+      "provider": {
+        "@id": "https://launchifydigital.org/#organization"
+      },
+      "description": "Launchify Digital creates beautiful, responsive, and high-performing websites for small businesses."
+    },
+    {
+      "@type": "Service",
+      "name": "Digital Marketing",
+      "serviceType": "Digital Marketing",
+      "provider": {
+        "@id": "https://launchifydigital.org/#organization"
+      },
+      "description": "Launchify Digital provides comprehensive digital marketing services to help small businesses reach their target audience."
+    },
+    {
+      "@type": "Service",
+      "name": "Social Media Management",
+      "serviceType": "Social Media Management",
+      "provider": {
+        "@id": "https://launchifydigital.org/#organization"
+      },
+      "description": "Launchify Digital manages social media accounts to build brand presence and engage with customers."
+    }
+  ]
+} 

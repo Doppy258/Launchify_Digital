@@ -13,13 +13,13 @@ const inter = Inter({ subsets: ["latin"] })
 const cacheBuster = Date.now();
 
 export const metadata = {
-  title: "Launchify Digital | Web Development & Digital Marketing for Small Businesses",
+  title: "Launchify Digital | Professional Web Development & Digital Marketing",
   description:
-    "Launchify Digital is the premier digital agency helping small businesses expand their online presence through professional website development, social media management, and targeted digital marketing strategies.",
+    "Launchify Digital specializes in creating stunning websites and effective digital marketing strategies for small businesses. Based in San Francisco, our team helps businesses grow online.",
   generator: 'Next.js',
   applicationName: 'Launchify Digital',
   referrer: 'origin-when-cross-origin',
-  keywords: ['Launchify Digital', 'digital marketing agency', 'small business websites', 'web development', 'social media management', 'SEO services', 'web design', 'San Francisco digital agency', 'affordable digital marketing'],
+  keywords: ['Launchify Digital', 'Launchify', 'Digital Marketing', 'Web Development', 'small business websites', 'social media management', 'SEO services', 'San Francisco digital agency', 'affordable web design'],
   authors: [{ name: 'Launchify Digital Team', url: 'https://launchifydigital.org/about' }],
   colorScheme: 'light',
   creator: 'Launchify Digital',
@@ -41,12 +41,13 @@ export const metadata = {
     'author': 'Launchify Digital Team',
     'robots': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
     'google': 'notranslate',
-    'googlebot': 'index, follow',
+    'googlebot': 'index, follow, noimageindex',
+    'google-site-verification': 'YOUR_VERIFICATION_CODE',
     'humans': '/humans.txt',
   },
   openGraph: {
-    title: 'Launchify Digital | Web Development & Digital Marketing for Small Businesses',
-    description: 'Launchify Digital is the premier digital agency helping small businesses expand their online presence through professional website development, social media management, and targeted digital marketing strategies.',
+    title: 'Launchify Digital | Professional Web Development & Digital Marketing',
+    description: 'Launchify Digital specializes in creating stunning websites and effective digital marketing strategies for small businesses. Based in San Francisco, our team helps businesses grow online.',
     url: 'https://launchifydigital.org',
     siteName: 'Launchify Digital',
     images: [
@@ -62,8 +63,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Launchify Digital | Web Development & Digital Marketing for Small Businesses',
-    description: 'Launchify Digital is the premier digital agency helping small businesses expand their online presence through professional website development, social media management, and targeted digital marketing strategies.',
+    title: 'Launchify Digital | Professional Web Development & Digital Marketing',
+    description: 'Launchify Digital specializes in creating stunning websites and effective digital marketing strategies for small businesses. Based in San Francisco, our team helps businesses grow online.',
     images: [`/LOGO.png?v=${cacheBuster}`],
     creator: '@launchifydigital',
     site: '@launchifydigital',
@@ -108,6 +109,8 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#4f46e5" />
         <link rel="manifest" href="/manifest.json" />
         <link type="text/plain" rel="author" href="/humans.txt" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(require('../public/schema.json')) }} />
+        <script src="/brand-highlight.js" defer></script>
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
