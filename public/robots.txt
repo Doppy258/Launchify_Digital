@@ -1,16 +1,31 @@
-# robots.txt for Launchify Digital
+# robots.txt for Launchify Digital - Digital Marketing and Web Development Experts
 User-agent: *
 Allow: /
 
-# Allow access to all pages
+# Priority pages - ensure these are crawled often
+Allow: /
 Allow: /services
 Allow: /about
 Allow: /contact
+Allow: /blog
+Allow: /portfolio
+Allow: /resources
+Allow: /case-studies
+Allow: /testimonials
+Allow: /faq
 
-# Specify the sitemap location (you should create this later if needed)
+# Use a moderate crawl delay to ensure all content is properly indexed
+Crawl-delay: 0.5
+
+# Sitemap location - updated regularly
 Sitemap: https://launchifydigital.org/sitemap.xml
 
-# Disallow any admin or private areas if they exist
+# Disallow admin and private areas
 Disallow: /admin/
 Disallow: /private/
-Disallow: /api/ 
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /auth/
+Disallow: /_next/
+Disallow: /*?query=*
+Disallow: /*.json$ 

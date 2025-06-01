@@ -2,11 +2,13 @@
 Technical Director: Lucas Zhao
 Contact: lucas@launchifydigital.org
 Twitter: @lucaszhao
+LinkedIn: https://linkedin.com/in/lucaszhao
 Location: San Francisco, CA, USA
 
 Marketing Director: Harrison Wang
 Contact: harrison@launchifydigital.org
 Twitter: @harrisonwang
+LinkedIn: https://linkedin.com/in/harrisonwang
 Location: San Francisco, CA, USA
 
 /* SITE */
@@ -14,4 +16,12 @@ Last update: 2024-05-17
 Standards: HTML5, CSS3, JavaScript
 Components: Next.js, React, Tailwind CSS
 Software: Visual Studio Code, Adobe Creative Suite
-Language: English 
+Language: English
+
+/* COMPANY */
+Name: Launchify Digital
+Website: https://launchifydigital.org
+Services: Web Development, Digital Marketing, SEO, Social Media Management
+Founded: 2022
+Mission: Empowering small businesses with affordable digital solutions
+Location: San Francisco, CA, USA 

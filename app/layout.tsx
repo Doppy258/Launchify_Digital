@@ -13,14 +13,14 @@ const inter = Inter({ subsets: ["latin"] })
 const cacheBuster = Date.now();
 
 export const metadata = {
-  title: "Launchify Digital - Empowering Small Businesses Online",
+  title: "Launchify Digital | Web Development & Digital Marketing for Small Businesses",
   description:
-    "Launchify Digital helps small businesses expand their presence in the digital world through website building, social media management, and digital marketing.",
+    "Launchify Digital is the premier digital agency helping small businesses expand their online presence through professional website development, social media management, and targeted digital marketing strategies.",
   generator: 'Next.js',
   applicationName: 'Launchify Digital',
   referrer: 'origin-when-cross-origin',
-  keywords: ['digital marketing', 'website development', 'small business', 'social media management', 'SEO', 'web design'],
-  authors: [{ name: 'Launchify Digital Team' }],
+  keywords: ['Launchify Digital', 'digital marketing agency', 'small business websites', 'web development', 'social media management', 'SEO services', 'web design', 'San Francisco digital agency', 'affordable digital marketing'],
+  authors: [{ name: 'Launchify Digital Team', url: 'https://launchifydigital.org/about' }],
   colorScheme: 'light',
   creator: 'Launchify Digital',
   publisher: 'Launchify Digital',
@@ -32,18 +32,21 @@ export const metadata = {
   metadataBase: new URL('https://launchifydigital.org'),
   alternates: {
     canonical: '/',
+    languages: {
+      'en-US': 'https://launchifydigital.org',
+    },
   },
   manifest: '/manifest.json',
   other: {
     'author': 'Launchify Digital Team',
-    'robots': 'index, follow',
+    'robots': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
     'google': 'notranslate',
     'googlebot': 'index, follow',
     'humans': '/humans.txt',
   },
   openGraph: {
-    title: 'Launchify Digital - Empowering Small Businesses Online',
-    description: 'Launchify Digital helps small businesses expand their presence in the digital world through website building, social media management, and digital marketing.',
+    title: 'Launchify Digital | Web Development & Digital Marketing for Small Businesses',
+    description: 'Launchify Digital is the premier digital agency helping small businesses expand their online presence through professional website development, social media management, and targeted digital marketing strategies.',
     url: 'https://launchifydigital.org',
     siteName: 'Launchify Digital',
     images: [
@@ -59,10 +62,11 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Launchify Digital - Empowering Small Businesses Online',
-    description: 'Launchify Digital helps small businesses expand their presence in the digital world through website building, social media management, and digital marketing.',
+    title: 'Launchify Digital | Web Development & Digital Marketing for Small Businesses',
+    description: 'Launchify Digital is the premier digital agency helping small businesses expand their online presence through professional website development, social media management, and targeted digital marketing strategies.',
     images: [`/LOGO.png?v=${cacheBuster}`],
     creator: '@launchifydigital',
+    site: '@launchifydigital',
   },
   icons: {
     icon: [
