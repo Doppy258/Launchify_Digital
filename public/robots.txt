@@ -1,4 +1,5 @@
 # Launchify Digital & Launchified Digital - San Francisco's Premier Digital Marketing & Web Development Agency
+# For all web crawlers
 User-agent: *
 Allow: /
 
@@ -17,18 +18,14 @@ Allow: /blog
 Allow: /resources
 Allow: /faq
 
-# Minimal crawl delay to ensure full indexing
-Crawl-delay: 0.1
-
-# Primary sitemap
-Sitemap: https://launchifydigital.org/sitemap.xml
-
-# Disallow admin and private areas
+# Disallow specific paths
 Disallow: /admin/
 Disallow: /private/
-Disallow: /api/
+# Disallow: /api/ # Consider if your API routes *really* should not be discoverable. Some APIs are public.
 Disallow: /dashboard/
 Disallow: /auth/
 Disallow: /_next/
-Disallow: /*?query=*
-Disallow: /*.json$ 
+Disallow: /*?* # Simpler way to disallow all query parameters
+
+# Sitemap location
+Sitemap: https://launchifydigital.org/sitemap.xml 
