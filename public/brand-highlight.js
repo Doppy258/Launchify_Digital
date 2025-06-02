@@ -1,6 +1,6 @@
-// This script helps search engines recognize the importance of the "Launchify Digital" term
+// This script helps search engines recognize the importance of our brand names
 document.addEventListener('DOMContentLoaded', function() {
-  // Find all instances of "Launchify Digital" in text nodes and enhance them
+  // Find all instances of brand names in text nodes and enhance them
   const textNodes = [];
   const walker = document.createTreeWalker(
     document.body,
@@ -16,18 +16,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Brand names to highlight
+  const brandNames = ['Launchify Digital', 'Launchified Digital', 'Launchify', 'Launchified'];
+  
+  // Create a regex pattern for all brand names
+  const brandPattern = new RegExp('(' + brandNames.map(name => name.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|') + ')', 'g');
+
   // Process text nodes to highlight brand mentions
   textNodes.forEach(textNode => {
     const content = textNode.nodeValue;
-    if(content.indexOf('Launchify Digital') > -1) {
+    if(brandNames.some(brand => content.includes(brand))) {
       // Only process if not already inside a highlighted element
       if(!textNode.parentNode.classList.contains('brand-highlight')) {
-        const parts = content.split(/(Launchify Digital)/g);
+        const parts = content.split(brandPattern);
         if(parts.length > 1) {
           const fragment = document.createDocumentFragment();
           
           parts.forEach(part => {
-            if(part === 'Launchify Digital') {
+            if(brandNames.includes(part)) {
               const span = document.createElement('span');
               span.textContent = part;
               span.className = 'brand-highlight';

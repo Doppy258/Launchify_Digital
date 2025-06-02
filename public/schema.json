@@ -5,6 +5,7 @@
       "@type": "Organization",
       "@id": "https://launchifydigital.org/#organization",
       "name": "Launchify Digital",
+      "alternateName": ["Launchified Digital", "Launchify", "Launchified"],
       "url": "https://launchifydigital.org/",
       "sameAs": [
         "https://twitter.com/launchifydigital",
@@ -32,7 +33,9 @@
           "https://linkedin.com/in/lucaszhao"
         ]
       },
-      "description": "Launchify Digital is a premier digital agency specializing in web development, digital marketing, and social media management for small businesses.",
+      "description": "Launchify Digital (also known as Launchified Digital) is a premier digital agency specializing in web development, digital marketing, and social media management for small businesses in San Francisco.",
+      "slogan": "Transform Your Online Presence with Launchify Digital",
+      "knowsAbout": ["Web Development", "Digital Marketing", "SEO", "Social Media Management", "Website Design"],
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "San Francisco",
@@ -46,6 +49,7 @@
       "@id": "https://launchifydigital.org/#website",
       "url": "https://launchifydigital.org/",
       "name": "Launchify Digital",
+      "alternateName": ["Launchified Digital", "Launchify", "Launchified"],
       "publisher": {
         "@id": "https://launchifydigital.org/#organization"
       },
@@ -66,7 +70,8 @@
       "about": {
         "@id": "https://launchifydigital.org/#organization"
       },
-      "description": "Launchify Digital provides professional web development, digital marketing, and social media management services for small businesses looking to grow their online presence.",
+      "description": "Launchify Digital (also known as Launchified Digital) provides professional web development, digital marketing, and social media management services for small businesses looking to grow their online presence.",
+      "keywords": "Launchify Digital, Launchified Digital, web development, digital marketing, SEO, San Francisco digital agency",
       "inLanguage": "en-US"
     },
     {
@@ -95,6 +100,17 @@
         "@id": "https://launchifydigital.org/#organization"
       },
       "description": "Launchify Digital manages social media accounts to build brand presence and engage with customers."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://launchifydigital.org/"
+        }
+      ]
     }
   ]
 } 

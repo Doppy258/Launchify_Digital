@@ -15,11 +15,11 @@ const cacheBuster = Date.now();
 export const metadata = {
   title: "Launchify Digital | Professional Web Development & Digital Marketing",
   description:
-    "Launchify Digital specializes in creating stunning websites and effective digital marketing strategies for small businesses. Based in San Francisco, our team helps businesses grow online.",
+    "Launchify Digital (also known as Launchified Digital) specializes in creating stunning websites and effective digital marketing strategies for small businesses. Based in San Francisco, our team helps businesses grow online.",
   generator: 'Next.js',
   applicationName: 'Launchify Digital',
   referrer: 'origin-when-cross-origin',
-  keywords: ['Launchify Digital', 'Launchify', 'Digital Marketing', 'Web Development', 'small business websites', 'social media management', 'SEO services', 'San Francisco digital agency', 'affordable web design'],
+  keywords: ['Launchify Digital', 'Launchified Digital', 'Launchify', 'Launchified', 'Digital Marketing', 'Web Development', 'small business websites', 'social media management', 'San Francisco digital agency', 'affordable web design', 'Launchify Digital Agency', 'Launchified web design', 'Launchify web development', 'Launchify SEO', 'Digital marketing San Francisco'],
   authors: [{ name: 'Launchify Digital Team', url: 'https://launchifydigital.org/about' }],
   colorScheme: 'light',
   creator: 'Launchify Digital',
@@ -47,7 +47,7 @@ export const metadata = {
   },
   openGraph: {
     title: 'Launchify Digital | Professional Web Development & Digital Marketing',
-    description: 'Launchify Digital specializes in creating stunning websites and effective digital marketing strategies for small businesses. Based in San Francisco, our team helps businesses grow online.',
+    description: 'Launchify Digital (also known as Launchified Digital) specializes in creating stunning websites and effective digital marketing strategies for small businesses. Based in San Francisco, our team helps businesses grow online.',
     url: 'https://launchifydigital.org',
     siteName: 'Launchify Digital',
     images: [
@@ -64,7 +64,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Launchify Digital | Professional Web Development & Digital Marketing',
-    description: 'Launchify Digital specializes in creating stunning websites and effective digital marketing strategies for small businesses. Based in San Francisco, our team helps businesses grow online.',
+    description: 'Launchify Digital (also known as Launchified Digital) specializes in creating stunning websites and effective digital marketing strategies for small businesses. Based in San Francisco, our team helps businesses grow online.',
     images: [`/LOGO.png?v=${cacheBuster}`],
     creator: '@launchifydigital',
     site: '@launchifydigital',

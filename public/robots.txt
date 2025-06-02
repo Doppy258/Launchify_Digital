@@ -1,4 +1,4 @@
-# Launchify Digital - San Francisco's Premier Digital Marketing & Web Development Agency
+# Launchify Digital & Launchified Digital - San Francisco's Premier Digital Marketing & Web Development Agency
 User-agent: *
 Allow: /
 
@@ -9,11 +9,12 @@ Allow: /contact
 Allow: /services
 Allow: /portfolio
 Allow: /testimonials
+Allow: /request-help
+Allow: /case-studies
 
 # Content Pages - Regular Priority
 Allow: /blog
 Allow: /resources
-Allow: /case-studies
 Allow: /faq
 
 # Minimal crawl delay to ensure full indexing

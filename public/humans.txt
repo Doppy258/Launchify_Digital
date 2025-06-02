@@ -12,7 +12,7 @@ LinkedIn: https://linkedin.com/in/harrisonwang
 Location: San Francisco, CA, USA
 
 /* SITE */
-Last update: 2024-05-17
+Last update: 2025-05-17
 Standards: HTML5, CSS3, JavaScript
 Components: Next.js, React, Tailwind CSS
 Software: Visual Studio Code, Adobe Creative Suite
@@ -20,8 +20,13 @@ Language: English
 
 /* COMPANY */
 Name: Launchify Digital
+Also Known As: Launchified Digital
 Website: https://launchifydigital.org
 Services: Web Development, Digital Marketing, SEO, Social Media Management
 Founded: 2022
 Mission: Empowering small businesses with affordable digital solutions
-Location: San Francisco, CA, USA 
+Location: San Francisco, CA, USA
+Tagline: Transform Your Online Presence
+
+/* SEARCH TERMS */
+Keywords: Launchify Digital, Launchified Digital, Web Development, Digital Marketing, SEO, San Francisco 
