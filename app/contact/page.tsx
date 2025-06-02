@@ -14,7 +14,7 @@ import { useState } from 'react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/components/ui/use-toast';
 import { jsonLdScriptProps } from "@/lib/seo"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import Link from "next/link"
 
 const contactFormSchema = z.object({
@@ -47,7 +47,7 @@ export default function Contact() {
         addressCountry: "CA"
       },
       telephone: "+16478956675",
-      email: "lucaszhao09@gmail.com",
+      email: "lzhaolaunchifydigital@gmail.com,hwanglaunchifydigital@gmail.com",
       openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -207,11 +207,11 @@ export default function Contact() {
                     If you prefer, you can email us directly at:
                   </CardDescription>
                   <div className="mt-4 space-y-2">
-                    <a href="mailto:lucaszhao09@gmail.com" className="block text-white hover:text-blue-300 transition-colors">
-                      lucaszhao09@gmail.com
+                    <a href="mailto:lzhaolaunchifydigital@gmail.com" className="block text-white hover:text-blue-300 transition-colors">
+                      lzhaolaunchifydigital@gmail.com
                     </a>
-                    <a href="mailto:wangharrison2009@gmail.com" className="block text-white hover:text-blue-300 transition-colors">
-                      wangharrison2009@gmail.com
+                    <a href="mailto:hwanglaunchifydigital@gmail.com" className="block text-white hover:text-blue-300 transition-colors">
+                      hwanglaunchifydigital@gmail.com
                     </a>
                   </div>
                 </CardContent>

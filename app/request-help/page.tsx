@@ -12,7 +12,7 @@ import * as z from "zod"
 import { useState } from 'react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/components/ui/use-toast';
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { Check, Sparkles, Clock, PenTool, Code, Rocket } from "lucide-react"
 import Link from "next/link"
 
@@ -23,9 +23,9 @@ const requestHelpFormSchema = z.object({
   phone: z.string().optional(),
   company: z.string().optional(),
   website: z.string().optional(),
-  projectType: z.string().min(1, { message: "Please select a project type" }),
-  projectDescription: z.string().min(1, { message: "Please describe your project" }),
-  goals: z.string().min(1, { message: "Please describe your goals" }),
+  helpType: z.string().min(1, { message: "Please select a project type" }),
+  about: z.string().min(1, { message: "Please describe your project" }),
+  needs: z.string().min(1, { message: "Please describe your goals" }),
   timeline: z.string().min(1, { message: "Please select your timeline" }),
   budget: z.string().min(1, { message: "Please select your budget range" }),
   hearAbout: z.string().optional(),
@@ -66,9 +66,9 @@ export default function RequestHelp() {
       phone: '',
       company: '',
       website: '',
-      projectType: '',
-      projectDescription: '',
-      goals: '',
+      helpType: '',
+      about: '',
+      needs: '',
       timeline: '',
       budget: '',
       hearAbout: '',
@@ -308,7 +308,7 @@ export default function RequestHelp() {
 
                         <FormField
                           control={form.control}
-                          name="projectType"
+                          name="helpType"
                           render={({ field }) => (
                             <FormItem className="space-y-2">
                               <FormLabel className="font-medium">What type of website do you need?</FormLabel>
@@ -335,7 +335,7 @@ export default function RequestHelp() {
 
                         <FormField
                           control={form.control}
-                          name="projectDescription"
+                          name="about"
                           render={({ field }) => (
                             <FormItem className="space-y-2">
                               <FormLabel className="font-medium">Describe your project</FormLabel>
@@ -353,7 +353,7 @@ export default function RequestHelp() {
 
                         <FormField
                           control={form.control}
-                          name="goals"
+                          name="needs"
                           render={({ field }) => (
                             <FormItem className="space-y-2">
                               <FormLabel className="font-medium">What are your goals for this website?</FormLabel>

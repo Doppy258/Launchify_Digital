@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { useState, useEffect } from "react"
 
 // Add a timestamp for cache busting
@@ -74,7 +74,7 @@ export function Header() {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <Link href="/request-help">
-            <Button className="bg-slate-900 hover:bg-slate-800 transition-all duration-300 text-sm md:text-base lg:text-lg px-4 md:px-6 lg:px-8 py-2 md:py-3">Request Help</Button>
+            <Button className="bg-slate-900 hover:bg-slate-800 transition-all duration-300 text-sm md:text-base lg:text-lg px-4 md:px-6 lg:px-8 py-2 md:py-3">Start Your Project</Button>
           </Link>
         </motion.div>
 
@@ -100,7 +100,7 @@ export function Header() {
                 Contact
               </Link>
               <Link href="/request-help" className="mt-4">
-                <Button className="w-full">Request Help</Button>
+                <Button className="w-full">Start Your Project</Button>
               </Link>
             </nav>
           </SheetContent>

@@ -133,11 +133,11 @@ export function Footer() {
               <li className="flex items-start space-x-2 md:space-x-3">
                 <Mail className="h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-slate-700 mt-0.5" />
                 <div className="text-sm md:text-base lg:text-lg text-slate-700 hover:text-slate-900 transition-colors duration-200">
-                  <a href="mailto:wangharrison2009@gmail.com" className="block hover:underline">
-                    wangharrison2009@gmail.com
+                  <a href="mailto:lzhaolaunchifydigital@gmail.com" className="block hover:underline">
+                    lzhaolaunchifydigital@gmail.com
                   </a>
-                  <a href="mailto:lucaszhao09@gmail.com" className="block hover:underline">
-                    lucaszhao09@gmail.com
+                  <a href="mailto:hwanglaunchifydigital@gmail.com" className="block hover:underline">
+                    hwanglaunchifydigital@gmail.com
                   </a>
                 </div>
               </li>

@@ -5,6 +5,7 @@ export async function POST(request: Request) {
   try {
     const formData = await request.json();
     const { firstName, lastName, email, phone, company, website, helpType, about, needs, timeline, hearAbout } = formData;
+    const budget = formData.budget; // Explicitly get budget
 
     // Basic validation (you might want more robust validation)
     if (!firstName || !lastName || !email || !helpType || !about || !needs || !timeline) {
@@ -23,7 +24,7 @@ export async function POST(request: Request) {
 
     const mailOptions = {
       from: process.env.GMAIL_USER,
-      to: 'wangharrison2009@gmail.com, lucaszhao09@gmail.com',
+      to: 'lzhaolaunchifydigital@gmail.com,hwanglaunchifydigital@gmail.com',
       subject: `New Request Help Submission from ${firstName} ${lastName}`,
       text: `
 Name: ${firstName} ${lastName}
@@ -35,6 +36,7 @@ Help Type: ${helpType}
 About Company: ${about}
 Specific Needs: ${needs}
 Timeline: ${timeline}
+Budget: ${budget || 'N/A'}
 How they heard about us: ${hearAbout || 'N/A'}
       `,
     };
