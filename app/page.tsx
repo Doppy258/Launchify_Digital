@@ -716,7 +716,7 @@ const ServicesSection = () => {
       title: "Website Maintenance",
       description: "Keep your site running smoothly with regular updates, backups, and technical support.",
       features: ["Regular security updates", "Performance optimization", "Technical troubleshooting"],
-      color: "purple",
+      color: "teal",
       image: "/services/enterprise-solutions.jpg"
     }
   ];
@@ -773,7 +773,7 @@ const ServicesSection = () => {
                   className={`absolute top-0 left-0 right-0 h-1 ${
                   service.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
                   service.color === 'indigo' ? 'bg-gradient-to-r from-indigo-500 to-indigo-600' :
-                  'bg-gradient-to-r from-purple-500 to-purple-600'
+                  'bg-gradient-to-r from-teal-500 to-teal-600'
                   }`}
                   layoutId={`stripe-${index}`}
                   transition={{ duration: 0.3 }}
@@ -786,7 +786,7 @@ const ServicesSection = () => {
                     flex h-14 w-14 items-center justify-center rounded-xl mb-6
                     ${service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
                       service.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
-                      'bg-purple-50 text-purple-600'}
+                      'bg-teal-50 text-teal-600'}
                     `}
                     initial={{ scale: 0.8, rotateY: 0 }}
                     whileInView={{ scale: 1, rotateY: 360 }}
@@ -852,7 +852,7 @@ const ServicesSection = () => {
                         <CheckCircle className={`h-4 w-4 mr-2 flex-shrink-0 ${
                           service.color === 'blue' ? 'text-blue-500' :
                           service.color === 'indigo' ? 'text-indigo-500' :
-                          'text-purple-500'
+                          'text-teal-500'
                         }`} />
                         </motion.div>
                         <span>{feature}</span>
@@ -873,7 +873,7 @@ const ServicesSection = () => {
                         group inline-flex items-center text-sm font-medium transition-colors
                         ${service.color === 'blue' ? 'text-blue-600 hover:text-blue-700' :
                           service.color === 'indigo' ? 'text-indigo-600 hover:text-indigo-700' :
-                          'text-purple-600 hover:text-purple-700'}
+                          'text-teal-600 hover:text-teal-700'}
                       `}>
                         See how we do it 
                         <motion.div
@@ -894,7 +894,7 @@ const ServicesSection = () => {
                     absolute -bottom-20 -right-20 h-40 w-40 rounded-full blur-3xl transition-all duration-300
                   ${service.color === 'blue' ? 'bg-blue-400' :
                     service.color === 'indigo' ? 'bg-indigo-400' :
-                    'bg-purple-400'}
+                    'bg-teal-400'}
                   `}
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 0.2 }}
@@ -961,7 +961,7 @@ const ProcessSection = () => {
       title: "Development",
       description: "Our developers build your website with clean code, ensuring it's responsive, fast-loading, and SEO-friendly.",
       icon: <Code className="h-6 w-6" />,
-      color: "purple"
+      color: "teal"
     },
     {
       number: "04",
@@ -1030,7 +1030,7 @@ const ProcessSection = () => {
                   className={`absolute -top-5 -right-5 h-20 w-20 rounded-full opacity-10 ${
                     step.color === 'blue' ? 'bg-blue-400' :
                     step.color === 'indigo' ? 'bg-indigo-400' :
-                    step.color === 'purple' ? 'bg-purple-400' :
+                    step.color === 'teal' ? 'bg-teal-400' :
                     'bg-green-400'
                   }`}
                   initial={{ scale: 0 }}
@@ -1044,7 +1044,7 @@ const ProcessSection = () => {
                     flex h-14 w-14 items-center justify-center rounded-xl mb-6
                     ${step.color === 'blue' ? 'bg-blue-50 text-blue-600' :
                       step.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
-                      step.color === 'purple' ? 'bg-purple-50 text-purple-600' :
+                      step.color === 'teal' ? 'bg-teal-50 text-teal-600' :
                       'bg-green-50 text-green-600'}
                   `}
                   initial={{ rotate: -10, scale: 0.8 }}

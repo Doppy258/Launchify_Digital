@@ -52,8 +52,8 @@ export function Footer() {
               <span className="text-lg md:text-xl lg:text-2xl font-bold tracking-tight bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent transition-all duration-300">Launchify Digital</span>
             </Link>
             <p className="text-sm md:text-base lg:text-lg text-slate-700">
-              Empowering small businesses to thrive in the digital world through accessible, high-quality digital
-              services.
+              Empowering small businesses to thrive in the digital world through accessible, high-quality web
+              development services.
             </p>
             <div className="flex space-x-4 md:space-x-6">
               {[
@@ -95,21 +95,21 @@ export function Footer() {
           </motion.div>
 
           <motion.div className="space-y-4 md:space-y-6" variants={fadeIn}>
-            <h3 className="text-lg md:text-xl lg:text-2xl font-bold">Services</h3>
+            <h3 className="text-lg md:text-xl lg:text-2xl font-bold">Web Development</h3>
             <ul className="space-y-2 md:space-y-3">
               {[
-                "Website Development",
-                "Social Media Management",
-                "Digital Marketing",
-                "Branding & Design",
-                "Digital Strategy",
+                { name: "Custom Website Design", path: "/services/custom-website-design" },
+                { name: "Website Development", path: "/services/website-development" },
+                { name: "Website Maintenance", path: "/services/website-maintenance" },
+                { name: "Responsive Development", path: "/services" },
+                { name: "Performance Optimization", path: "/services" },
               ].map((service) => (
-                <li key={service}>
+                <li key={service.name}>
                   <Link
-                    href="/services"
+                    href={service.path}
                     className="text-sm md:text-base lg:text-lg text-slate-700 hover:text-slate-900 transition-colors duration-200 inline-block"
                   >
-                    {service}
+                    {service.name}
                   </Link>
                 </li>
               ))}
@@ -130,7 +130,6 @@ export function Footer() {
                   </a>
                 </div>
               </li>
-              <li className="text-sm md:text-base lg:text-lg text-slate-700">(647) 895-6675</li>
             </ul>
           </motion.div>
         </motion.div>
