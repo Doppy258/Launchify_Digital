@@ -43,6 +43,15 @@ How they heard about us: ${hearAbout || 'N/A'}
 
     await transporter.sendMail(mailOptions);
 
+    // Send confirmation email to the user
+    const userMailOptions = {
+      from: process.env.GMAIL_USER,
+      to: email, // User's email address
+      subject: 'Launchify Digital: We\'ve Received Your Project Request!',
+      text: `Hi ${firstName},\n\nThank you for submitting your project request to Launchify Digital! We\'re excited to learn more about your project.\n\nWe have received the following details:\nProject Type: ${helpType}\nAbout: ${about}\nNeeds: ${needs}\nTimeline: ${timeline}\nBudget: ${budget || 'N/A'}\n\nOur team will review your request and get back to you within 24 business hours to discuss the next steps.\n\nBest regards,\nThe Launchify Digital Team`,
+    };
+    await transporter.sendMail(userMailOptions);
+
     return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
   } catch (error) {
     console.error('Error sending email:', error);

@@ -29,6 +29,15 @@ export async function POST(request: Request) {
 
     await transporter.sendMail(mailOptions);
 
+    // Send confirmation email to the user
+    const userMailOptions = {
+      from: process.env.GMAIL_USER,
+      to: email, // User's email address
+      subject: 'Thank you for contacting Launchify Digital!',
+      text: `Hi ${name},\n\nThank you for reaching out to Launchify Digital. We have received your message and will get back to you shortly.\n\nBest regards,\nThe Launchify Digital Team`,
+    };
+    await transporter.sendMail(userMailOptions);
+
     return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
   } catch (error) {
     console.error('Error sending email:', error);
