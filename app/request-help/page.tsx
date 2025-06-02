@@ -13,7 +13,7 @@ import { useState } from 'react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/components/ui/use-toast';
 import { motion } from "motion/react"
-import { Check, Sparkles, Clock, PenTool, Code, Rocket } from "lucide-react"
+import { Check, Sparkles, Clock, PenTool, Code, Rocket, CheckCircle } from "lucide-react"
 import Link from "next/link"
 
 const requestHelpFormSchema = z.object({
@@ -35,6 +35,8 @@ type RequestHelpFormValues = z.infer<typeof requestHelpFormSchema>;
 
 export default function RequestHelp() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmissionSuccessful, setIsSubmissionSuccessful] = useState(false);
+  const [lastSubmissionTime, setLastSubmissionTime] = useState<number | null>(null);
   const { toast } = useToast();
 
   // Animation variants
@@ -77,6 +79,20 @@ export default function RequestHelp() {
 
   async function onSubmit(values: RequestHelpFormValues) {
     setIsSubmitting(true);
+
+    const currentTime = Date.now();
+    const COOLDOWN_PERIOD = 60000; // 60 seconds, adjust as needed
+
+    if (lastSubmissionTime && (currentTime - lastSubmissionTime < COOLDOWN_PERIOD)) {
+      toast({
+        title: "Please wait",
+        description: `You can submit another request in ${Math.ceil((COOLDOWN_PERIOD - (currentTime - lastSubmissionTime)) / 1000)} seconds.`,
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     console.log('Submitting form with values:', values);
     try {
       const response = await fetch('/api/request-help', {
@@ -90,11 +106,9 @@ export default function RequestHelp() {
       console.log('Response status:', response.status);
 
       if (response.ok) {
-        toast({
-          title: "Success!",
-          description: "Your project request has been sent. We'll be in touch within 24 hours.",
-        });
         form.reset();
+        setIsSubmissionSuccessful(true);
+        setLastSubmissionTime(Date.now());
       } else {
         const errorData = await response.json();
         toast({
@@ -216,234 +230,250 @@ export default function RequestHelp() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="p-6 pt-8">
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                      <div className="space-y-4">
-                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                          <FormField
-                            control={form.control}
-                            name="firstName"
-                            render={({ field }) => (
-                              <FormItem className="space-y-2">
-                                <FormLabel className="font-medium">First name</FormLabel>
-                                <FormControl>
-                                  <Input placeholder="Enter your first name" className="h-10" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="lastName"
-                            render={({ field }) => (
-                              <FormItem className="space-y-2">
-                                <FormLabel className="font-medium">Last name</FormLabel>
-                                <FormControl>
-                                  <Input placeholder="Enter your last name" className="h-10" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                        </div>
-
-                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                          <FormField
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                              <FormItem className="space-y-2">
-                                <FormLabel className="font-medium">Email</FormLabel>
-                                <FormControl>
-                                  <Input type="email" placeholder="Enter your email" className="h-10" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="phone"
-                            render={({ field }) => (
-                              <FormItem className="space-y-2">
-                                <FormLabel className="font-medium">Phone number</FormLabel>
-                                <FormControl>
-                                  <Input type="tel" placeholder="Enter your phone number" className="h-10" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                        </div>
-
-                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                          <FormField
-                            control={form.control}
-                            name="company"
-                            render={({ field }) => (
-                              <FormItem className="space-y-2">
-                                <FormLabel className="font-medium">Company name</FormLabel>
-                                <FormControl>
-                                  <Input placeholder="Enter your company name" className="h-10" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="website"
-                            render={({ field }) => (
-                              <FormItem className="space-y-2">
-                                <FormLabel className="font-medium">Current website (if any)</FormLabel>
-                                <FormControl>
-                                  <Input type="url" placeholder="https://yourcompany.com" className="h-10" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                        </div>
-
-                        <FormField
-                          control={form.control}
-                          name="helpType"
-                          render={({ field }) => (
-                            <FormItem className="space-y-2">
-                              <FormLabel className="font-medium">What type of website do you need?</FormLabel>
-                              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                <FormControl>
-                                  <SelectTrigger className="h-10">
-                                    <SelectValue placeholder="Select a project type" />
-                                  </SelectTrigger>
-                                </FormControl>
-                                <SelectContent>
-                                  <SelectItem value="business">Business/Corporate Website</SelectItem>
-                                  <SelectItem value="ecommerce">E-commerce Website</SelectItem>
-                                  <SelectItem value="portfolio">Portfolio/Personal Website</SelectItem>
-                                  <SelectItem value="blog">Blog Website</SelectItem>
-                                  <SelectItem value="landing">Landing Page</SelectItem>
-                                  <SelectItem value="redesign">Website Redesign</SelectItem>
-                                  <SelectItem value="other">Other</SelectItem>
-                                </SelectContent>
-                              </Select>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                          control={form.control}
-                          name="about"
-                          render={({ field }) => (
-                            <FormItem className="space-y-2">
-                              <FormLabel className="font-medium">Describe your project</FormLabel>
-                              <FormControl>
-                                <Textarea
-                                  placeholder="Tell us about your business and what you're looking for in a website"
-                                  className="min-h-[120px] resize-none"
-                                  {...field}
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                          control={form.control}
-                          name="needs"
-                          render={({ field }) => (
-                            <FormItem className="space-y-2">
-                              <FormLabel className="font-medium">What are your goals for this website?</FormLabel>
-                              <FormControl>
-                                <Textarea
-                                  placeholder="What do you want your website to achieve for your business?"
-                                  className="min-h-[120px] resize-none"
-                                  {...field}
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                          <FormField
-                            control={form.control}
-                            name="timeline"
-                            render={({ field }) => (
-                              <FormItem className="space-y-2">
-                                <FormLabel className="font-medium">What is your timeline?</FormLabel>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                  <FormControl>
-                                    <SelectTrigger className="h-10">
-                                      <SelectValue placeholder="Select a timeline" />
-                                    </SelectTrigger>
-                                  </FormControl>
-                                  <SelectContent>
-                                    <SelectItem value="urgent">ASAP/Urgent</SelectItem>
-                                    <SelectItem value="1-month">Within 1 month</SelectItem>
-                                    <SelectItem value="2-months">Within 2 months</SelectItem>
-                                    <SelectItem value="3-months">Within 3 months</SelectItem>
-                                    <SelectItem value="flexible">Flexible</SelectItem>
-                                  </SelectContent>
-                                </Select>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-
-                          <FormField
-                            control={form.control}
-                            name="budget"
-                            render={({ field }) => (
-                              <FormItem className="space-y-2">
-                                <FormLabel className="font-medium">What is your budget range?</FormLabel>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                  <FormControl>
-                                    <SelectTrigger className="h-10">
-                                      <SelectValue placeholder="Select a budget range" />
-                                    </SelectTrigger>
-                                  </FormControl>
-                                  <SelectContent>
-                                    <SelectItem value="below-2k">Below $2,000</SelectItem>
-                                    <SelectItem value="2k-5k">$2,000 - $5,000</SelectItem>
-                                    <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
-                                    <SelectItem value="10k-plus">$10,000+</SelectItem>
-                                    <SelectItem value="not-sure">Not sure yet</SelectItem>
-                                  </SelectContent>
-                                </Select>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                        </div>
-
-                        <FormField
-                          control={form.control}
-                          name="hearAbout"
-                          render={({ field }) => (
-                            <FormItem className="space-y-2">
-                              <FormLabel className="font-medium">How did you hear about us?</FormLabel>
-                              <FormControl>
-                                <Input placeholder="Google, referral, social media, etc." className="h-10" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      <Button 
-                        type="submit" 
-                        className="w-full h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium transition-all duration-300" 
-                        disabled={isSubmitting}
+                  {isSubmissionSuccessful ? (
+                    <div className="flex flex-col items-center justify-center space-y-4 text-center py-8">
+                      <CheckCircle className="h-16 w-16 text-green-500" />
+                      <h3 className="text-2xl font-semibold">Request Sent!</h3>
+                      <p className="text-slate-700 dark:text-slate-300">
+                        Thank you for your project request. We'll review it and be in touch within 24 hours.
+                      </p>
+                      <Button
+                        onClick={() => setIsSubmissionSuccessful(false)}
+                        className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
                       >
-                        {isSubmitting ? 'Submitting...' : 'Submit Project Request'}
+                        Submit Another Request
                       </Button>
-                    </form>
-                  </Form>
+                    </div>
+                  ) : (
+                    <Form {...form}>
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                        <div className="space-y-4">
+                          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            <FormField
+                              control={form.control}
+                              name="firstName"
+                              render={({ field }) => (
+                                <FormItem className="space-y-2">
+                                  <FormLabel className="font-medium">First name</FormLabel>
+                                  <FormControl>
+                                    <Input placeholder="Enter your first name" className="h-10" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            <FormField
+                              control={form.control}
+                              name="lastName"
+                              render={({ field }) => (
+                                <FormItem className="space-y-2">
+                                  <FormLabel className="font-medium">Last name</FormLabel>
+                                  <FormControl>
+                                    <Input placeholder="Enter your last name" className="h-10" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+
+                          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            <FormField
+                              control={form.control}
+                              name="email"
+                              render={({ field }) => (
+                                <FormItem className="space-y-2">
+                                  <FormLabel className="font-medium">Email</FormLabel>
+                                  <FormControl>
+                                    <Input type="email" placeholder="Enter your email" className="h-10" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            <FormField
+                              control={form.control}
+                              name="phone"
+                              render={({ field }) => (
+                                <FormItem className="space-y-2">
+                                  <FormLabel className="font-medium">Phone number</FormLabel>
+                                  <FormControl>
+                                    <Input type="tel" placeholder="Enter your phone number" className="h-10" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+
+                          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            <FormField
+                              control={form.control}
+                              name="company"
+                              render={({ field }) => (
+                                <FormItem className="space-y-2">
+                                  <FormLabel className="font-medium">Company name</FormLabel>
+                                  <FormControl>
+                                    <Input placeholder="Enter your company name" className="h-10" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            <FormField
+                              control={form.control}
+                              name="website"
+                              render={({ field }) => (
+                                <FormItem className="space-y-2">
+                                  <FormLabel className="font-medium">Current website (if any)</FormLabel>
+                                  <FormControl>
+                                    <Input type="url" placeholder="https://yourcompany.com" className="h-10" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+
+                          <FormField
+                            control={form.control}
+                            name="helpType"
+                            render={({ field }) => (
+                              <FormItem className="space-y-2">
+                                <FormLabel className="font-medium">What type of website do you need?</FormLabel>
+                                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                  <FormControl>
+                                    <SelectTrigger className="h-10">
+                                      <SelectValue placeholder="Select a project type" />
+                                    </SelectTrigger>
+                                  </FormControl>
+                                  <SelectContent>
+                                    <SelectItem value="business">Business/Corporate Website</SelectItem>
+                                    <SelectItem value="ecommerce">E-commerce Website</SelectItem>
+                                    <SelectItem value="portfolio">Portfolio/Personal Website</SelectItem>
+                                    <SelectItem value="blog">Blog Website</SelectItem>
+                                    <SelectItem value="landing">Landing Page</SelectItem>
+                                    <SelectItem value="redesign">Website Redesign</SelectItem>
+                                    <SelectItem value="other">Other</SelectItem>
+                                  </SelectContent>
+                                </Select>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          <FormField
+                            control={form.control}
+                            name="about"
+                            render={({ field }) => (
+                              <FormItem className="space-y-2">
+                                <FormLabel className="font-medium">Describe your project</FormLabel>
+                                <FormControl>
+                                  <Textarea
+                                    placeholder="Tell us about your business and what you're looking for in a website"
+                                    className="min-h-[120px] resize-none"
+                                    {...field}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          <FormField
+                            control={form.control}
+                            name="needs"
+                            render={({ field }) => (
+                              <FormItem className="space-y-2">
+                                <FormLabel className="font-medium">What are your goals for this website?</FormLabel>
+                                <FormControl>
+                                  <Textarea
+                                    placeholder="What do you want your website to achieve for your business?"
+                                    className="min-h-[120px] resize-none"
+                                    {...field}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            <FormField
+                              control={form.control}
+                              name="timeline"
+                              render={({ field }) => (
+                                <FormItem className="space-y-2">
+                                  <FormLabel className="font-medium">What is your timeline?</FormLabel>
+                                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                    <FormControl>
+                                      <SelectTrigger className="h-10">
+                                        <SelectValue placeholder="Select a timeline" />
+                                      </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                      <SelectItem value="urgent">ASAP/Urgent</SelectItem>
+                                      <SelectItem value="1-month">Within 1 month</SelectItem>
+                                      <SelectItem value="2-months">Within 2 months</SelectItem>
+                                      <SelectItem value="3-months">Within 3 months</SelectItem>
+                                      <SelectItem value="flexible">Flexible</SelectItem>
+                                    </SelectContent>
+                                  </Select>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+
+                            <FormField
+                              control={form.control}
+                              name="budget"
+                              render={({ field }) => (
+                                <FormItem className="space-y-2">
+                                  <FormLabel className="font-medium">What is your budget range?</FormLabel>
+                                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                    <FormControl>
+                                      <SelectTrigger className="h-10">
+                                        <SelectValue placeholder="Select a budget range" />
+                                      </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                      <SelectItem value="below-2k">Below $2,000</SelectItem>
+                                      <SelectItem value="2k-5k">$2,000 - $5,000</SelectItem>
+                                      <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
+                                      <SelectItem value="10k-plus">$10,000+</SelectItem>
+                                      <SelectItem value="not-sure">Not sure yet</SelectItem>
+                                    </SelectContent>
+                                  </Select>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+
+                          <FormField
+                            control={form.control}
+                            name="hearAbout"
+                            render={({ field }) => (
+                              <FormItem className="space-y-2">
+                                <FormLabel className="font-medium">How did you hear about us?</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Google, referral, social media, etc." className="h-10" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                        <Button 
+                          type="submit" 
+                          className="w-full h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium transition-all duration-300" 
+                          disabled={isSubmitting}
+                        >
+                          {isSubmitting ? 'Submitting...' : 'Submit Project Request'}
+                        </Button>
+                      </form>
+                    </Form>
+                  )}
                 </CardContent>
               </Card>
             </motion.div>

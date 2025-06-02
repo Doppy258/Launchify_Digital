@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardTitle, CardHeader } from "@/com
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Clock, MessageSquare, Globe, Code } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, MessageSquare, Globe, Code, CheckCircle } from "lucide-react"
 import Script from "next/script"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -28,6 +28,8 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmissionSuccessful, setIsSubmissionSuccessful] = useState(false);
+  const [lastSubmissionTime, setLastSubmissionTime] = useState<number | null>(null);
   const { toast } = useToast();
 
   // Contact page structured data
@@ -89,6 +91,20 @@ export default function Contact() {
 
   async function onSubmit(values: ContactFormValues) {
     setIsSubmitting(true);
+
+    const currentTime = Date.now();
+    const COOLDOWN_PERIOD = 60000; // 60 seconds
+
+    if (lastSubmissionTime && (currentTime - lastSubmissionTime < COOLDOWN_PERIOD)) {
+      toast({
+        title: "Please wait",
+        description: `You can send another message in ${Math.ceil((COOLDOWN_PERIOD - (currentTime - lastSubmissionTime)) / 1000)} seconds.`,
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     console.log('Contact form submitting with values:', values);
     try {
       const response = await fetch('/api/contact', {
@@ -102,11 +118,9 @@ export default function Contact() {
       console.log('Contact form response status:', response.status);
 
       if (response.ok) {
-        toast({
-          title: "Success!",
-          description: "Your message has been sent. We'll respond shortly.",
-        });
         form.reset();
+        setIsSubmissionSuccessful(true);
+        setLastSubmissionTime(Date.now());
       } else {
         const errorData = await response.json();
         toast({
@@ -229,69 +243,85 @@ export default function Contact() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="p-6 pt-8">
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem className="space-y-2">
-                            <FormLabel className="text-base font-medium">Full Name</FormLabel>
-                            <FormControl>
-                              <Input placeholder="Enter your name" className="h-12" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem className="space-y-2">
-                            <FormLabel className="text-base font-medium">Email Address</FormLabel>
-                            <FormControl>
-                              <Input type="email" placeholder="Enter your email" className="h-12" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                       <FormField
-                        control={form.control}
-                        name="subject"
-                        render={({ field }) => (
-                          <FormItem className="space-y-2">
-                            <FormLabel className="text-base font-medium">Subject</FormLabel>
-                            <FormControl>
-                              <Input placeholder="What is your message about?" className="h-12" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                       <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                          <FormItem className="space-y-2">
-                            <FormLabel className="text-base font-medium">Message</FormLabel>
-                            <FormControl>
-                              <Textarea placeholder="Tell us about your website needs" className="min-h-[150px] resize-none" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <Button 
-                        type="submit" 
-                        className="w-full h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium transition-all duration-300" 
-                        disabled={isSubmitting}
+                  {isSubmissionSuccessful ? (
+                    <div className="flex flex-col items-center justify-center space-y-4 text-center py-8">
+                      <CheckCircle className="h-16 w-16 text-green-500" />
+                      <h3 className="text-2xl font-semibold">Message Sent!</h3>
+                      <p className="text-slate-700 dark:text-slate-300">
+                        Thank you for contacting us. We'll get back to you shortly.
+                      </p>
+                      <Button
+                        onClick={() => setIsSubmissionSuccessful(false)}
+                        className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
                       >
-                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                        Send Another Message
                       </Button>
-                    </form>
-                  </Form>
+                    </div>
+                  ) : (
+                    <Form {...form}>
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                        <FormField
+                          control={form.control}
+                          name="name"
+                          render={({ field }) => (
+                            <FormItem className="space-y-2">
+                              <FormLabel className="text-base font-medium">Full Name</FormLabel>
+                              <FormControl>
+                                <Input placeholder="Enter your name" className="h-12" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem className="space-y-2">
+                              <FormLabel className="text-base font-medium">Email Address</FormLabel>
+                              <FormControl>
+                                <Input type="email" placeholder="Enter your email" className="h-12" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                         <FormField
+                          control={form.control}
+                          name="subject"
+                          render={({ field }) => (
+                            <FormItem className="space-y-2">
+                              <FormLabel className="text-base font-medium">Subject</FormLabel>
+                              <FormControl>
+                                <Input placeholder="What is your message about?" className="h-12" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                         <FormField
+                          control={form.control}
+                          name="message"
+                          render={({ field }) => (
+                            <FormItem className="space-y-2">
+                              <FormLabel className="text-base font-medium">Message</FormLabel>
+                              <FormControl>
+                                <Textarea placeholder="Tell us about your website needs" className="min-h-[150px] resize-none" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <Button 
+                          type="submit" 
+                          className="w-full h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium transition-all duration-300" 
+                          disabled={isSubmitting}
+                        >
+                          {isSubmitting ? 'Sending...' : 'Send Message'}
+                        </Button>
+                      </form>
+                    </Form>
+                  )}
                 </CardContent>
               </Card>
             </motion.div>
@@ -411,7 +441,7 @@ export default function Contact() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full min-[400px]:w-auto border-white text-white hover:bg-slate-800 transition-all duration-300 text-base md:text-lg font-medium px-6 md:px-8 py-3"
+                  className="w-full min-[400px]:w-auto bg-transparent border-white text-white hover:bg-slate-800 hover:text-white transition-all duration-300 text-base md:text-lg font-medium px-6 md:px-8 py-3"
                 >
                   View Our Services
                 </Button>
