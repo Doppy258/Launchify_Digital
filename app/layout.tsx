@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] })
 const cacheBuster = Date.now();
 
 export const metadata = {
-  title: "Launchify Digital | Professional Web Development & Digital Marketing",
+  title: "Launchify Digital | Web Dev & Digital Marketing in SF",
   description:
     "Launchify Digital (also known as Launchified Digital) specializes in creating stunning websites and effective digital marketing strategies for small businesses. Based in San Francisco, our team helps businesses grow online.",
   generator: 'Next.js',
@@ -41,13 +41,13 @@ export const metadata = {
     'author': 'Launchify Digital Team',
     'robots': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
     'google': 'notranslate',
-    'googlebot': 'index, follow, noimageindex',
+    'googlebot': 'index, follow',
     'google-site-verification': 'YOUR_VERIFICATION_CODE',
     'humans': '/humans.txt',
   },
   openGraph: {
-    title: 'Launchify Digital | Professional Web Development & Digital Marketing',
-    description: 'Launchify Digital (also known as Launchified Digital) specializes in creating stunning websites and effective digital marketing strategies for small businesses. Based in San Francisco, our team helps businesses grow online.',
+    title: 'Launchify Digital | Web Dev & Digital Marketing in SF',
+    description: 'Launchify Digital specializes in stunning websites and effective digital marketing for small businesses in San Francisco.',
     url: 'https://launchifydigital.org',
     siteName: 'Launchify Digital',
     images: [
@@ -63,8 +63,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Launchify Digital | Professional Web Development & Digital Marketing',
-    description: 'Launchify Digital (also known as Launchified Digital) specializes in creating stunning websites and effective digital marketing strategies for small businesses. Based in San Francisco, our team helps businesses grow online.',
+    title: 'Launchify Digital | Web Dev & Digital Marketing in SF',
+    description: 'Launchify Digital: Stunning websites & effective digital marketing for San Francisco small businesses.',
     images: [`/LOGO.png?v=${cacheBuster}`],
     creator: '@launchifydigital',
     site: '@launchifydigital',

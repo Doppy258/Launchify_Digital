@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight, CheckCircle, Code, Cpu, Globe } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "@/components/motion-wrapper";
 import React from "react";
 import { Button } from "@/components/ui/button";
 

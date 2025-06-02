@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, CheckCircle, Code } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
+import { motion } from "@/components/motion-wrapper"
 
 export default function WebsiteDevelopmentPage() {
   const fadeIn = {
