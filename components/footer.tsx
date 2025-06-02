@@ -4,9 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Facebook, Twitter, Instagram, Linkedin, Mail } from "lucide-react"
 import { motion } from "framer-motion"
-
-// Add a timestamp for cache busting
-const cacheBuster = Date.now();
+import { useState, useEffect } from "react"
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -27,6 +25,27 @@ const fadeIn = {
   },
 }
 
+// Logo component with client-side cache busting
+const LogoWithCacheBuster = () => {
+  const [cacheBuster, setCacheBuster] = useState("1");
+  
+  useEffect(() => {
+    setCacheBuster(Date.now().toString());
+  }, []);
+  
+  return (
+    <div className="relative h-12 w-12 md:h-16 md:w-16 lg:h-20 lg:w-20 overflow-hidden">
+      <Image
+        src={`/LOGO.png?v=${cacheBuster}`}
+        alt="Launchify Digital Logo"
+        width={80}
+        height={80}
+        className="object-contain"
+      />
+    </div>
+  );
+};
+
 export function Footer() {
   return (
     <footer className="w-full border-t bg-slate-50">
@@ -40,15 +59,7 @@ export function Footer() {
         >
           <motion.div className="space-y-4 md:space-y-6" variants={fadeIn}>
             <Link href="/" className="flex items-center gap-2 md:gap-3 lg:gap-4">
-              <div className="relative h-12 w-12 md:h-16 md:w-16 lg:h-20 lg:w-20 overflow-hidden">
-                <Image
-                  src={`/LOGO.png?v=${cacheBuster}`}
-                  alt="Launchify Digital Logo"
-                  width={80}
-                  height={80}
-                  className="object-contain"
-                />
-              </div>
+              <LogoWithCacheBuster />
               <span className="text-lg md:text-xl lg:text-2xl font-bold tracking-tight bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent transition-all duration-300">Launchify Digital</span>
             </Link>
             <p className="text-sm md:text-base lg:text-lg text-slate-700">
@@ -122,10 +133,10 @@ export function Footer() {
               <li className="flex items-start space-x-2 md:space-x-3">
                 <Mail className="h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-slate-700 mt-0.5" />
                 <div className="text-sm md:text-base lg:text-lg text-slate-700 hover:text-slate-900 transition-colors duration-200">
-                  <a href="mailto:lucaszhao09@gmail.com" className="block hover:underline">
+                  <a href="mailto:wangharrison2009@gmail.com" className="block hover:underline">
                     wangharrison2009@gmail.com
                   </a>
-                  <a href="mailto:wangharrison2009@gmail.com" className="block hover:underline">
+                  <a href="mailto:lucaszhao09@gmail.com" className="block hover:underline">
                     lucaszhao09@gmail.com
                   </a>
                 </div>

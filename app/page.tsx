@@ -175,6 +175,103 @@ const containerClass = "container px-4 md:px-6 mx-auto max-w-[1400px] relative z
 const sectionClass = "flex flex-col items-center justify-center w-full relative";
 const headingClass = "text-center mx-auto";
 
+// ClientSideFloatingBlobs component to handle client-side only rendering of random elements
+const ClientSideFloatingBlobs = () => {
+  const [blobs, setBlobs] = useState<Array<{
+    width: number;
+    height: number;
+    top: string;
+    left: string;
+    opacity: number;
+    transform: string;
+    animation: string;
+    animationDelay: string;
+  }>>([]);
+  
+  useEffect(() => {
+    const newBlobs = [...Array(20)].map(() => ({
+      width: Math.random() * 400 + 100,
+      height: Math.random() * 400 + 100,
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      opacity: Math.random() * 0.3,
+      transform: `scale(${Math.random() + 0.5})`,
+      animation: `float ${Math.random() * 10 + 10}s ease-in-out infinite`,
+      animationDelay: `${Math.random() * 5}s`
+    }));
+    
+    setBlobs(newBlobs);
+  }, []);
+  
+  return (
+    <>
+      {blobs.map((blob, i) => (
+        <div 
+          key={i}
+          className="absolute rounded-full bg-gradient-to-r from-blue-100/20 to-indigo-100/20 blur-3xl"
+          style={{
+            width: `${blob.width}px`,
+            height: `${blob.height}px`,
+            top: blob.top,
+            left: blob.left,
+            opacity: blob.opacity,
+            transform: blob.transform,
+            animation: blob.animation,
+            animationDelay: blob.animationDelay
+          }}
+        />
+      ))}
+    </>
+  );
+};
+
+// ClientSideFloatingParticles component for the CTA section
+const ClientSideFloatingParticles = () => {
+  const [particles, setParticles] = useState<Array<{
+    top: string;
+    left: string;
+    width: number;
+    height: number;
+    opacity: number;
+    animation: string;
+    animationDelay: string;
+  }>>([]);
+  
+  useEffect(() => {
+    const newParticles = [...Array(20)].map(() => ({
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      width: Math.random() * 6 + 1,
+      height: Math.random() * 6 + 1,
+      opacity: Math.random() * 0.6,
+      animation: `float ${Math.random() * 10 + 10}s linear infinite`,
+      animationDelay: `${Math.random() * 5}s`
+    }));
+    
+    setParticles(newParticles);
+  }, []);
+  
+  return (
+    <>
+      {particles.map((particle, i) => (
+        <div 
+          key={i}
+          className="absolute rounded-full bg-white/30"
+          style={{
+            top: particle.top,
+            left: particle.left,
+            width: `${particle.width}px`,
+            height: `${particle.height}px`,
+            opacity: particle.opacity,
+            animation: particle.animation,
+            animationDelay: particle.animationDelay
+          }}
+        />
+      ))}
+    </>
+  );
+};
+
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLDivElement>(null);
@@ -230,22 +327,7 @@ const HeroSection = () => {
           }}
         />
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
-            <div 
-              key={i}
-              className="absolute rounded-full bg-gradient-to-r from-blue-100/20 to-indigo-100/20 blur-3xl"
-              style={{
-                width: `${Math.random() * 400 + 100}px`,
-                height: `${Math.random() * 400 + 100}px`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                opacity: Math.random() * 0.3,
-                transform: `scale(${Math.random() + 0.5})`,
-                animation: `float ${Math.random() * 10 + 10}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 5}s`
-              }}
-            />
-          ))}
+          <ClientSideFloatingBlobs />
         </div>
       </div>
 
@@ -701,7 +783,8 @@ const ServicesSection = () => {
       description: "Eye-catching, modern designs that reflect your brand identity and engage your audience.",
       features: ["Unique, brand-aligned layouts", "Mobile-first responsive design", "Intuitive user experience"],
       color: "blue",
-      image: "/services/web-development.jpg"
+      image: "/services/web-development.jpg",
+      link: "/services/custom-website-design"
     },
     {
       icon: <Code className="h-6 w-6" />,
@@ -709,7 +792,8 @@ const ServicesSection = () => {
       description: "Professional coding that brings your design to life with clean, efficient functionality.",
       features: ["Fast-loading pages", "SEO-friendly structure", "Secure, reliable code"],
       color: "indigo",
-      image: "/services/digital-marketing.jpg"
+      image: "/services/digital-marketing.jpg",
+      link: "/services/website-development"
     },
     {
       icon: <Cpu className="h-6 w-6" />,
@@ -717,7 +801,8 @@ const ServicesSection = () => {
       description: "Keep your site running smoothly with regular updates, backups, and technical support.",
       features: ["Regular security updates", "Performance optimization", "Technical troubleshooting"],
       color: "teal",
-      image: "/services/enterprise-solutions.jpg"
+      image: "/services/enterprise-solutions.jpg",
+      link: "/services/website-maintenance"
     }
   ];
 
@@ -757,7 +842,7 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="group relative h-full"
+              className="group relative h-full flex"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -765,7 +850,7 @@ const ServicesSection = () => {
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
             >
               <motion.div 
-                className="relative z-10 h-full rounded-2xl bg-white p-8 shadow-xl transition-all duration-300 overflow-hidden border border-slate-100"
+                className="relative z-10 h-full w-full rounded-2xl bg-white p-8 shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col"
                 whileHover={{ boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)" }}
               >
                 {/* Enhanced animated color stripe at top */}
@@ -779,10 +864,11 @@ const ServicesSection = () => {
                   transition={{ duration: 0.3 }}
                 />
                 
-                <div className="relative">
-                  {/* Animated icon */}
-                  <motion.div 
-                    className={`
+                <div className="relative flex flex-col h-full">
+                  <div className="flex-grow">
+                    {/* Animated icon */}
+                    <motion.div 
+                      className={`
                     flex h-14 w-14 items-center justify-center rounded-xl mb-6
                     ${service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
                       service.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
@@ -859,6 +945,7 @@ const ServicesSection = () => {
                       </motion.li>
                     ))}
                   </motion.ul>
+                 </div> {/* End of flex-grow wrapper */}
                   
                   {/* Animated CTA */}
                   <motion.div 
@@ -868,14 +955,14 @@ const ServicesSection = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.1 + 0.8 }}
                   >
-                    <Link href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                    <Link href={service.link}> {/* Use the explicit link property */}
                       <button className={`
                         group inline-flex items-center text-sm font-medium transition-colors
                         ${service.color === 'blue' ? 'text-blue-600 hover:text-blue-700' :
                           service.color === 'indigo' ? 'text-indigo-600 hover:text-indigo-700' :
                           'text-teal-600 hover:text-teal-700'}
                       `}>
-                        See how we do it 
+                        Learn more 
                         <motion.div
                           initial={{ x: 0 }}
                           whileHover={{ x: 5 }}
@@ -886,7 +973,7 @@ const ServicesSection = () => {
                       </button>
                     </Link>
                   </motion.div>
-                </div>
+                </div> {/* This is the closing tag for <div className="relative flex flex-col h-full"> */}
                 
                 {/* Enhanced background decor */}
                 <motion.div 
@@ -1479,21 +1566,7 @@ const CTASection = () => {
       
       {/* Animated particles */}
       <div className="absolute inset-0 overflow-hidden opacity-20">
-        {[...Array(20)].map((_, i) => (
-          <div 
-            key={i}
-            className="absolute rounded-full bg-white/30"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 6 + 1}px`,
-              height: `${Math.random() * 6 + 1}px`,
-              opacity: Math.random() * 0.6,
-              animation: `float ${Math.random() * 10 + 10}s linear infinite`,
-              animationDelay: `${Math.random() * 5}s`
-            }}
-          />
-        ))}
+        <ClientSideFloatingParticles />
       </div>
 
       <div className={containerClass}>
