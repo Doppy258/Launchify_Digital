@@ -108,7 +108,7 @@ export default function Services() {
               <div className="aspect-video rounded-xl overflow-hidden shadow-xl bg-gradient-to-r from-blue-500 to-indigo-600 p-1">
                 <div className="rounded-lg overflow-hidden w-full h-full bg-white">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
+                    src="/images/services/visuals/website-design-visual.svg"
                     alt="Website Design Services"
                     width={600}
                     height={400}
@@ -134,7 +134,7 @@ export default function Services() {
               <div className="aspect-video rounded-xl overflow-hidden shadow-xl bg-gradient-to-r from-teal-500 to-cyan-600 p-1">
                 <div className="rounded-lg overflow-hidden w-full h-full bg-white">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
+                    src="/images/services/visuals/website-development-visual.svg"
                     alt="Website Development Services"
                     width={600}
                     height={400}
@@ -222,7 +222,7 @@ export default function Services() {
               <div className="aspect-video rounded-xl overflow-hidden shadow-xl bg-gradient-to-r from-purple-500 to-pink-600 p-1">
                 <div className="rounded-lg overflow-hidden w-full h-full bg-white">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
+                    src="/images/services/visuals/website-maintenance-visual.svg"
                     alt="Website Maintenance Services"
                     width={600}
                     height={400}
@@ -335,15 +335,14 @@ export default function Services() {
             </div>
             <div className="flex flex-col gap-3 min-[400px]:flex-row">
               <Link href="/request-help">
-                <Button size="lg" className="w-full min-[400px]:w-auto bg-white text-slate-900 hover:bg-slate-100 transition-all duration-300 text-base md:text-lg font-medium px-6 md:px-8 py-3">
+                <Button size="lg" className="w-full min-[400px]:w-auto bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 text-base md:text-lg font-medium px-6 md:px-8 py-3">
                   Get Started Today
                 </Button>
               </Link>
               <Link href="/contact">
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="w-full min-[400px]:w-auto border-white text-white hover:bg-slate-800 transition-all duration-300 text-base md:text-lg font-medium px-6 md:px-8 py-3"
+                  className="w-full min-[400px]:w-auto bg-transparent border border-slate-600 hover:bg-slate-800 text-white shadow-sm hover:shadow-md transition-all duration-300 text-base md:text-lg font-medium px-6 md:px-8 py-3"
                 >
                   Contact Us
                 </Button>

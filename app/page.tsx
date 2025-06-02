@@ -5,7 +5,7 @@ import Image from "next/image"
 import Script from "next/script"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, CheckCircle, Globe, MessageSquare, Users, Star, ArrowDown, Zap, Shield, Award, BarChart2, Code, Cpu, PenTool } from "lucide-react"
+import { ArrowRight, CheckCircle, Globe, MessageSquare, Users, Star, ArrowDown, Zap, Shield, Award, BarChart2, Code, Cpu, PenTool, Smartphone, Search, Target } from "lucide-react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import WebsiteShowcase from "@/components/WebsiteShowcase"
@@ -574,12 +574,16 @@ const StatsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl/tight mb-4">
-            Delivering Exceptional <span className="text-blue-600">Results</span>
+          <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 shadow-sm">
+            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Our Approach</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+            How We <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Create Your Website</span>
           </h2>
+          
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Our proven track record speaks for itself. We've helped businesses
-            achieve extraordinary growth and digital transformation.
+            Our streamlined process ensures we deliver high-quality websites efficiently and with attention to detail.
           </p>
         </motion.div>
         
@@ -1165,41 +1169,41 @@ const ProcessSection = () => {
   );
 };
 
-const PortfolioSection = () => {
-  const projects = [
+const TestimonialsSection = () => {
+  const testimonials = [
     {
-      title: "Modern E-Commerce Store",
-      category: "E-Commerce",
-      image: "/services/web-development.jpg",
-      description: "A high-converting online store with seamless checkout and product management."
+      quote: "Launchify Digital transformed our online presence completely. Our new website has significantly increased our conversion rates and customer engagement.",
+      author: "Sarah Johnson",
+      role: "Marketing Director",
+      company: "NexGen Solutions",
+      avatar: "/images/testimonials/avatar-1.jpg",
+      rating: 5
     },
     {
-      title: "Professional Services Website",
-      category: "Business",
-      image: "/services/digital-marketing.jpg",
-      description: "Clean, professional website designed to build trust and generate leads."
+      quote: "Working with Launchify was a game-changer for our business. They delivered a stunning website that perfectly captures our brand and vision.",
+      author: "Michael Chen",
+      role: "Founder & CEO",
+      company: "Horizon Ventures",
+      avatar: "/images/testimonials/avatar-2.jpg",
+      rating: 5
     },
     {
-      title: "Restaurant & Cafe Website",
-      category: "Hospitality",
-      image: "/services/enterprise-solutions.jpg",
-      description: "Beautiful website with online ordering and reservation functionality."
-    },
-    {
-      title: "Portfolio Website",
-      category: "Creative",
-      image: "/services/web-development.jpg",
-      description: "Stunning showcase of work with attention-grabbing design elements."
+      quote: "The team at Launchify Digital exceeded all our expectations. Their expertise and attention to detail resulted in a website that's not just beautiful but also performs exceptionally well.",
+      author: "Emily Rodriguez",
+      role: "Operations Manager",
+      company: "Elevate Retail",
+      avatar: "/images/testimonials/avatar-3.jpg",
+      rating: 5
     }
   ];
-
+  
   return (
     <section className="relative w-full py-24 md:py-32 overflow-hidden bg-white flex items-center justify-center">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-30 transform rotate-12" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-50 rounded-full blur-3xl opacity-30 transform rotate-12" />
-                  </div>
-                  
+      </div>
+      
       <div className={containerClass}>
         <motion.div 
           className="mx-auto max-w-3xl text-center mb-16"
@@ -1209,44 +1213,64 @@ const PortfolioSection = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 shadow-sm">
-            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Our Work</span>
-                  </div>
+            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Client Success Stories</span>
+          </div>
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl/tight mb-4">
-            Featured <span className="text-blue-600">Website Projects</span>
+            What Our <span className="text-blue-600">Clients Say</span>
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Browse through some of our recent website projects to see the quality and diversity of our work.
+            Don't just take our word for it. Here's what our clients have to say about their experience working with us.
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {projects.map((project, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-2xl shadow-lg border border-slate-100 p-8 relative overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.1)" }}
             >
-              <div className="relative aspect-[16/9] overflow-hidden">
-                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/40 transition-all duration-300 z-10" />
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transform scale-100 group-hover:scale-110 transition-all duration-700"
-                />
-                
-                <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                  <span className="inline-block px-3 py-1 bg-white/90 rounded-full text-xs font-medium text-slate-800 mb-2">
-                    {project.category}
-                  </span>
-                  <h3 className="text-xl font-bold text-white mb-1 drop-shadow-md">{project.title}</h3>
-                  <p className="text-white/90 text-sm drop-shadow-md">{project.description}</p>
+              {/* Quote icon */}
+              <div className="absolute top-4 right-4 text-slate-100">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11 7.5C11 8.33 10.33 9 9.5 9C8.67 9 8 8.33 8 7.5C8 6.67 8.67 6 9.5 6C10.33 6 11 6.67 11 7.5ZM11 13.5C11 14.33 10.33 15 9.5 15C8.67 15 8 14.33 8 13.5C8 12.67 8.67 12 9.5 12C10.33 12 11 12.67 11 13.5ZM17 7.5C17 8.33 16.33 9 15.5 9C14.67 9 14 8.33 14 7.5C14 6.67 14.67 6 15.5 6C16.33 6 17 6.67 17 7.5ZM17 13.5C17 14.33 16.33 15 15.5 15C14.67 15 14 14.33 14 13.5C14 12.67 14.67 12 15.5 12C16.33 12 17 12.67 17 13.5Z" fill="currentColor" />
+                </svg>
+              </div>
+              
+              {/* Rating stars */}
+              <div className="flex mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className={`h-5 w-5 ${
+                      i < testimonial.rating ? 'text-amber-400 fill-amber-400' : 'text-slate-200'
+                    }`}
+                  />
+                ))}
+              </div>
+              
+              {/* Testimonial */}
+              <p className="text-slate-700 mb-6 italic relative z-10">"{testimonial.quote}"</p>
+              
+              {/* Author info */}
+              <div className="flex items-center">
+                <div className="w-12 h-12 rounded-full overflow-hidden bg-slate-200 mr-4">
+                  <div className="w-full h-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-lg">
+                    {testimonial.author.charAt(0)}
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900">{testimonial.author}</h4>
+                  <p className="text-sm text-slate-600">{testimonial.role}, {testimonial.company}</p>
                 </div>
               </div>
+              
+              {/* Background decoration */}
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-gradient-to-br from-blue-50 to-indigo-50 opacity-50 z-0"></div>
             </motion.div>
           ))}
         </div>
@@ -1258,13 +1282,179 @@ const PortfolioSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          <Link href="/portfolio">
+          <Link href="/request-help">
             <Button
               size="lg"
               className="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-8"
             >
               <span className="relative z-10 flex items-center">
-                View All Projects
+                Join Our Success Stories
+                <ArrowRight className="ml-2 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+              <span className="absolute inset-0 overflow-hidden rounded-full">
+                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></span>
+              </span>
+            </Button>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const WebsiteFeaturesSection = () => {
+  const features = [
+    {
+      title: "Responsive Design",
+      description: "Websites that look and function perfectly on any device - from desktop computers to smartphones and tablets.",
+      icon: <Smartphone className="h-8 w-8" />,
+      color: "sky",
+      stats: "100%",
+      statsLabel: "Device Compatibility"
+    },
+    {
+      title: "Performance Optimization",
+      description: "Lightning-fast loading speeds with optimized code, compressed images, and efficient resource delivery.",
+      icon: <Zap className="h-8 w-8" />,
+      color: "indigo",
+      stats: "<2s",
+      statsLabel: "Average Load Time"
+    },
+    {
+      title: "SEO Best Practices",
+      description: "Built-in search engine optimization to help your website rank higher in search results and attract more visitors.",
+      icon: <Search className="h-8 w-8" />,
+      color: "purple",
+      stats: "Top 10",
+      statsLabel: "Search Rankings"
+    },
+    {
+      title: "Security Protection",
+      description: "Comprehensive security measures to protect your website and your visitors' data from threats.",
+      icon: <Shield className="h-8 w-8" />,
+      color: "amber",
+      stats: "24/7",
+      statsLabel: "Monitoring"
+    },
+    {
+      title: "Conversion Focused",
+      description: "Strategic design elements that guide visitors toward taking action, whether that's making a purchase or contacting you.",
+      icon: <Target className="h-8 w-8" />,
+      color: "rose",
+      stats: "+150%",
+      statsLabel: "Conversion Rate"
+    },
+    {
+      title: "Analytics Integration",
+      description: "Built-in tracking and reporting to monitor website performance and visitor behavior for continuous improvement.",
+      icon: <BarChart2 className="h-8 w-8" />,
+      color: "teal",
+      stats: "Real-time",
+      statsLabel: "Data Insights"
+    }
+  ];
+
+  return (
+    <section className="relative w-full py-24 md:py-32 overflow-hidden bg-white flex items-center justify-center">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-30 transform rotate-12" />
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-50 rounded-full blur-3xl opacity-30 transform rotate-12" />
+      </div>
+      
+      <div className={containerClass}>
+        <motion.div 
+          className="mx-auto max-w-3xl text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 shadow-sm">
+            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Technical Excellence</span>
+          </div>
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl/tight mb-4">
+            Built With <span className="text-blue-600">Advanced Features</span>
+          </h2>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Every website we create includes these powerful features to ensure optimal performance, security, and user experience.
+          </p>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className="bg-white rounded-2xl shadow-lg border border-slate-100 p-8 relative overflow-hidden h-full"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.1)" }}
+            >
+              {/* Feature Icon */}
+              <div className={`w-14 h-14 rounded-xl mb-6 flex items-center justify-center ${
+                feature.color === 'sky' ? 'bg-sky-50 text-sky-600' :
+                feature.color === 'blue' ? 'bg-blue-50 text-blue-600' :
+                feature.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
+                feature.color === 'purple' ? 'bg-purple-50 text-purple-600' :
+                feature.color === 'amber' ? 'bg-amber-50 text-amber-600' :
+                feature.color === 'green' ? 'bg-green-50 text-green-600' :
+                feature.color === 'rose' ? 'bg-rose-50 text-rose-600' :
+                'bg-teal-50 text-teal-600'
+              }`}>
+                {feature.icon}
+              </div>
+              
+              {/* Feature Stats */}
+              <div className="absolute top-8 right-8">
+                <div className={`font-bold text-lg ${
+                  feature.color === 'sky' ? 'text-sky-600' :
+                  feature.color === 'blue' ? 'text-blue-600' :
+                  feature.color === 'indigo' ? 'text-indigo-600' :
+                  feature.color === 'purple' ? 'text-purple-600' :
+                  feature.color === 'amber' ? 'text-amber-600' :
+                  feature.color === 'green' ? 'text-green-600' :
+                  feature.color === 'rose' ? 'text-rose-600' :
+                  'text-teal-600'
+                }`}>
+                  {feature.stats}
+                </div>
+                <div className="text-xs text-slate-500">{feature.statsLabel}</div>
+              </div>
+              
+              {/* Feature Content */}
+              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+              <p className="text-slate-700">{feature.description}</p>
+              
+              {/* Background Decoration */}
+              <div className={`absolute -bottom-8 -right-8 w-32 h-32 rounded-full opacity-10 ${
+                feature.color === 'sky' ? 'bg-sky-400' :
+                feature.color === 'blue' ? 'bg-blue-400' :
+                feature.color === 'indigo' ? 'bg-indigo-400' :
+                feature.color === 'purple' ? 'bg-purple-400' :
+                feature.color === 'amber' ? 'bg-amber-400' :
+                feature.color === 'green' ? 'bg-green-400' :
+                feature.color === 'rose' ? 'bg-rose-400' :
+                'bg-teal-400'
+              }`}></div>
+            </motion.div>
+          ))}
+        </div>
+        
+        <motion.div 
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
+          <Link href="/services">
+            <Button
+              size="lg"
+              className="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-8"
+            >
+              <span className="relative z-10 flex items-center">
+                Explore Our Services
                 <ArrowRight className="ml-2 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
               <span className="absolute inset-0 overflow-hidden rounded-full">
@@ -1396,7 +1586,7 @@ export default function Home() {
       <StatsSection />
       <ServicesSection />
       <ProcessSection />
-      <PortfolioSection />
+      <WebsiteFeaturesSection />
       <CTASection />
     </div>
   );

@@ -1,0 +1,132 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="400" rx="8" fill="#1E293B"/>
+  
+  <!-- Code Editor Window -->
+  <rect x="30" y="30" width="360" height="340" rx="8" fill="#0F172A"/>
+  
+  <!-- File tabs -->
+  <rect x="30" y="30" width="360" height="35" rx="8 8 0 0" fill="#1E293B"/>
+  <rect x="40" y="35" width="100" height="25" rx="4" fill="#334155"/>
+  <rect x="50" y="42" width="70" height="10" rx="2" fill="#94A3B8"/>
+  <rect x="150" y="35" width="90" height="25" rx="4" fill="#0F172A"/>
+  <rect x="160" y="42" width="60" height="10" rx="2" fill="#64748B"/>
+  <rect x="250" y="35" width="90" height="25" rx="4" fill="#0F172A"/>
+  <rect x="260" y="42" width="60" height="10" rx="2" fill="#64748B"/>
+  
+  <!-- Line numbers -->
+  <rect x="30" y="65" width="30" height="305" fill="#1E293B"/>
+  <rect x="42" y="75" width="10" height="10" rx="2" fill="#475569"/>
+  <rect x="42" y="95" width="10" height="10" rx="2" fill="#475569"/>
+  <rect x="42" y="115" width="10" height="10" rx="2" fill="#475569"/>
+  <rect x="42" y="135" width="10" height="10" rx="2" fill="#475569"/>
+  <rect x="42" y="155" width="10" height="10" rx="2" fill="#475569"/>
+  <rect x="42" y="175" width="10" height="10" rx="2" fill="#475569"/>
+  <rect x="42" y="195" width="10" height="10" rx="2" fill="#475569"/>
+  <rect x="42" y="215" width="10" height="10" rx="2" fill="#475569"/>
+  <rect x="42" y="235" width="10" height="10" rx="2" fill="#475569"/>
+  <rect x="42" y="255" width="10" height="10" rx="2" fill="#475569"/>
+  <rect x="42" y="275" width="10" height="10" rx="2" fill="#475569"/>
+  <rect x="42" y="295" width="10" height="10" rx="2" fill="#475569"/>
+  <rect x="42" y="315" width="10" height="10" rx="2" fill="#475569"/>
+  <rect x="42" y="335" width="10" height="10" rx="2" fill="#475569"/>
+  <rect x="42" y="355" width="10" height="10" rx="2" fill="#475569"/>
+  
+  <!-- Code Lines -->
+  <!-- Line 1 - Import statement -->
+  <rect x="70" y="75" width="45" height="10" rx="2" fill="#C084FC"/>
+  <rect x="120" y="75" width="40" height="10" rx="2" fill="#FFFFFF"/>
+  <rect x="165" y="75" width="100" height="10" rx="2" fill="#22D3EE"/>
+  
+  <!-- Line 2 - Import statement -->
+  <rect x="70" y="95" width="45" height="10" rx="2" fill="#C084FC"/>
+  <rect x="120" y="95" width="40" height="10" rx="2" fill="#FFFFFF"/>
+  <rect x="165" y="95" width="80" height="10" rx="2" fill="#22D3EE"/>
+  
+  <!-- Line 3 - Empty line -->
+  
+  <!-- Line 4 - Function declaration -->
+  <rect x="70" y="135" width="60" height="10" rx="2" fill="#C084FC"/>
+  <rect x="135" y="135" width="100" height="10" rx="2" fill="#FB7185"/>
+  <rect x="240" y="135" width="15" height="10" rx="2" fill="#FFFFFF"/>
+  <rect x="260" y="135" width="40" height="10" rx="2" fill="#A3E635"/>
+  <rect x="305" y="135" width="5" height="10" rx="2" fill="#FFFFFF"/>
+  <rect x="315" y="135" width="5" height="10" rx="2" fill="#FFFFFF"/>
+  <rect x="325" y="135" width="5" height="10" rx="2" fill="#FFFFFF"/>
+  
+  <!-- Line 5 - Variable declaration -->
+  <rect x="90" y="155" width="50" height="10" rx="2" fill="#C084FC"/>
+  <rect x="145" y="155" width="60" height="10" rx="2" fill="#60A5FA"/>
+  <rect x="210" y="155" width="10" height="10" rx="2" fill="#FFFFFF"/>
+  <rect x="225" y="155" width="40" height="10" rx="2" fill="#FB7185"/>
+  <rect x="270" y="155" width="30" height="10" rx="2" fill="#FFFFFF"/>
+  
+  <!-- Line 6 - If statement -->
+  <rect x="90" y="175" width="20" height="10" rx="2" fill="#C084FC"/>
+  <rect x="115" y="175" width="60" height="10" rx="2" fill="#60A5FA"/>
+  <rect x="180" y="175" width="10" height="10" rx="2" fill="#FFFFFF"/>
+  <rect x="195" y="175" width="60" height="10" rx="2" fill="#22D3EE"/>
+  <rect x="260" y="175" width="5" height="10" rx="2" fill="#FFFFFF"/>
+  <rect x="270" y="175" width="5" height="10" rx="2" fill="#FFFFFF"/>
+  
+  <!-- Line 7 - Return statement -->
+  <rect x="110" y="195" width="45" height="10" rx="2" fill="#C084FC"/>
+  <rect x="160" y="195" width="60" height="10" rx="2" fill="#FB7185"/>
+  <rect x="225" y="195" width="15" height="10" rx="2" fill="#A3E635"/>
+  
+  <!-- Line 8 - Closing brace -->
+  <rect x="90" y="215" width="5" height="10" rx="2" fill="#FFFFFF"/>
+  
+  <!-- Line 9 - Empty line -->
+  
+  <!-- Line 10 - Export statement -->
+  <rect x="70" y="255" width="60" height="10" rx="2" fill="#C084FC"/>
+  <rect x="135" y="255" width="60" height="10" rx="2" fill="#C084FC"/>
+  <rect x="200" y="255" width="80" height="10" rx="2" fill="#FB7185"/>
+  <rect x="285" y="255" width="5" height="10" rx="2" fill="#FFFFFF"/>
+  
+  <!-- Line 11 - Comments -->
+  <rect x="70" y="275" width="200" height="10" rx="2" fill="#64748B"/>
+  
+  <!-- Line 12 - Comments -->
+  <rect x="70" y="295" width="180" height="10" rx="2" fill="#64748B"/>
+  
+  <!-- Browser Window -->
+  <rect x="410" y="30" width="160" height="160" rx="8" fill="#FFFFFF"/>
+  
+  <!-- Browser Controls -->
+  <rect x="410" y="30" width="160" height="25" rx="8 8 0 0" fill="#F1F5F9"/>
+  <circle cx="425" cy="42.5" r="5" fill="#F43F5E"/>
+  <circle cx="440" cy="42.5" r="5" fill="#FACC15"/>
+  <circle cx="455" cy="42.5" r="5" fill="#4ADE80"/>
+  
+  <!-- Browser Address Bar -->
+  <rect x="420" y="65" width="140" height="20" rx="4" fill="#E2E8F0"/>
+  <rect x="430" y="70" width="100" height="10" rx="2" fill="#94A3B8"/>
+  
+  <!-- Browser Content -->
+  <rect x="420" y="95" width="140" height="20" rx="2" fill="#1E40AF"/>
+  <rect x="420" y="125" width="100" height="10" rx="2" fill="#64748B"/>
+  <rect x="420" y="145" width="90" height="10" rx="2" fill="#64748B"/>
+  <rect x="420" y="165" width="60" height="20" rx="10" fill="#3B82F6"/>
+  
+  <!-- Terminal Window -->
+  <rect x="410" y="210" width="160" height="160" rx="8" fill="#0F172A"/>
+  
+  <!-- Terminal Header -->
+  <rect x="410" y="210" width="160" height="25" rx="8 8 0 0" fill="#1E293B"/>
+  <rect x="430" y="217.5" width="60" height="10" rx="2" fill="#94A3B8"/>
+  
+  <!-- Terminal Content -->
+  <rect x="420" y="245" width="80" height="10" rx="2" fill="#22D3EE"/>
+  <rect x="420" y="265" width="100" height="10" rx="2" fill="#A3E635"/>
+  <rect x="420" y="285" width="90" height="10" rx="2" fill="#FFFFFF"/>
+  <rect x="420" y="305" width="110" height="10" rx="2" fill="#22D3EE"/>
+  <rect x="420" y="325" width="70" height="10" rx="2" fill="#A3E635"/>
+  <rect x="420" y="345" width="100" height="10" rx="2" fill="#FFFFFF"/>
+  
+  <!-- Cursor -->
+  <rect x="420" y="355" width="5" height="2" rx="1" fill="#FFFFFF">
+    <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/>
+  </rect>
+</svg> 
