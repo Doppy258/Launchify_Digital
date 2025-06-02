@@ -7,12 +7,6 @@ import { ArrowRight, CheckCircle } from "lucide-react"
 import { motion } from "framer-motion"
 import { jsonLdScriptProps } from "@/lib/seo"
 
-export const metadata = {
-  title: "Launchified Digital | Web Development & Digital Marketing Agency",
-  description: "Launchified Digital (also known as Launchify Digital) is a premier digital agency in San Francisco specializing in web development, SEO, and digital marketing for small businesses.",
-  keywords: ['Launchified Digital', 'Launchify Digital', 'Launchified', 'Launchify', 'Digital Marketing', 'Web Development', 'San Francisco digital agency'],
-}
-
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: {
