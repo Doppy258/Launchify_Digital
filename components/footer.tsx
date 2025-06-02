@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Facebook, Twitter, Instagram, Linkedin, Mail } from "lucide-react"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { useState, useEffect } from "react"
 
 const staggerContainer = {
