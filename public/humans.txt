@@ -3,13 +3,13 @@ Technical Director: Lucas Zhao
 Contact: lucas@launchifydigital.org
 Twitter: @lucaszhao
 LinkedIn: https://linkedin.com/in/lucaszhao
-Location: San Francisco, CA, USA
+Location: Toronto, CA, USA
 
 Marketing Director: Harrison Wang
 Contact: harrison@launchifydigital.org
 Twitter: @harrisonwang
 LinkedIn: https://linkedin.com/in/harrisonwang
-Location: San Francisco, CA, USA
+Location: Toronto, CA, USA
 
 /* SITE */
 Last update: 2025-05-17
@@ -25,8 +25,8 @@ Website: https://launchifydigital.org
 Services: Web Development, Digital Marketing, SEO, Social Media Management
 Founded: 2022
 Mission: Empowering small businesses with affordable digital solutions
-Location: San Francisco, CA, USA
+Location: Toronto, CA, USA
 Tagline: Transform Your Online Presence
 
 /* SEARCH TERMS */
-Keywords: Launchify Digital, Launchified Digital, Web Development, Digital Marketing, SEO, San Francisco 
+Keywords: Launchify Digital, Launchified Digital, Web Development, Digital Marketing, SEO, Toronto 

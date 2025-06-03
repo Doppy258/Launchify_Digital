@@ -25,7 +25,7 @@ export default function LaunchifiedDigitalPage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Launchified Digital | Web Development & Digital Marketing Agency",
-          description: "Launchified Digital (also known as Launchify Digital) is a premier digital agency in San Francisco specializing in web development and digital marketing for small businesses.",
+          description: "Launchified Digital (also known as Launchify Digital) is a premier digital agency in Toronto specializing in web development and digital marketing for small businesses.",
           url: "https://launchifydigital.org/launchified-digital",
           isPartOf: {
             "@type": "WebSite",
@@ -39,7 +39,7 @@ export default function LaunchifiedDigitalPage() {
             url: "https://launchifydigital.org/",
             logo: "https://launchifydigital.org/LOGO.png"
           },
-          keywords: "Launchified Digital, Launchify Digital, web development, digital marketing, SEO, San Francisco"
+          keywords: "Launchified Digital, Launchify Digital, web development, digital marketing, SEO, Toronto"
         })}
       />
       
@@ -61,7 +61,7 @@ export default function LaunchifiedDigitalPage() {
             </h1>
             
             <p className="text-lg text-slate-700 mb-8">
-              Launchified Digital (also known as Launchify Digital) is a premier digital agency based in San Francisco, specializing in web development, search engine optimization, and digital marketing services for small businesses.
+              Launchified Digital (also known as Launchify Digital) is a premier digital agency based in Toronto, specializing in web development, search engine optimization, and digital marketing services for small businesses.
             </p>
           </motion.div>
           

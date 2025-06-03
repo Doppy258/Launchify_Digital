@@ -1,4 +1,4 @@
-# Launchify Digital & Launchified Digital - San Francisco's Premier Digital Marketing & Web Development Agency
+# Launchify Digital & Launchified Digital - Toronto's Premier Digital Marketing & Web Development Agency
 # For all web crawlers
 User-agent: *
 Allow: /

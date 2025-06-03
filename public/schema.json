@@ -33,12 +33,12 @@
           "https://linkedin.com/in/lucaszhao"
         ]
       },
-      "description": "Launchify Digital (also known as Launchified Digital) is a premier digital agency specializing in web development, digital marketing, and social media management for small businesses in San Francisco.",
+      "description": "Launchify Digital (also known as Launchified Digital) is a premier digital agency specializing in web development, digital marketing, and social media management for small businesses in Toronto.",
       "slogan": "Transform Your Online Presence with Launchify Digital",
       "knowsAbout": ["Web Development", "Digital Marketing", "SEO", "Social Media Management", "Website Design"],
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "San Francisco",
+        "addressLocality": "Toronto",
         "addressRegion": "CA",
         "addressCountry": "US"
       },
@@ -71,7 +71,7 @@
         "@id": "https://launchifydigital.org/#organization"
       },
       "description": "Launchify Digital (also known as Launchified Digital) provides professional web development, digital marketing, and social media management services for small businesses looking to grow their online presence.",
-      "keywords": "Launchify Digital, Launchified Digital, web development, digital marketing, SEO, San Francisco digital agency",
+      "keywords": "Launchify Digital, Launchified Digital, web development, digital marketing, SEO, Toronto digital agency",
       "inLanguage": "en-US"
     },
     {

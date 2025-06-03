@@ -34,7 +34,7 @@ export function generateOrganizationSchema() {
     address: {
       '@type': 'PostalAddress',
       streetAddress: '123 Digital Avenue',
-      addressLocality: 'San Francisco',
+      addressLocality: 'Toronto',
       addressRegion: 'CA',
       postalCode: '94105',
       addressCountry: 'US'
@@ -56,7 +56,7 @@ export function generateLocalBusinessSchema() {
     address: {
       '@type': 'PostalAddress',
       streetAddress: '123 Digital Avenue',
-      addressLocality: 'San Francisco',
+      addressLocality: 'Toronto',
       addressRegion: 'CA',
       postalCode: '94105',
       addressCountry: 'US'
