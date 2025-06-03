@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] })
 const cacheBuster = Date.now();
 
 export const metadata = {
-  title: "Launchify Digital | Web Dev & Digital Marketing in SF",
+  title: "Launchify Digital | Professional Web Development Services",
   description:
     "Launchify Digital (also known as Launchified Digital) specializes in creating stunning websites and effective digital marketing strategies for small businesses. Based in Toronto, our team helps businesses grow online.",
   generator: 'Next.js',
@@ -46,7 +46,7 @@ export const metadata = {
     'humans': '/humans.txt',
   },
   openGraph: {
-    title: 'Launchify Digital | Web Dev & Digital Marketing in SF',
+    title: 'Launchify Digital | Professional Web Development Services',
     description: 'Launchify Digital specializes in stunning websites and effective digital marketing for small businesses in Toronto.',
     url: 'https://launchifydigital.org',
     siteName: 'Launchify Digital',
@@ -63,7 +63,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Launchify Digital | Web Dev & Digital Marketing in SF',
+    title: 'Launchify Digital | Professional Web Development Services',
     description: 'Launchify Digital: Stunning websites & effective digital marketing for Toronto small businesses.',
     images: [`/LOGO.png?v=${cacheBuster}`],
     creator: '@launchifydigital',
