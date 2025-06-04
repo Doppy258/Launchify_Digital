@@ -661,11 +661,11 @@ const StatsSection = () => {
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            How We <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Create Your Website</span>
+            Driving Results with <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Proven Strategies</span>
           </h2>
           
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Our streamlined process ensures we deliver high-quality websites efficiently and with attention to detail.
+            Our approach is designed to deliver measurable success and elevate your online presence effectively.
           </p>
         </motion.div>
         
