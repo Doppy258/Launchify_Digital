@@ -379,7 +379,7 @@ const HeroSection = () => {
                   size="lg"
                   className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-10 py-7 text-lg"
                 >
-                  Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
+                  Launch Your Project <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link href="/services">
