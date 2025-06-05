@@ -3,6 +3,14 @@
 User-agent: *
 Allow: /
 
+# Improved crawling directives for optimal indexing
+Allow: /*.js*
+Allow: /*.css*
+Allow: /*.png*
+Allow: /*.jpg*
+Allow: /*.gif*
+Allow: /*.svg*
+
 # Brand Identity Pages - High Priority
 Allow: /
 Allow: /about

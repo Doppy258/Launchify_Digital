@@ -1,32 +1,25 @@
 /* TEAM */
-Technical Director: Lucas Zhao
-Contact: lucas@launchifydigital.org
-Twitter: @lucaszhao
-LinkedIn: https://linkedin.com/in/lucaszhao
-Location: Toronto, CA, USA
-
-Marketing Director: Harrison Wang
-Contact: harrison@launchifydigital.org
-Twitter: @harrisonwang
-LinkedIn: https://linkedin.com/in/harrisonwang
-Location: Toronto, CA, USA
+    Name: Launchify Digital Team
+    Site: https://launchifydigital.org
+    Twitter: @launchifydigital
+    Location: Toronto, Canada
 
 /* SITE */
-Last update: 2025-05-17
-Standards: HTML5, CSS3, JavaScript
-Components: Next.js, React, Tailwind CSS
-Software: Visual Studio Code, Adobe Creative Suite
-Language: English
+    Last update: 2024-05-25
+    Standards: HTML5, CSS3, JavaScript
+    Components: Next.js, React, Tailwind CSS
+    Software: VS Code, Figma, Adobe Suite
 
-/* COMPANY */
-Name: Launchify Digital
-Also Known As: Launchified Digital
-Website: https://launchifydigital.org
-Services: Web Development, Digital Marketing, SEO, Social Media Management
-Founded: 2022
-Mission: Empowering small businesses with affordable digital solutions
-Location: Toronto, CA, USA
-Tagline: Transform Your Online Presence
+/* THANKS */
+    Our amazing clients for trusting Launchify Digital with their digital needs!
+
+/* ABOUT LAUNCHIFY DIGITAL */
+    Launchify Digital (also known as Launchified Digital) is Toronto's premier web development and digital marketing agency. We specialize in creating high-performance websites and implementing effective digital strategies that drive real business results. Whether you need a new website, a redesign, or digital marketing services, our team is here to help your business succeed online.
+    
+    Services: Web Development, Digital Marketing, SEO, Social Media Management, Website Maintenance, Custom Website Design
+    
+    Visit us at: https://launchifydigital.org
+    Contact: info@launchifydigital.org
 
 /* SEARCH TERMS */
 Keywords: Launchify Digital, Launchified Digital, Web Development, Digital Marketing, SEO, Toronto 

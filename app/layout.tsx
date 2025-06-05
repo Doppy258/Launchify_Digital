@@ -42,7 +42,7 @@ export const metadata = {
     'robots': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
     'google': 'notranslate',
     'googlebot': 'index, follow',
-    'google-site-verification': 'REPLACE_WITH_ACTUAL_VERIFICATION_CODE_FROM_GOOGLE_SEARCH_CONSOLE',
+    'google-site-verification': '', // Verified through domain provider
     'humans': '/humans.txt',
   },
   openGraph: {
@@ -111,6 +111,24 @@ export default function RootLayout({
         <link type="text/plain" rel="author" href="/humans.txt" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(require('../public/schema.json')) }} />
         <script src="/brand-highlight.js" defer></script>
+        
+        {/* Speed optimization - CSS load optimization */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          // Optimize CSS loading
+          const loadCSS = (href) => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = href;
+            link.media = 'all';
+            document.head.appendChild(link);
+          };
+          
+          // Load non-critical CSS asynchronously
+          window.addEventListener('load', () => {
+            if (document.querySelector('link[rel="stylesheet"][href*="font"]')) return;
+            loadCSS('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+          });
+        `}} />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>

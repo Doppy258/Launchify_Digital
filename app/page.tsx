@@ -360,12 +360,12 @@ const HeroSection = () => {
             </motion.h1>
             
             <motion.p
-              className="text-slate-700 text-xl md:text-2xl mt-3 leading-relaxed"
+              className="text-xl text-slate-700 md:text-2xl mb-6 md:mb-8 max-w-xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              Launchify Digital creates stunning, professional websites that convert visitors into customers. Our expert team builds custom sites that perfectly represent your brand and business goals.
+              Launchify Digital creates stunning, high-performance websites and implements effective digital marketing strategies for businesses in Toronto and beyond.
             </motion.p>
             
             <motion.div
@@ -665,7 +665,7 @@ const StatsSection = () => {
           </h2>
           
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Our approach is designed to deliver measurable success and elevate your online presence effectively.
+            Our approach is designed to deliver measurable success and elevate your online presence effectively. At Launchify Digital, we focus on results.
           </p>
         </motion.div>
         
