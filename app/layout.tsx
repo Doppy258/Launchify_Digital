@@ -13,9 +13,9 @@ const inter = Inter({ subsets: ["latin"] })
 const cacheBuster = Date.now();
 
 export const metadata = {
-  title: "Launchify Digital | Professional Web Development Services",
+  title: "Launchify Digital | Toronto's Premier Web Development & Digital Marketing Agency",
   description:
-    "Launchify Digital (also known as Launchified Digital) specializes in creating stunning websites and effective digital marketing strategies for small businesses. Based in Toronto, our team helps businesses grow online.",
+    "Launchify Digital (also known as Launchified Digital) is Toronto's leading web development and digital marketing agency, specializing in creating high-performance websites and growth strategies for businesses.",
   generator: 'Next.js',
   applicationName: 'Launchify Digital',
   referrer: 'origin-when-cross-origin',
@@ -42,12 +42,12 @@ export const metadata = {
     'robots': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
     'google': 'notranslate',
     'googlebot': 'index, follow',
-    'google-site-verification': 'YOUR_VERIFICATION_CODE',
+    'google-site-verification': 'REPLACE_WITH_ACTUAL_VERIFICATION_CODE_FROM_GOOGLE_SEARCH_CONSOLE',
     'humans': '/humans.txt',
   },
   openGraph: {
-    title: 'Launchify Digital | Professional Web Development Services',
-    description: 'Launchify Digital specializes in stunning websites and effective digital marketing for small businesses in Toronto.',
+    title: 'Launchify Digital | Toronto\'s Premier Web Development & Digital Marketing Agency',
+    description: 'Launchify Digital is Toronto\'s leading web development and digital marketing agency for businesses seeking growth and results.',
     url: 'https://launchifydigital.org',
     siteName: 'Launchify Digital',
     images: [
@@ -63,8 +63,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Launchify Digital | Professional Web Development Services',
-    description: 'Launchify Digital: Stunning websites & effective digital marketing for Toronto small businesses.',
+    title: 'Launchify Digital | Toronto\'s Premier Web Development Agency',
+    description: 'Launchify Digital: Toronto\'s leading web development and digital marketing agency for businesses seeking growth.',
     images: [`/LOGO.png?v=${cacheBuster}`],
     creator: '@launchifydigital',
     site: '@launchifydigital',

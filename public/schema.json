@@ -33,16 +33,27 @@
           "https://linkedin.com/in/lucaszhao"
         ]
       },
-      "description": "Launchify Digital (also known as Launchified Digital) is a premier digital agency specializing in web development, digital marketing, and social media management for small businesses in Toronto.",
+      "description": "Launchify Digital (also known as Launchified Digital) is Toronto's premier digital agency specializing in web development, digital marketing, and social media management for businesses seeking growth and results.",
       "slogan": "Transform Your Online Presence with Launchify Digital",
-      "knowsAbout": ["Web Development", "Digital Marketing", "SEO", "Social Media Management", "Website Design"],
+      "knowsAbout": ["Web Development", "Digital Marketing", "SEO", "Social Media Management", "Website Design", "E-commerce Development", "Brand Strategy", "Content Marketing"],
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Toronto",
         "addressRegion": "CA",
         "addressCountry": "US"
       },
-      "telephone": "+14155555555"
+      "telephone": "+14155555555",
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 43.6532,
+          "longitude": -79.3832
+        },
+        "geoRadius": "50km"
+      },
+      "foundingDate": "2023-01-01",
+      "award": "Top Toronto Digital Marketing Agency 2023"
     },
     {
       "@type": "WebSite",
@@ -57,22 +68,32 @@
         "@type": "SearchAction",
         "target": "https://launchifydigital.org/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
+      },
+      "inLanguage": "en-US",
+      "copyrightYear": "2023",
+      "copyrightHolder": {
+        "@id": "https://launchifydigital.org/#organization"
       }
     },
     {
       "@type": "WebPage",
       "@id": "https://launchifydigital.org/#webpage",
       "url": "https://launchifydigital.org/",
-      "name": "Launchify Digital | Web Development & Digital Marketing",
+      "name": "Launchify Digital | Toronto's Premier Web Development & Digital Marketing Agency",
       "isPartOf": {
         "@id": "https://launchifydigital.org/#website"
       },
       "about": {
         "@id": "https://launchifydigital.org/#organization"
       },
-      "description": "Launchify Digital (also known as Launchified Digital) provides professional web development, digital marketing, and social media management services for small businesses looking to grow their online presence.",
-      "keywords": "Launchify Digital, Launchified Digital, web development, digital marketing, SEO, Toronto digital agency",
-      "inLanguage": "en-US"
+      "description": "Launchify Digital (also known as Launchified Digital) is Toronto's leading web development and digital marketing agency, specializing in creating high-performance websites and growth strategies for businesses.",
+      "keywords": "Launchify Digital, Launchified Digital, web development, digital marketing, SEO, Toronto digital agency, website design Toronto, digital growth strategies",
+      "inLanguage": "en-US",
+      "datePublished": "2023-01-01T00:00:00+00:00",
+      "dateModified": "2023-07-15T00:00:00+00:00",
+      "mainEntityOfPage": {
+        "@id": "https://launchifydigital.org/#webpage"
+      }
     },
     {
       "@type": "Service",
@@ -81,7 +102,14 @@
       "provider": {
         "@id": "https://launchifydigital.org/#organization"
       },
-      "description": "Launchify Digital creates beautiful, responsive, and high-performing websites for small businesses."
+      "description": "Launchify Digital creates beautiful, responsive, and high-performing websites for businesses in Toronto and beyond.",
+      "offers": {
+        "@type": "Offer",
+        "price": "1999.00",
+        "priceCurrency": "CAD"
+      },
+      "areaServed": "Toronto",
+      "serviceOutput": "Professional business website"
     },
     {
       "@type": "Service",
@@ -90,7 +118,14 @@
       "provider": {
         "@id": "https://launchifydigital.org/#organization"
       },
-      "description": "Launchify Digital provides comprehensive digital marketing services to help small businesses reach their target audience."
+      "description": "Launchify Digital provides comprehensive digital marketing services to help businesses reach their target audience and achieve measurable growth.",
+      "offers": {
+        "@type": "Offer",
+        "price": "999.00",
+        "priceCurrency": "CAD"
+      },
+      "areaServed": "Toronto",
+      "serviceOutput": "Increased online visibility and customer engagement"
     },
     {
       "@type": "Service",
@@ -99,7 +134,14 @@
       "provider": {
         "@id": "https://launchifydigital.org/#organization"
       },
-      "description": "Launchify Digital manages social media accounts to build brand presence and engage with customers."
+      "description": "Launchify Digital manages social media accounts to build brand presence and engage with customers effectively.",
+      "offers": {
+        "@type": "Offer",
+        "price": "799.00",
+        "priceCurrency": "CAD"
+      },
+      "areaServed": "Toronto",
+      "serviceOutput": "Improved social media presence and engagement"
     },
     {
       "@type": "BreadcrumbList",
@@ -109,6 +151,35 @@
           "position": 1,
           "name": "Home",
           "item": "https://launchifydigital.org/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does Launchify Digital offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Launchify Digital offers web development, digital marketing, SEO, social media management, and brand strategy services for businesses in Toronto and beyond."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Launchify Digital located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Launchify Digital is based in Toronto, Canada, but serves clients remotely throughout North America."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I request a quote from Launchify Digital?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can request a quote by visiting our contact page or clicking the 'Launch Your Project' button on our homepage."
+          }
         }
       ]
     }
