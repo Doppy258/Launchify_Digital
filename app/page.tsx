@@ -783,7 +783,7 @@ const ServicesSection = () => {
       description: "Eye-catching, modern designs that reflect your brand identity and engage your audience.",
       features: ["Unique, brand-aligned layouts", "Mobile-first responsive design", "Intuitive user experience"],
       color: "blue",
-      image: "/services/web-development.jpg",
+      image: "/images/services/website-design-service.jpg",
       link: "/services/custom-website-design"
     },
     {
@@ -792,7 +792,7 @@ const ServicesSection = () => {
       description: "Professional coding that brings your design to life with clean, efficient functionality.",
       features: ["Fast-loading pages", "SEO-friendly structure", "Secure, reliable code"],
       color: "indigo",
-      image: "/services/digital-marketing.jpg",
+      image: "/images/services/website-development-service.jpg",
       link: "/services/website-development"
     },
     {
@@ -801,7 +801,7 @@ const ServicesSection = () => {
       description: "Keep your site running smoothly with regular updates, backups, and technical support.",
       features: ["Regular security updates", "Performance optimization", "Technical troubleshooting"],
       color: "teal",
-      image: "/services/enterprise-solutions.jpg",
+      image: "/images/services/website-maintenance-service.jpg",
       link: "/services/website-maintenance"
     }
   ];
@@ -901,7 +901,9 @@ const ServicesSection = () => {
                       alt={`${service.title} by Launchify Digital`}
                       width={400}
                       height={250}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="rounded-lg shadow-md object-cover"
+                      priority={index === 0}
                     />
                   </div>
                 </div>
