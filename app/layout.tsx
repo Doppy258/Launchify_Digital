@@ -110,7 +110,6 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <link type="text/plain" rel="author" href="/humans.txt" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(require('../public/schema.json')) }} />
-        <script src="/brand-highlight.js" defer></script>
         
         {/* Speed optimization - CSS load optimization */}
         <script dangerouslySetInnerHTML={{ __html: `
