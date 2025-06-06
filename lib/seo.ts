@@ -10,74 +10,51 @@ export const baseMetadata: Metadata = {
   keywords: ['digital marketing', 'website development', 'small business', 'social media management', 'SEO', 'web design'],
 };
 
-// Generate organization schema.org structured data
-export function generateOrganizationSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Launchify Digital',
-    url: 'https://launchifydigital.org',
-    logo: 'https://launchifydigital.org/LOGO.png',
-    sameAs: [
-      'https://twitter.com/launchifydigital',
-      'https://facebook.com/launchifydigital',
-      'https://linkedin.com/company/launchifydigital',
-      'https://instagram.com/launchifydigital'
-    ],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+15551234567',
-      contactType: 'customer service',
-      email: 'info@launchifydigital.org',
-      availableLanguage: 'English'
-    },
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '123 Digital Avenue',
-      addressLocality: 'Toronto',
-      addressRegion: 'CA',
-      postalCode: '94105',
-      addressCountry: 'US'
-    }
-  };
-}
-
 // Generate local business schema.org structured data
 export function generateLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'ProfessionalService',
     name: 'Launchify Digital',
-    image: 'https://launchifydigital.org/LOGO.png',
-    '@id': 'https://launchifydigital.org',
-    url: 'https://launchifydigital.org',
-    telephone: '+15551234567',
+    description: 'Launchify Digital is a premier digital agency in Toronto specializing in web development, SEO, and digital marketing for small businesses.',
+    image: 'https://www.launchifydigital.org/LOGO.png',
+    '@id': 'https://www.launchifydigital.org',
+    url: 'https://www.launchifydigital.org',
+    telephone: '+1-647-123-4567',
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '123 Digital Avenue',
+      streetAddress: '123 Yonge Street',
       addressLocality: 'Toronto',
-      addressRegion: 'CA',
-      postalCode: '94105',
-      addressCountry: 'US'
+      addressRegion: 'ON',
+      postalCode: 'M5G 1M8',
+      addressCountry: 'CA'
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 37.7749,
-      longitude: -122.4194
+      latitude: 43.6532,
+      longitude: -79.3832
     },
-    openingHoursSpecification: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: [
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday'
-      ],
-      opens: '09:00',
-      closes: '17:00'
-    }
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday'
+        ],
+        opens: '09:00',
+        closes: '17:00'
+      }
+    ],
+    sameAs: [
+      'https://twitter.com/launchifydigital',
+      'https://facebook.com/launchifydigital',
+      'https://linkedin.com/company/launchify-digital',
+      'https://instagram.com/launchifydigital'
+    ]
   };
 }
 

@@ -32,33 +32,6 @@ export default function Contact() {
   const [lastSubmissionTime, setLastSubmissionTime] = useState<number | null>(null);
   const { toast } = useToast();
 
-  // Contact page structured data
-  const contactStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    description: "Contact information for Launchify Digital - Website Creation Experts",
-    mainEntity: {
-      "@type": "Organization",
-      name: "Launchify Digital",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "123 Digital Avenue",
-        addressLocality: "Toronto",
-        addressRegion: "ON",
-        postalCode: "M5V 2A1",
-        addressCountry: "CA"
-      },
-      telephone: "+16478956675",
-      email: "lzhaolaunchifydigital@gmail.com,hwanglaunchifydigital@gmail.com",
-      openingHoursSpecification: {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "09:00",
-        closes: "17:00"
-      }
-    }
-  };
-
   // Animation variants
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -143,26 +116,21 @@ export default function Contact() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Structured Data */}
-      <script {...jsonLdScriptProps(contactStructuredData)} />
-
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-slate-50 to-slate-100">
-        <div className="container px-4 md:px-6 mx-auto">
-          <motion.div 
-            className="flex flex-col items-center justify-center space-y-4 text-center"
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-          >
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">Contact Us</h1>
-              <p className="max-w-[800px] text-slate-700 md:text-xl/relaxed lg:text-2xl/relaxed">
-                Ready to create a stunning website for your business? Get in touch with our team.
-              </p>
-            </div>
-          </motion.div>
+      <motion.section 
+        className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-slate-50 to-slate-100"
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+      >
+        <div className="container px-4 md:px-6 mx-auto max-w-4xl text-center">
+          <div className="space-y-2">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">Contact Our Toronto Office</h1>
+            <p className="max-w-[800px] text-slate-700 md:text-xl/relaxed lg:text-2xl/relaxed">
+              Ready to start your web design project? Get in touch with our expert team in Toronto.
+            </p>
+          </div>
         </div>
-      </section>
+      </motion.section>
 
       <section className="w-full py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6 mx-auto max-w-7xl">
@@ -178,58 +146,40 @@ export default function Contact() {
               variants={fadeIn}
             >
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Let's Discuss Your Website Project</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Get in Touch</h2>
                 <p className="text-slate-700 md:text-lg">
-                  Fill out the form and we'll get back to you within 24 hours to discuss how we can help create the perfect website for your business.
+                  We're here to help you succeed online. Fill out the form, and our Toronto-based team will get back to you within 24 hours.
                 </p>
               </div>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
                   <div className="bg-blue-100 p-3 rounded-full">
-                    <MessageSquare className="h-6 w-6 text-blue-600" />
+                    <Mail className="h-6 w-6 text-blue-600" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-bold text-lg">Quick Response</h3>
-                    <p className="text-slate-700">We respond to all inquiries within 24 hours during business days.</p>
+                    <h3 className="font-bold text-lg">Email</h3>
+                    <p className="text-slate-700"><a href="mailto:info@launchifydigital.org" className="hover:underline">info@launchifydigital.org</a></p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <div className="bg-purple-100 p-3 rounded-full">
-                    <Globe className="h-6 w-6 text-purple-600" />
+                    <Phone className="h-6 w-6 text-purple-600" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-bold text-lg">Website Expertise</h3>
-                    <p className="text-slate-700">Specialized in creating professional, high-performing websites for businesses.</p>
+                    <h3 className="font-bold text-lg">Phone</h3>
+                    <p className="text-slate-700">+1 (647) 123-4567</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <div className="bg-teal-100 p-3 rounded-full">
-                    <Code className="h-6 w-6 text-teal-600" />
+                    <MapPin className="h-6 w-6 text-teal-600" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-bold text-lg">Modern Technology</h3>
-                    <p className="text-slate-700">We use the latest web technologies to build fast, secure, and scalable websites.</p>
+                    <h3 className="font-bold text-lg">Address</h3>
+                    <p className="text-slate-700">123 Yonge Street, Toronto, ON M5G 1M8, Canada</p>
                   </div>
                 </div>
               </div>
-              <Card className="overflow-hidden border-0 shadow-lg bg-gradient-to-br from-slate-800 to-slate-900 text-white">
-                <CardContent className="p-6">
-                  <CardTitle className="text-xl mb-4 flex items-center">
-                    <Mail className="h-5 w-5 mr-2" /> Email Us Directly
-                  </CardTitle>
-                  <CardDescription className="text-slate-300 text-base">
-                    If you prefer, you can email us directly at:
-                  </CardDescription>
-                  <div className="mt-4 space-y-2">
-                    <a href="mailto:lzhaolaunchifydigital@gmail.com" className="block text-white hover:text-blue-300 transition-colors">
-                      lzhaolaunchifydigital@gmail.com
-                    </a>
-                    <a href="mailto:hwanglaunchifydigital@gmail.com" className="block text-white hover:text-blue-300 transition-colors">
-                      hwanglaunchifydigital@gmail.com
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
             </motion.div>
             <motion.div 
               variants={fadeIn}
@@ -248,7 +198,7 @@ export default function Contact() {
                       <CheckCircle className="h-16 w-16 text-green-500" />
                       <h3 className="text-2xl font-semibold">Message Sent!</h3>
                       <p className="text-slate-700 dark:text-slate-300">
-                        Thank you for contacting us. We'll get back to you shortly.
+                        Thank you for reaching out! We'll be in touch shortly.
                       </p>
                       <Button
                         onClick={() => setIsSubmissionSuccessful(false)}
@@ -264,10 +214,10 @@ export default function Contact() {
                           control={form.control}
                           name="name"
                           render={({ field }) => (
-                            <FormItem className="space-y-2">
-                              <FormLabel className="text-base font-medium">Full Name</FormLabel>
+                            <FormItem>
+                              <FormLabel>Your Name</FormLabel>
                               <FormControl>
-                                <Input placeholder="Enter your name" className="h-12" {...field} />
+                                <Input placeholder="John Doe" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -277,46 +227,42 @@ export default function Contact() {
                           control={form.control}
                           name="email"
                           render={({ field }) => (
-                            <FormItem className="space-y-2">
-                              <FormLabel className="text-base font-medium">Email Address</FormLabel>
+                            <FormItem>
+                              <FormLabel>Email Address</FormLabel>
                               <FormControl>
-                                <Input type="email" placeholder="Enter your email" className="h-12" {...field} />
+                                <Input type="email" placeholder="john.doe@example.com" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
                           )}
                         />
-                         <FormField
+                        <FormField
                           control={form.control}
                           name="subject"
                           render={({ field }) => (
-                            <FormItem className="space-y-2">
-                              <FormLabel className="text-base font-medium">Subject</FormLabel>
+                            <FormItem>
+                              <FormLabel>Subject</FormLabel>
                               <FormControl>
-                                <Input placeholder="What is your message about?" className="h-12" {...field} />
+                                <Input placeholder="Website Design Inquiry" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
                           )}
                         />
-                         <FormField
+                        <FormField
                           control={form.control}
                           name="message"
                           render={({ field }) => (
-                            <FormItem className="space-y-2">
-                              <FormLabel className="text-base font-medium">Message</FormLabel>
+                            <FormItem>
+                              <FormLabel>Your Message</FormLabel>
                               <FormControl>
-                                <Textarea placeholder="Tell us about your website needs" className="min-h-[150px] resize-none" {...field} />
+                                <Textarea placeholder="Tell us about your project..." {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
                           )}
                         />
-                        <Button 
-                          type="submit" 
-                          className="w-full h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium transition-all duration-300" 
-                          disabled={isSubmitting}
-                        >
+                        <Button type="submit" className="w-full" disabled={isSubmitting}>
                           {isSubmitting ? 'Sending...' : 'Send Message'}
                         </Button>
                       </form>
@@ -329,126 +275,16 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-slate-50">
-        <div className="container px-4 md:px-6 mx-auto max-w-7xl">
-          <motion.div 
-            className="flex flex-col items-center justify-center space-y-4 text-center mb-12"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={fadeIn}
-          >
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Additional Contact Information</h2>
-              <p className="max-w-[700px] text-slate-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Here are other ways to reach our website creation team.
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            className="grid gap-8 md:grid-cols-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={staggerContainer}
-          >
-            <motion.div variants={fadeIn}>
-              <Card className="border-0 shadow-lg h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
-                    <Phone className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <CardTitle className="text-xl">Phone</CardTitle>
-                  <CardDescription className="text-base">
-                    <a href="tel:+16478956675" className="hover:underline">
-                      (647) 895-6675
-                    </a>
-                  </CardDescription>
-                  <p className="text-slate-700">
-                    Available Monday - Friday, 9:00 AM - 5:00 PM EST
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div variants={fadeIn}>
-              <Card className="border-0 shadow-lg h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center">
-                    <Clock className="h-8 w-8 text-purple-600" />
-                  </div>
-                  <CardTitle className="text-xl">Business Hours</CardTitle>
-                  <CardDescription className="text-base">
-                    Monday - Friday
-                    <br />
-                    9:00 AM - 5:00 PM EST
-                  </CardDescription>
-                  <p className="text-slate-700">
-                    We respond to all after-hours inquiries on the next business day.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div variants={fadeIn}>
-              <Card className="border-0 shadow-lg h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-teal-100 flex items-center justify-center">
-                    <MapPin className="h-8 w-8 text-teal-600" />
-                  </div>
-                  <CardTitle className="text-xl">Location</CardTitle>
-                  <CardDescription className="text-base">
-                    Toronto, Ontario
-                    <br />
-                    Canada
-                  </CardDescription>
-                  <p className="text-slate-700">
-                    We serve clients remotely across North America and beyond.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-slate-900 text-white">
-        <div className="container px-4 md:px-6 mx-auto max-w-[1400px]">
-          <motion.div 
-            className="flex flex-col items-center justify-center space-y-6 text-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={fadeIn}
-          >
-            <div className="space-y-3">
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight lg:text-5xl">Ready to Create Your Dream Website?</h2>
-              <p className="max-w-[800px] text-slate-300 md:text-xl/relaxed lg:text-2xl/relaxed">
-                Let's transform your online presence together.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 min-[400px]:flex-row">
-              <a href="#" onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('form')?.scrollIntoView({ behavior: 'smooth' });
-              }}>
-                <Button size="lg" className="w-full min-[400px]:w-auto bg-white text-slate-900 hover:bg-slate-100 transition-all duration-300 text-base md:text-lg font-medium px-6 md:px-8 py-3">
-                  Contact Us Now
-                </Button>
-              </a>
-              <Link href="/services">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="w-full min-[400px]:w-auto bg-transparent border-white text-white hover:bg-slate-800 hover:text-white transition-all duration-300 text-base md:text-lg font-medium px-6 md:px-8 py-3"
-                >
-                  View Our Services
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
+      <section className="w-full h-[400px] md:h-[500px]">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.992984534723!2d-79.383184684502!3d43.653226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cb3b2a3b9b8b%3A0x2a2a2a2a2a2a2a2a!2sYonge%20Street%2C%20Toronto%2C%20ON!5e0!3m2!1sen!2sca!4v1622581683034!5m2!1sen!2sca"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen={false}
+          loading="lazy"
+          title="Launchify Digital Location in Toronto"
+        ></iframe>
       </section>
     </div>
   )

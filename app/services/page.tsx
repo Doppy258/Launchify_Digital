@@ -5,41 +5,44 @@ import { ArrowRight, CheckCircle, Code, Cpu, Globe } from "lucide-react";
 import { motion } from "motion/react";
 import React from "react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const services = [
   {
     icon: <Globe className="h-8 w-8" />,
     title: "Custom Website Design",
     description:
-      "We craft eye-catching, modern designs tailored to your brand identity. Our focus is on creating an intuitive user experience that engages your audience and drives conversions. From initial concept to final polish, we ensure your website is both beautiful and functional.",
+      "As a premier Toronto web design agency, we craft eye-catching, modern designs tailored to your brand. Our focus is on creating an intuitive user experience that engages your audience and drives conversions. From initial concept to final polish, we ensure your website is both beautiful and functional.",
     features: [
       "Unique, brand-aligned layouts",
-      "Mobile-first responsive design",
-      "Intuitive user experience (UX)",
+      "Mobile-first responsive design for all devices",
+      "Intuitive user experience (UX) and user interface (UI) design",
       "Interactive prototypes & mockups",
     ],
     color: "blue",
     link: "/services/custom-website-design",
+    image: "/images/services/custom-design.jpg"
   },
   {
     icon: <Code className="h-8 w-8" />,
     title: "Website Development",
     description:
-      "Our expert developers bring your designs to life with clean, efficient, and scalable code. We build robust websites using the latest technologies, ensuring fast-loading pages, SEO-friendly structure, and secure, reliable functionality for a seamless user journey.",
+      "Our expert web developers in Toronto bring your designs to life with clean, efficient, and scalable code. We build robust websites using the latest technologies, ensuring fast-loading pages, SEO-friendly structure, and secure functionality for a seamless user journey.",
     features: [
       "Frontend & backend development",
-      "Content Management System (CMS) integration",
-      "E-commerce solutions",
-      "API integrations",
+      "Content Management System (CMS) integration (e.g., WordPress, Shopify)",
+      "E-commerce solutions for online stores",
+      "API integrations and custom functionality",
     ],
     color: "indigo",
     link: "/services/website-development",
+    image: "/images/services/web-development.jpg"
   },
   {
     icon: <Cpu className="h-8 w-8" />,
     title: "Website Maintenance",
     description:
-      "Keep your website running smoothly and securely with our comprehensive maintenance plans. We provide regular updates, performance optimization, security monitoring, and prompt technical support to ensure your online presence remains effective and reliable.",
+      "Keep your website running smoothly and securely with our comprehensive maintenance plans. We provide regular updates, performance optimization, security monitoring, and prompt technical support to ensure your online presence remains effective and reliable for your Toronto business.",
     features: [
       "Regular security updates & backups",
       "Performance optimization & monitoring",
@@ -48,6 +51,7 @@ const services = [
     ],
     color: "teal",
     link: "/services/website-maintenance",
+    image: "/images/services/maintenance.jpg"
   },
 ];
 
@@ -123,12 +127,10 @@ export default function ServicesPage() {
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-slate-900">
-            Comprehensive Web Solutions
+            Toronto Web Design & Digital Marketing Services
           </h1>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
-            At Launchify Digital, we provide a full suite of web services designed
-            to elevate your online presence. From initial design to ongoing
-            maintenance, we are your trusted partner in the digital world.
+            At Launchify Digital, we provide a full suite of web services designed to elevate your online presence in Toronto and beyond. From custom web design to ongoing maintenance, we are your trusted partner in the digital world.
           </p>
         </div>
       </motion.section>
@@ -159,6 +161,15 @@ export default function ServicesPage() {
                         {React.cloneElement(service.icon, {
                           className: "h-8 w-8",
                         })}
+                      </div>
+                      <div className="mt-4">
+                        <Image 
+                          src={service.image}
+                          alt={`${service.title} service by Launchify Digital in Toronto`}
+                          width={200}
+                          height={150}
+                          className="rounded-lg shadow-md object-cover"
+                        />
                       </div>
                     </div>
 

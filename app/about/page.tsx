@@ -6,34 +6,11 @@ import Script from "next/script"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { generateOrganizationSchema, jsonLdScriptProps } from "@/lib/seo"
+import { jsonLdScriptProps } from "@/lib/seo"
 import { motion } from "framer-motion"
 import { Check, Code, PenTool, Rocket, Lightbulb, ExternalLink, CheckCircle, Users, Shield } from "lucide-react"
 
 export default function About() {
-  // Generate organization structured data
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Launchify Digital",
-    url: "https://launchifydigital.org",
-    logo: "https://launchifydigital.org/LOGO.png",
-    description: "A professional website creation agency helping businesses establish a powerful online presence.",
-    foundingDate: "2023",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Toronto",
-      addressRegion: "ON",
-      addressCountry: "CA"
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+16478956675",
-      contactType: "customer service",
-      email: "lucaszhao09@gmail.com"
-    }
-  };
-
   // Define animation variants
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -56,10 +33,6 @@ export default function About() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Structured Data */}
-      <script {...jsonLdScriptProps(organizationSchema)} />
-      <script {...jsonLdScriptProps(generateOrganizationSchema())} />
-
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-slate-50 to-slate-100">
         <div className="container px-4 md:px-6 mx-auto">
           <motion.div 
@@ -69,9 +42,9 @@ export default function About() {
             variants={fadeIn}
           >
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent pb-2">About Launchify Digital</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent pb-2">About Launchify Digital - Toronto's Web Experts</h1>
               <p className="max-w-[800px] text-slate-700 md:text-xl/relaxed lg:text-2xl/relaxed">
-                We transform businesses with powerful, professional websites that deliver results.
+                We are a Toronto-based web design and digital marketing agency dedicated to helping businesses thrive online.
               </p>
             </div>
           </motion.div>
@@ -88,12 +61,12 @@ export default function About() {
             variants={fadeIn}
           >
             <div className="space-y-6 max-w-2xl text-center lg:text-left">
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Our Mission</h2>
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Our Mission: Your Digital Success</h2>
               <p className="text-slate-700 md:text-xl/relaxed">
-                At Launchify Digital, we believe that every business deserves a professional website that not only looks great but effectively supports their business goals. We're dedicated to making high-quality website creation accessible to businesses of all sizes.
+                At Launchify Digital, our mission is to empower Toronto businesses with professional, high-performance websites. We believe that every business, regardless of size, deserves a powerful online presence that drives growth and connects with customers.
               </p>
               <p className="text-slate-700 md:text-xl/relaxed">
-                Our mission is to empower businesses to thrive online through expertly crafted websites that connect with their audience, communicate their value, and convert visitors into customers.
+                As a leading web design agency in Toronto, we are committed to delivering exceptional results. We combine creative design with the latest web technologies to build websites that are not only beautiful but also engineered to convert visitors into loyal customers.
               </p>
               <div className="flex flex-col space-y-3 md:flex-row md:space-x-4 md:space-y-0 justify-center lg:justify-start">
                 <Link href="/services">
@@ -113,7 +86,7 @@ export default function About() {
                 <div className="rounded-lg overflow-hidden w-full h-full bg-white">
                 <Image
                   src="/images/about/visuals/company-values-visual.svg"
-                  alt="Our Mission"
+                  alt="Illustration of Launchify Digital's core values: quality, transparency, and innovation"
                   width={600}
                   height={400}
                   className="w-full h-full object-cover rounded-lg"

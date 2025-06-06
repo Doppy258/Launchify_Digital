@@ -6,6 +6,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 import { Analytics } from "@vercel/analytics/react"
+import { generateLocalBusinessSchema, jsonLdScriptProps } from "@/lib/seo";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -109,7 +110,7 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#4f46e5" />
         <link rel="manifest" href="/manifest.json" />
         <link type="text/plain" rel="author" href="/humans.txt" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(require('../public/schema.json')) }} />
+        <script {...jsonLdScriptProps(generateLocalBusinessSchema())} />
         
         {/* Speed optimization - CSS load optimization */}
         <script dangerouslySetInnerHTML={{ __html: `

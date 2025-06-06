@@ -10,7 +10,7 @@ import { motion, useInView, AnimatePresence } from "motion/react"
 import { useRef, useState, useEffect } from "react"
 import WebsiteShowcase from "@/components/WebsiteShowcase"
 import { sampleWebsites } from "@/public/mock-data/websites"
-import { generateOrganizationSchema, generateLocalBusinessSchema, jsonLdScriptProps } from "@/lib/seo"
+import { generateLocalBusinessSchema, jsonLdScriptProps } from "@/lib/seo"
 
 // Animation variants
 const fadeIn = {
@@ -838,41 +838,34 @@ const ServicesSection = () => {
           </p>
         </motion.div>
         
-        <div className="grid gap-8 lg:gap-16 md:grid-cols-3 mx-auto max-w-6xl justify-center">
+        <div className="grid gap-8 lg:gap-12 md:grid-cols-3 mx-auto max-w-7xl justify-center">
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              className="group relative h-full flex"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -8, transition: { duration: 0.2 } }}
-            >
-              <motion.div 
-                className="relative z-10 h-full w-full rounded-2xl bg-white p-8 shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col"
-                whileHover={{ boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)" }}
+            <Link href={service.link} key={index} className="group relative h-full flex no-underline">
+              <motion.div
+                className="relative z-10 h-full w-full rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)", transition: { duration: 0.2 } }}
               >
-                {/* Enhanced animated color stripe at top */}
-                <motion.div 
+                <motion.div
                   className={`absolute top-0 left-0 right-0 h-1 ${
-                  service.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
-                  service.color === 'indigo' ? 'bg-gradient-to-r from-indigo-500 to-indigo-600' :
-                  'bg-gradient-to-r from-teal-500 to-teal-600'
+                    service.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
+                    service.color === 'indigo' ? 'bg-gradient-to-r from-indigo-500 to-indigo-600' :
+                    'bg-gradient-to-r from-teal-500 to-teal-600'
                   }`}
                   layoutId={`stripe-${index}`}
                   transition={{ duration: 0.3 }}
                 />
                 
-                <div className="relative flex flex-col h-full">
-                  <div className="flex-grow">
-                    {/* Animated icon */}
-                    <motion.div 
-                      className={`
-                    flex h-14 w-14 items-center justify-center rounded-xl mb-6
-                    ${service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
-                      service.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
-                      'bg-teal-50 text-teal-600'}
+                <div className="flex-grow">
+                  <motion.div
+                    className={`
+                      flex h-14 w-14 items-center justify-center rounded-xl mb-6
+                      ${service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
+                        service.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
+                        'bg-teal-50 text-teal-600'}
                     `}
                     initial={{ scale: 0.8, rotateY: 0 }}
                     whileInView={{ scale: 1, rotateY: 360 }}
@@ -882,9 +875,8 @@ const ServicesSection = () => {
                     {service.icon}
                   </motion.div>
                   
-                  {/* Content with enhanced animations */}
-                  <motion.h3 
-                    className="text-xl font-bold mb-3"
+                  <motion.h3
+                    className="text-xl font-bold mb-3 text-slate-900"
                     initial={{ opacity: 0, x: -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -893,135 +885,52 @@ const ServicesSection = () => {
                     {service.title}
                   </motion.h3>
                   
-                  <motion.p 
+                  <motion.p
                     className="text-slate-600 mb-6"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 + 0.5 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 + 0.5 }}
                   >
                     {service.description}
                   </motion.p>
-                  
-                  {/* Animated Features */}
-                  <motion.ul 
-                    className="space-y-3 mt-4 mb-8"
-                    variants={{
-                      hidden: { opacity: 0 },
-                      show: {
-                        opacity: 1,
-                        transition: {
-                          staggerChildren: 0.1,
-                          delayChildren: index * 0.1 + 0.6
-                        }
-                      }
-                    }}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                  >
-                    {service.features.map((feature, i) => (
-                      <motion.li 
-                        key={i} 
-                        className="flex items-center text-sm"
-                        variants={{
-                          hidden: { opacity: 0, x: -10 },
-                          show: { opacity: 1, x: 0 }
-                        }}
-                      >
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          whileInView={{ scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.3, delay: index * 0.1 + 0.6 + (i * 0.1) }}
-                        >
-                        <CheckCircle className={`h-4 w-4 mr-2 flex-shrink-0 ${
-                          service.color === 'blue' ? 'text-blue-500' :
-                          service.color === 'indigo' ? 'text-indigo-500' :
-                          'text-teal-500'
-                        }`} />
-                        </motion.div>
-                        <span>{feature}</span>
-                      </motion.li>
-                    ))}
-                  </motion.ul>
-                 </div> {/* End of flex-grow wrapper */}
-                  
-                  {/* Animated CTA */}
-                  <motion.div 
-                    className="mt-auto"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 + 0.8 }}
-                  >
-                    <Link href={service.link}> {/* Use the explicit link property */}
-                      <button className={`
-                        group inline-flex items-center text-sm font-medium transition-colors
-                        ${service.color === 'blue' ? 'text-blue-600 hover:text-blue-700' :
-                          service.color === 'indigo' ? 'text-indigo-600 hover:text-indigo-700' :
-                          'text-teal-600 hover:text-teal-700'}
-                      `}>
-                        Learn more 
-                        <motion.div
-                          initial={{ x: 0 }}
-                          whileHover={{ x: 5 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <ArrowRight className="ml-1 h-4" />
-                        </motion.div>
-                      </button>
-                    </Link>
-                  </motion.div>
-                </div> {/* This is the closing tag for <div className="relative flex flex-col h-full"> */}
-                
-                {/* Enhanced background decor */}
-                <motion.div 
-                  className={`
-                    absolute -bottom-20 -right-20 h-40 w-40 rounded-full blur-3xl transition-all duration-300
-                  ${service.color === 'blue' ? 'bg-blue-400' :
-                    service.color === 'indigo' ? 'bg-indigo-400' :
-                    'bg-teal-400'}
-                  `}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 0.2 }}
-                  whileHover={{ opacity: 0.3, scale: 1.1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                />
+
+                  <div className="mb-6">
+                    <Image 
+                      src={service.image}
+                      alt={`${service.title} by Launchify Digital`}
+                      width={400}
+                      height={250}
+                      className="rounded-lg shadow-md object-cover"
+                    />
+                  </div>
+                </div>
+
+                <ul className="space-y-3 mb-6 text-slate-700 text-sm flex-grow">
+                  {service.features.map((feature, fIndex) => (
+                    <motion.li
+                      key={fIndex}
+                      className="flex items-start"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.1 + 0.6 + fIndex * 0.1 }}
+                    >
+                      <CheckCircle className="h-4 w-4 text-blue-500 mt-0.5 mr-3 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+
+                <div className="mt-auto pt-4">
+                  <div className="text-blue-600 font-semibold flex items-center group-hover:underline">
+                    Learn More <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
+                </div>
               </motion.div>
-              
-              {/* Card shine effect on hover */}
-              <motion.div 
-                className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/5 to-white/30 opacity-0 transition-opacity duration-300 blur-sm"
-                whileHover={{ opacity: 1 }}
-              />
-            </motion.div>
+            </Link>
           ))}
         </div>
-        
-        <motion.div 
-          className="mt-20 text-center w-full"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-        >
-          <Link href="/services">
-            <Button
-              size="lg"
-              className="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-8"
-            >
-              <span className="relative z-10 flex items-center">
-                See All Services
-                <ArrowRight className="ml-2 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-              <span className="absolute inset-0 overflow-hidden rounded-full">
-                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></span>
-              </span>
-            </Button>
-          </Link>
-        </motion.div>
       </div>
     </section>
   );
@@ -1648,9 +1557,6 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Structured Data for SEO */}
-      <script
-        {...jsonLdScriptProps(generateOrganizationSchema())}
-      />
       <script
         {...jsonLdScriptProps(generateLocalBusinessSchema())}
       />
