@@ -266,18 +266,6 @@ export default function Contact() {
           </motion.div>
         </div>
       </section>
-
-      <section className="w-full h-[400px] md:h-[500px]">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.992984534723!2d-79.383184684502!3d43.653226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cb3b2a3b9b8b%3A0x2a2a2a2a2a2a2a2a!2sYonge%20Street%2C%20Toronto%2C%20ON!5e0!3m2!1sen!2sca!4v1622581683034!5m2!1sen!2sca"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen={false}
-          loading="lazy"
-          title="Launchify Digital Location in Toronto"
-        ></iframe>
-      </section>
     </div>
   )
 }
