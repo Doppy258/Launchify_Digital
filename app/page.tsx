@@ -896,18 +896,6 @@ const ServicesSection = () => {
                   >
                     {service.description}
                   </motion.p>
-
-                  <div className="mb-6">
-                    <Image 
-                      src={service.image}
-                      alt={`${service.title} by Launchify Digital`}
-                      width={400}
-                      height={250}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="rounded-lg shadow-md object-cover"
-                      priority={index === 0}
-                    />
-                  </div>
                 </div>
 
                 <ul className="space-y-3 mb-6 text-slate-700 text-sm flex-grow">
