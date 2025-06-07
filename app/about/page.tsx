@@ -36,15 +36,15 @@ export default function About() {
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-slate-50 to-slate-100">
         <div className="container px-4 md:px-6 mx-auto">
           <motion.div 
-            className="flex flex-col items-center justify-center space-y-4 text-center"
+            className="grid place-items-center space-y-4 text-center"
             initial="hidden"
             animate="visible"
             variants={fadeIn}
           >
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent pb-2">About Launchify Digital - Toronto's Web Experts</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent pb-2">About Launchify Digital</h1>
               <p className="max-w-[800px] text-slate-700 md:text-xl/relaxed lg:text-2xl/relaxed">
-                We are a Toronto-based web design and digital marketing agency dedicated to helping businesses thrive online.
+                We are a web design and digital marketing agency dedicated to helping businesses thrive online.
               </p>
             </div>
           </motion.div>
@@ -63,10 +63,10 @@ export default function About() {
             <div className="space-y-6 max-w-2xl text-center lg:text-left">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Our Mission: Your Digital Success</h2>
               <p className="text-slate-700 md:text-xl/relaxed">
-                At Launchify Digital, our mission is to empower Toronto businesses with professional, high-performance websites. We believe that every business, regardless of size, deserves a powerful online presence that drives growth and connects with customers.
+                At Launchify Digital, our mission is to empower businesses with professional, high-performance websites. We believe that every business, regardless of size, deserves a powerful online presence that drives growth and connects with customers.
               </p>
               <p className="text-slate-700 md:text-xl/relaxed">
-                As a leading web design agency in Toronto, we are committed to delivering exceptional results. We combine creative design with the latest web technologies to build websites that are not only beautiful but also engineered to convert visitors into loyal customers.
+                As a leading web design agency, we are committed to delivering exceptional results. We combine creative design with the latest web technologies to build websites that are not only beautiful but also engineered to convert visitors into loyal customers.
               </p>
               <div className="flex flex-col space-y-3 md:flex-row md:space-x-4 md:space-y-0 justify-center lg:justify-start">
                 <Link href="/services">

@@ -124,9 +124,9 @@ export default function Contact() {
       >
         <div className="container px-4 md:px-6 mx-auto max-w-4xl text-center">
           <div className="space-y-2">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">Contact Our Toronto Office</h1>
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">Contact Us</h1>
             <p className="max-w-[800px] text-slate-700 md:text-xl/relaxed lg:text-2xl/relaxed">
-              Ready to start your web design project? Get in touch with our expert team in Toronto.
+              Ready to start your project? Get in touch with our expert team.
             </p>
           </div>
         </div>
@@ -148,7 +148,7 @@ export default function Contact() {
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Get in Touch</h2>
                 <p className="text-slate-700 md:text-lg">
-                  We're here to help you succeed online. Fill out the form, and our Toronto-based team will get back to you within 24 hours.
+                  We're here to help you succeed online. Fill out the form, and our team will get back to you within 24 hours.
                 </p>
               </div>
               <div className="space-y-4">
@@ -158,7 +158,8 @@ export default function Contact() {
                   </div>
                   <div className="space-y-1">
                     <h3 className="font-bold text-lg">Email</h3>
-                    <p className="text-slate-700"><a href="mailto:info@launchifydigital.org" className="hover:underline">info@launchifydigital.org</a></p>
+                    <p className="text-slate-700"><a href="mailto:lzhaolaunchifydigital@gmail.com" className="hover:underline">lzhaolaunchifydigital@gmail.com</a></p>
+                    <p className="text-slate-700"><a href="mailto:hwanglaunchifydigital@gmail.com" className="hover:underline">hwanglaunchifydigital@gmail.com</a></p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -167,16 +168,7 @@ export default function Contact() {
                   </div>
                   <div className="space-y-1">
                     <h3 className="font-bold text-lg">Phone</h3>
-                    <p className="text-slate-700">+1 (647) 123-4567</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="bg-teal-100 p-3 rounded-full">
-                    <MapPin className="h-6 w-6 text-teal-600" />
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="font-bold text-lg">Address</h3>
-                    <p className="text-slate-700">123 Yonge Street, Toronto, ON M5G 1M8, Canada</p>
+                    <p className="text-slate-700">416-909-5118</p>
                   </div>
                 </div>
               </div>

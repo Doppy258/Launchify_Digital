@@ -365,7 +365,7 @@ const HeroSection = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              Launchify Digital creates stunning, high-performance websites and implements effective digital marketing strategies for businesses in Toronto and beyond.
+              Launchify Digital creates stunning, high-performance websites and implements effective digital marketing strategies for businesses and beyond.
             </motion.p>
             
             <motion.div
@@ -758,15 +758,20 @@ const StatsSection = () => {
             <div className="relative mb-6">
               <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-teal-600 rounded-full blur-xl opacity-10" />
               <div className="relative h-16 w-16 flex items-center justify-center rounded-full bg-gradient-to-br from-green-50 to-teal-50 border border-green-100 shadow-sm">
-                <Globe className="h-7 w-7 text-green-600" />
+                <Award className="h-7 w-7 text-green-600" />
               </div>
             </div>
             <div className="text-4xl font-bold text-slate-900 mb-2 flex items-center">
-              <span>24/7</span>
+              <Counter
+                from={0}
+                to={50}
+                delay={0.6}
+                formatter={(value) => `${value}+`}
+              />
             </div>
-            <h3 className="text-lg font-medium text-slate-800 mb-1">Support</h3>
+            <h3 className="text-lg font-medium text-slate-800 mb-1">Projects Completed</h3>
             <p className="text-slate-600 text-center text-sm">
-              Dedicated team available around the clock
+              Proven track record of successful projects
             </p>
           </motion.div>
         </motion.div>
@@ -783,7 +788,6 @@ const ServicesSection = () => {
       description: "Eye-catching, modern designs that reflect your brand identity and engage your audience.",
       features: ["Unique, brand-aligned layouts", "Mobile-first responsive design", "Intuitive user experience"],
       color: "blue",
-      image: "/images/services/website-design-service.jpg",
       link: "/services/custom-website-design"
     },
     {
@@ -792,7 +796,6 @@ const ServicesSection = () => {
       description: "Professional coding that brings your design to life with clean, efficient functionality.",
       features: ["Fast-loading pages", "SEO-friendly structure", "Secure, reliable code"],
       color: "indigo",
-      image: "/images/services/website-development-service.jpg",
       link: "/services/website-development"
     },
     {
@@ -801,7 +804,6 @@ const ServicesSection = () => {
       description: "Keep your site running smoothly with regular updates, backups, and technical support.",
       features: ["Regular security updates", "Performance optimization", "Technical troubleshooting"],
       color: "teal",
-      image: "/images/services/website-maintenance-service.jpg",
       link: "/services/website-maintenance"
     }
   ];
