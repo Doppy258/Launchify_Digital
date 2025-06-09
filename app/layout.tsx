@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { generateLocalBusinessSchema, jsonLdScriptProps } from "@/lib/seo";
+import { generateLocalBusinessSchema, generateOrganizationSchema, jsonLdScriptProps } from "@/lib/seo";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -21,7 +21,7 @@ export const metadata = {
   generator: 'Next.js',
   applicationName: 'Launchify Digital',
   referrer: 'origin-when-cross-origin',
-  keywords: ['Launchify Digital', 'Launchified Digital', 'Launchify', 'Launchified', 'Digital Marketing', 'Web Development', 'small business websites', 'social media management', 'Toronto digital agency', 'affordable web design', 'Launchify Digital Agency', 'Launchified web design', 'Launchify web development', 'Launchify SEO', 'Digital marketing Toronto'],
+  keywords: ['Launchify Digital', 'Launchified Digital', 'Launchify', 'Launchified', 'Digital Marketing', 'Web Development', 'small business websites', 'social media management', 'Toronto digital agency', 'affordable web design', 'Launchify Digital Agency', 'Launchified web design', 'Launchify web development', 'Launchify SEO', 'Digital marketing Toronto', 'website design agency', 'custom website development', 'business website creation', 'professional web design', 'SEO services', 'digital marketing services'],
   authors: [{ name: 'Launchify Digital Team', url: 'https://launchifydigital.org/about' }],
   colorScheme: 'light',
   creator: 'Launchify Digital',
@@ -111,7 +111,10 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#4f46e5" />
         <link rel="manifest" href="/manifest.json" />
         <link type="text/plain" rel="author" href="/humans.txt" />
+        <meta name="description" content="Launchify Digital - Toronto's leading web development and digital marketing agency, specializing in custom website design, SEO services, and digital marketing strategies for businesses of all sizes." />
+        <meta name="keywords" content="Launchify Digital, web design, web development, digital marketing, SEO, Toronto digital agency, custom website design, professional website creation" />
         <script {...jsonLdScriptProps(generateLocalBusinessSchema())} />
+        <script {...jsonLdScriptProps(generateOrganizationSchema())} />
         
         {/* Speed optimization - CSS load optimization */}
         <script dangerouslySetInnerHTML={{ __html: `

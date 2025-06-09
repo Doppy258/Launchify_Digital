@@ -1,14 +1,17 @@
-# Launchify Digital & Launchified Digital - Toronto's Premier Digital Marketing & Web Development Agency
-# For all web crawlers
+# *
 User-agent: *
+Allow: /
 
-# Disallow specific paths
-Disallow: /admin/
-Disallow: /private/
-# Disallow: /api/ # Consider if your API routes *really* should not be discoverable. Some APIs are public.
-Disallow: /dashboard/
-Disallow: /auth/
-Disallow: /_next/
+# *
+User-agent: *
+Disallow: /admin
 
-# Sitemap location
-Sitemap: https://launchifydigital.org/sitemap.xml 
+# *
+User-agent: *
+Disallow: /private
+
+# Host
+Host: https://www.launchifydigital.org
+
+# Sitemaps
+Sitemap: https://www.launchifydigital.org/sitemap.xml
