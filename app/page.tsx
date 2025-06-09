@@ -764,14 +764,14 @@ const StatsSection = () => {
             <div className="text-4xl font-bold text-slate-900 mb-2 flex items-center">
               <Counter
                 from={0}
-                to={50}
+                to={20}
                 delay={0.6}
                 formatter={(value) => `${value}+`}
               />
             </div>
-            <h3 className="text-lg font-medium text-slate-800 mb-1">Projects Completed</h3>
+            <h3 className="text-lg font-medium text-slate-800 mb-1">Happy Clients</h3>
             <p className="text-slate-600 text-center text-sm">
-              Proven track record of successful projects
+              Satisfied clients across various industries
             </p>
           </motion.div>
         </motion.div>
