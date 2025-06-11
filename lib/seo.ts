@@ -22,22 +22,9 @@ export function generateLocalBusinessSchema() {
     logo: 'https://www.launchifydigital.org/LOGO.png',
     '@id': 'https://www.launchifydigital.org',
     url: 'https://www.launchifydigital.org',
-    telephone: '+1-647-123-4567',
+    telephone: '416-909-5118',
     email: 'hello@launchifydigital.org',
     priceRange: '$$',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '123 Yonge Street',
-      addressLocality: 'Toronto',
-      addressRegion: 'ON',
-      postalCode: 'M5G 1M8',
-      addressCountry: 'CA'
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 43.6532,
-      longitude: -79.3832
-    },
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -51,12 +38,6 @@ export function generateLocalBusinessSchema() {
         opens: '09:00',
         closes: '17:00'
       }
-    ],
-    sameAs: [
-      'https://twitter.com/launchifydigital',
-      'https://facebook.com/launchifydigital',
-      'https://linkedin.com/company/launchify-digital',
-      'https://instagram.com/launchifydigital'
     ],
     keywords: [
       'web development',
@@ -123,15 +104,9 @@ export function generateOrganizationSchema() {
     url: 'https://www.launchifydigital.org',
     logo: 'https://www.launchifydigital.org/LOGO.png',
     description: 'Toronto\'s premier web development and digital marketing agency specializing in high-performance websites and growth strategies for businesses.',
-    sameAs: [
-      'https://twitter.com/launchifydigital',
-      'https://facebook.com/launchifydigital',
-      'https://linkedin.com/company/launchify-digital',
-      'https://instagram.com/launchifydigital'
-    ],
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+1-647-123-4567',
+      telephone: '416-909-5118',
       contactType: 'customer service',
       email: 'hello@launchifydigital.org',
       availableLanguage: ['English']
