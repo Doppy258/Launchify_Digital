@@ -354,8 +354,8 @@ const HeroSection = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl whitespace-nowrap">Premier Web Design &</div>
-              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 pb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Digital Marketing in Toronto</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl whitespace-nowrap">Transform Your</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 pb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Online Presence</div>
             </motion.h1>
             
             <motion.p
