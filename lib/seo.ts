@@ -2,21 +2,62 @@ import { Metadata } from 'next';
 
 // Base metadata that can be extended for specific pages
 export const baseMetadata: Metadata = {
+  metadataBase: new URL('https://www.launchifydigital.org'),
   title: {
-    default: 'Launchify Digital - Empowering Small Businesses Online',
+    default: 'Launchify Digital: Toronto Web Design & Digital Marketing',
     template: '%s | Launchify Digital'
   },
-  description: 'Launchify Digital helps small businesses expand their presence in the digital world through website building, social media management, and digital marketing.',
-  keywords: ['digital marketing', 'website development', 'small business', 'social media management', 'SEO', 'web design', 'custom website creation', 'Toronto web agency', 'business websites'],
+  description: 'Launchify Digital is a top-rated Toronto web design and digital marketing agency. We build high-performance websites to help your business grow online.',
+  keywords: ['Launchify Digital', 'web design', 'digital marketing', 'Toronto web agency', 'website development', 'SEO services', 'small business websites', 'custom web design'],
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-CA': '/',
+    },
+  },
+  openGraph: {
+    title: 'Launchify Digital: Toronto Web Design & Digital Marketing',
+    description: 'We build high-performance websites to help your business grow. Contact Toronto\'s top-rated web design and digital marketing agency.',
+    url: 'https://www.launchifydigital.org',
+    siteName: 'Launchify Digital',
+    images: [
+      {
+        url: '/og-image.png', // Must be an absolute URL
+        width: 1200,
+        height: 630,
+        alt: 'Launchify Digital - Professional Web Design',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Launchify Digital: Toronto Web Design & Digital Marketing',
+    description: 'We build high-performance websites to help your business grow. Contact Toronto\'s top-rated web design and digital marketing agency.',
+    // creator: '@yourtwitterhandle', // Add your twitter handle
+    images: ['/twitter-image.png'], // Must be an absolute URL
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 // Generate local business schema.org structured data
 export function generateLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
+    '@type': 'LocalBusiness',
     name: 'Launchify Digital',
-    alternateName: 'Launchified Digital',
+    alternateName: ['Launchified Digital', 'Launchify Digital Toronto'],
     description: 'Launchify Digital is a premier digital agency in Toronto specializing in web development, SEO, and digital marketing for small businesses.',
     image: 'https://www.launchifydigital.org/LOGO.png',
     logo: 'https://www.launchifydigital.org/LOGO.png',
@@ -25,6 +66,14 @@ export function generateLocalBusinessSchema() {
     telephone: '416-909-5118',
     email: 'hello@launchifydigital.org',
     priceRange: '$$',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '123 Yonge Street', // Please update with the real address
+      addressLocality: 'Toronto',
+      addressRegion: 'ON',
+      postalCode: 'M5E 1W7',
+      addressCountry: 'CA'
+    },
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -38,6 +87,12 @@ export function generateLocalBusinessSchema() {
         opens: '09:00',
         closes: '17:00'
       }
+    ],
+    sameAs: [
+      // "https://www.facebook.com/yourprofile", // Add your social media links
+      // "https://www.twitter.com/yourprofile",
+      // "https://www.instagram.com/yourprofile",
+      // "https://www.linkedin.com/company/yourcompany"
     ],
     keywords: [
       'web development',
@@ -100,17 +155,28 @@ export function generateOrganizationSchema() {
     '@type': 'Organization',
     '@id': 'https://www.launchifydigital.org',
     name: 'Launchify Digital',
-    alternateName: 'Launchified Digital',
+    alternateName: ['Launchified Digital', 'Launchify Digital Toronto'],
     url: 'https://www.launchifydigital.org',
     logo: 'https://www.launchifydigital.org/LOGO.png',
     description: 'Toronto\'s premier web development and digital marketing agency specializing in high-performance websites and growth strategies for businesses.',
+    founder: {
+      '@type': 'Person',
+      name: 'Michael Chen',
+      jobTitle: 'Founder & CEO'
+    },
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '416-909-5118',
       contactType: 'customer service',
       email: 'hello@launchifydigital.org',
       availableLanguage: ['English']
-    }
+    },
+    sameAs: [
+      // "https://www.facebook.com/yourprofile", // Add your social media links
+      // "https://www.twitter.com/yourprofile",
+      // "https://www.instagram.com/yourprofile",
+      // "https://www.linkedin.com/company/yourcompany"
+    ]
   };
 }
 

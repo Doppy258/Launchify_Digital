@@ -10,7 +10,19 @@ import { motion, useInView, AnimatePresence } from "motion/react"
 import { useRef, useState, useEffect } from "react"
 import WebsiteShowcase from "@/components/WebsiteShowcase"
 import { sampleWebsites } from "@/public/mock-data/websites"
-import { generateLocalBusinessSchema, jsonLdScriptProps } from "@/lib/seo"
+import { generateLocalBusinessSchema, jsonLdScriptProps, baseMetadata, generateOrganizationSchema } from "@/lib/seo"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  ...baseMetadata,
+  title: 'Launchify Digital: Toronto Web Design & Digital Marketing',
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-CA': '/',
+    },
+  },
+};
 
 // Animation variants
 const fadeIn = {
@@ -355,8 +367,8 @@ const HeroSection = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl whitespace-nowrap">Transform Your</div>
-              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 pb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Online Presence</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl whitespace-nowrap">Premier Web Design &</div>
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 pb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Digital Marketing in Toronto</div>
             </motion.h1>
             
             <motion.p
@@ -842,7 +854,7 @@ const ServicesSection = () => {
         
         <div className="grid gap-8 lg:gap-12 md:grid-cols-3 mx-auto max-w-7xl justify-center">
           {services.map((service, index) => (
-            <Link href={service.link} key={index} className="group relative h-full flex no-underline">
+            <Link href={service.link} key={index} className="group relative h-full flex no-underline" aria-label={`Learn more about ${service.title}`}>
               <motion.div
                 className="relative z-10 h-full w-full rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col"
                 initial={{ opacity: 0, y: 30 }}
@@ -1246,10 +1258,14 @@ const TestimonialsSection = () => {
               
               {/* Author info */}
               <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full overflow-hidden bg-slate-200 mr-4">
-                  <div className="w-full h-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-lg">
-                    {testimonial.author.charAt(0)}
-                  </div>
+                <div className="w-12 h-12 rounded-full overflow-hidden bg-slate-200 mr-4 relative">
+                  <Image
+                    src={testimonial.avatar}
+                    alt={`${testimonial.author}, ${testimonial.role} at ${testimonial.company}`}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="48px"
+                  />
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900">{testimonial.author}</h4>
@@ -1546,11 +1562,17 @@ const CTASection = () => {
 };
 
 export default function Home() {
+  const localBusinessSchema = generateLocalBusinessSchema();
+  const organizationSchema = generateOrganizationSchema();
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Structured Data for SEO */}
       <script
-        {...jsonLdScriptProps(generateLocalBusinessSchema())}
+        {...jsonLdScriptProps({
+          '@context': 'https://schema.org',
+          '@graph': [localBusinessSchema, organizationSchema],
+        })}
       />
       
       <HeroSection />
@@ -1558,6 +1580,8 @@ export default function Home() {
       <ServicesSection />
       <ProcessSection />
       <WebsiteFeaturesSection />
+      <TestimonialsSection />
+      <WebsiteShowcase websites={sampleWebsites} />
       <CTASection />
     </div>
   );
