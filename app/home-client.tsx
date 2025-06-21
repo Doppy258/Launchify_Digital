@@ -8,8 +8,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { ArrowRight, CheckCircle, Globe, MessageSquare, Users, Star, ArrowDown, Zap, Shield, Award, BarChart2, Code, Cpu, PenTool, Smartphone, Search, Target } from "lucide-react"
 import { motion, useInView, AnimatePresence } from "motion/react"
 import { useRef, useState, useEffect } from "react"
-import WebsiteShowcase from "@/components/WebsiteShowcase"
-import { sampleWebsites } from "@/public/mock-data/websites"
 
 // Animation variants
 const fadeIn = {
@@ -1157,30 +1155,30 @@ const ProcessSection = () => {
 };
 
 const TestimonialsSection = () => {
-  const testimonials = [
+  const socialProofItems = [
     {
-      quote: "Launchify Digital transformed our online presence completely. Our new website has significantly increased our conversion rates and customer engagement.",
-      author: "Sarah Johnson",
-      role: "Marketing Director",
-      company: "NexGen Solutions",
-      avatar: "/images/testimonials/avatar-1.jpg",
-      rating: 5
+      title: "Website Build Quality",
+      description: "All websites are built using modern frameworks, responsive design principles, and follow accessibility standards.",
+      icon: <Code className="h-10 w-10" />,
+      stats: "A+",
+      statsLabel: "Quality Rating",
+      color: "blue"
     },
     {
-      quote: "Working with Launchify was a game-changer for our business. They delivered a stunning website that perfectly captures our brand and vision.",
-      author: "Michael Chen",
-      role: "Founder & CEO",
-      company: "Horizon Ventures",
-      avatar: "/images/testimonials/avatar-2.jpg",
-      rating: 5
+      title: "Technology Stack",
+      description: "We use the latest technologies like Next.js, React, Vue, and other modern frameworks to build fast and robust websites.",
+      icon: <Cpu className="h-10 w-10" />,
+      stats: "15+",
+      statsLabel: "Technologies",
+      color: "indigo"
     },
     {
-      quote: "The team at Launchify Digital exceeded all our expectations. Their expertise and attention to detail resulted in a website that's not just beautiful but also performs exceptionally well.",
-      author: "Emily Rodriguez",
-      role: "Operations Manager",
-      company: "Elevate Retail",
-      avatar: "/images/testimonials/avatar-3.jpg",
-      rating: 5
+      title: "Web Standards",
+      description: "All websites follow W3C standards, ensuring compatibility across browsers, devices, and assistive technologies.",
+      icon: <Globe className="h-10 w-10" />,
+      stats: "100%",
+      statsLabel: "Compliance",
+      color: "purple"
     }
   ];
   
@@ -1200,68 +1198,58 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 shadow-sm">
-            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Client Success Stories</span>
+            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Quality & Standards</span>
           </div>
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl/tight mb-4">
-            What Our <span className="text-blue-600">Clients Say</span>
+            Our <span className="text-blue-600">Commitment to Excellence</span>
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our clients have to say about their experience working with us.
+            We uphold the highest standards in web development, ensuring your website is built with quality, performance, and accessibility in mind.
           </p>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
+          {socialProofItems.map((item, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-2xl shadow-lg border border-slate-100 p-8 relative overflow-hidden"
+              className="bg-white rounded-2xl shadow-lg border border-slate-100 p-8 relative overflow-hidden h-full"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.1)" }}
             >
-              {/* Quote icon */}
-              <div className="absolute top-4 right-4 text-slate-100">
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11 7.5C11 8.33 10.33 9 9.5 9C8.67 9 8 8.33 8 7.5C8 6.67 8.67 6 9.5 6C10.33 6 11 6.67 11 7.5ZM11 13.5C11 14.33 10.33 15 9.5 15C8.67 15 8 14.33 8 13.5C8 12.67 8.67 12 9.5 12C10.33 12 11 12.67 11 13.5ZM17 7.5C17 8.33 16.33 9 15.5 9C14.67 9 14 8.33 14 7.5C14 6.67 14.67 6 15.5 6C16.33 6 17 6.67 17 7.5ZM17 13.5C17 14.33 16.33 15 15.5 15C14.67 15 14 14.33 14 13.5C14 12.67 14.67 12 15.5 12C16.33 12 17 12.67 17 13.5Z" fill="currentColor" />
-                </svg>
+              {/* Item icon */}
+              <div className={`w-20 h-20 rounded-xl mb-6 flex items-center justify-center ${
+                item.color === 'blue' ? 'bg-blue-50 text-blue-600' :
+                item.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
+                'bg-purple-50 text-purple-600'
+              }`}>
+                {item.icon}
               </div>
               
-              {/* Rating stars */}
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`h-5 w-5 ${
-                      i < testimonial.rating ? 'text-amber-400 fill-amber-400' : 'text-slate-200'
-                    }`}
-                  />
-                ))}
-              </div>
-              
-              {/* Testimonial */}
-              <p className="text-slate-700 mb-6 italic relative z-10">"{testimonial.quote}"</p>
-              
-              {/* Author info */}
-              <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full overflow-hidden bg-slate-200 mr-4 relative">
-                  <Image
-                    src={testimonial.avatar}
-                    alt={`${testimonial.author}, ${testimonial.role} at ${testimonial.company}`}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="48px"
-                  />
+              {/* Item stats */}
+              <div className="absolute top-8 right-8">
+                <div className={`font-bold text-2xl ${
+                  item.color === 'blue' ? 'text-blue-600' :
+                  item.color === 'indigo' ? 'text-indigo-600' :
+                  'text-purple-600'
+                }`}>
+                  {item.stats}
                 </div>
-                <div>
-                  <h4 className="font-bold text-slate-900">{testimonial.author}</h4>
-                  <p className="text-sm text-slate-600">{testimonial.role}, {testimonial.company}</p>
-                </div>
+                <div className="text-xs text-slate-500">{item.statsLabel}</div>
               </div>
+              
+              {/* Item content */}
+              <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+              <p className="text-slate-700">{item.description}</p>
               
               {/* Background decoration */}
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-gradient-to-br from-blue-50 to-indigo-50 opacity-50 z-0"></div>
+              <div className={`absolute -bottom-10 -right-10 w-40 h-40 rounded-full opacity-10 ${
+                item.color === 'blue' ? 'bg-blue-400' :
+                item.color === 'indigo' ? 'bg-indigo-400' :
+                'bg-purple-400'
+              }`}></div>
             </motion.div>
           ))}
         </div>
@@ -1273,13 +1261,13 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          <Link href="/request-help">
+          <Link href="/services">
             <Button
               size="lg"
               className="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-8"
             >
               <span className="relative z-10 flex items-center">
-                Join Our Success Stories
+                Learn More About Our Services
                 <ArrowRight className="ml-2 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
               <span className="absolute inset-0 overflow-hidden rounded-full">
@@ -1557,7 +1545,6 @@ export default function Home() {
       <ProcessSection />
       <WebsiteFeaturesSection />
       <TestimonialsSection />
-      <WebsiteShowcase websites={sampleWebsites} />
       <CTASection />
     </div>
   );
