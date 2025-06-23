@@ -68,13 +68,11 @@ export function Footer() {
             </p>
             <div className="flex space-x-4 md:space-x-6">
               {[
-                { icon: Facebook, label: "Facebook" },
-                { icon: Twitter, label: "Twitter" },
-                { icon: Instagram, label: "Instagram" },
-                { icon: Linkedin, label: "LinkedIn" },
-              ].map((social, i) => (
+                { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/launchify_digital/" },
+                { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/launchify-digital/" },
+              ].map((social) => (
                 <motion.div key={social.label} whileHover={{ y: -3, transition: { duration: 0.2 } }}>
-                  <Link href="#" className="text-slate-700 hover:text-slate-900 transition-colors duration-200">
+                  <Link href={social.href} className="text-slate-700 hover:text-slate-900 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
                     <social.icon className="h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7" />
                     <span className="sr-only">{social.label}</span>
                   </Link>
