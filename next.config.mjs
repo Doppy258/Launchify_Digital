@@ -20,7 +20,12 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ['launchifydigital.org'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'launchifydigital.org',
+      },
+    ],
     formats: ['image/avif', 'image/webp'],
     unoptimized: false,
   },

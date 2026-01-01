@@ -20,7 +20,6 @@ export const metadata = {
   referrer: 'origin-when-cross-origin',
   keywords: ['Launchify Digital', 'Launchified Digital', 'Launchify', 'Launchified', 'Digital Marketing', 'Web Development', 'small business websites', 'social media management', 'Toronto digital agency', 'affordable web design', 'Launchify Digital Agency', 'Launchified web design', 'Launchify web development', 'Launchify SEO', 'Digital marketing Toronto', 'website design agency', 'custom website development', 'business website creation', 'professional web design', 'SEO services', 'digital marketing services'],
   authors: [{ name: 'Launchify Digital Team', url: 'https://launchifydigital.org/about' }],
-  colorScheme: 'light',
   creator: 'Launchify Digital',
   publisher: 'Launchify Digital',
   formatDetection: {
@@ -88,6 +87,10 @@ export const metadata = {
       { rel: 'shortcut icon', url: `/favicon-32.png` },
     ],
   }
+}
+
+export const viewport = {
+  colorScheme: 'light',
 }
 
 export default function RootLayout({
