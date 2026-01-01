@@ -4,9 +4,9 @@ import {
   motion as _motion,
   AnimatePresence as _AnimatePresence,
   useInView as _useInView,
-  // Add other framer-motion exports here if you use them frequently
+  // Add other motion exports here if you use them frequently
   // For example: LayoutGroup as _LayoutGroup, useAnimation as _useAnimation
-} from "framer-motion";
+} from "motion/react";
 
 export const motion = _motion;
 export const AnimatePresence = _AnimatePresence;

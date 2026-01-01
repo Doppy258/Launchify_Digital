@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { jsonLdScriptProps } from "@/lib/seo"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { Check, Code, PenTool, Rocket, Lightbulb, ExternalLink, CheckCircle, Users, Shield } from "lucide-react"
 
 export default function About() {

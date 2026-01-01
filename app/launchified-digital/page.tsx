@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle } from "lucide-react"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { jsonLdScriptProps } from "@/lib/seo"
 
 const fadeIn = {

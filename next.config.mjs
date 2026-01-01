@@ -13,9 +13,6 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -24,6 +21,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'launchifydigital.org',
+      },
+    ],
+    localPatterns: [
+      {
+        pathname: '/LOGO.png',
+        search: '?v=*',
       },
     ],
     formats: ['image/avif', 'image/webp'],

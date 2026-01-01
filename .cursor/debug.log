@@ -1,0 +1,2 @@
+{"location":"app/about/page.tsx:10","message":"Import motion module","data":{"package":"motion/react","hypothesisId":"A"},"timestamp":1767304440851,"sessionId":"debug-session","runId":"pre-fix"}
+{"location":"app/launchified-digital/page.tsx:7","message":"Import motion module","data":{"package":"motion/react","hypothesisId":"A"},"timestamp":1767304440859,"sessionId":"debug-session","runId":"pre-fix"}
