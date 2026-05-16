@@ -66,7 +66,7 @@ export default function About() {
                 At Launchify Digital, our mission is to empower businesses with professional, high-performance websites. We believe that every business, regardless of size, deserves a powerful online presence that drives growth and connects with customers.
               </p>
               <p className="text-slate-700 md:text-xl/relaxed">
-                As a leading web design agency, we are committed to delivering exceptional results. We combine creative design with the latest web technologies to build websites that are not only beautiful but also engineered to convert visitors into loyal customers. Since our launch, we have generated over $10000 in revenue, demonstrating our commitment to delivering value and driving real business growth for our clients.
+                As a leading web design agency, we are committed to delivering exceptional results. We combine creative design with the latest web technologies to build websites that are not only beautiful but also engineered to convert visitors into loyal customers. Since our launch, we have generated over $10,000 in revenue, demonstrating our commitment to delivering value and driving real business growth for our clients.
               </p>
               <div className="flex flex-col space-y-3 md:flex-row md:space-x-4 md:space-y-0 justify-center lg:justify-start">
                 <Link href="/services">
