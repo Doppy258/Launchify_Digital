@@ -761,7 +761,7 @@ const StatsSection = () => {
             <div className="text-4xl font-bold text-slate-900 mb-2 flex items-center">
               <Counter
                 from={0}
-                to={20}
+                to={15}
                 delay={0.6}
                 formatter={(value) => `${value}+`}
               />
